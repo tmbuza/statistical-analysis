@@ -1,0 +1,69 @@
+project:
+  type: book
+  output-dir: docs
+  execute-dir: project
+
+book:
+  title: "Statistical Analysis"
+  subtitle: "Choose appropriate methods, check assumptions, and explain your findings."
+  author: "Teresia Mrema Buza | Complex Data Insights"
+  site-url: https://statistical.complexdatainsights.com
+  search: true
+  chapters:
+    - index.qmd
+    - part: "Getting started"
+      chapters:
+        - 00-preface.qmd
+        - 01-questions-and-methods.qmd
+        - 02-statistical-inference.qmd
+        - 03-data-and-assumptions.qmd
+    - part: "Comparing numerical outcomes"
+      chapters:
+        - 04-one-sample-t-test.qmd
+        - 05-independent-t-test.qmd
+        - 06-paired-t-test.qmd
+        - 07-mann-whitney.qmd
+        - 08-wilcoxon-signed-rank.qmd
+        - 09-one-way-anova.qmd
+        - 10-kruskal-wallis.qmd
+        - 11-repeated-measures.qmd
+    - part: "Analyzing categorical outcomes"
+      chapters:
+        - 12-chi-square.qmd
+        - 13-fisher-exact.qmd
+        - 14-proportions.qmd
+        - 15-mcnemar.qmd
+    - part: "Examining relationships"
+      chapters:
+        - 16-pearson.qmd
+        - 17-spearman.qmd
+        - 18-linear-regression.qmd
+        - 19-logistic-regression.qmd
+    - part: "Strengthening conclusions"
+      chapters:
+        - 20-resampling.qmd
+        - 21-multiple-testing.qmd
+        - 22-sample-size.qmd
+        - 23-reporting.qmd
+    - part: "Reference"
+      chapters:
+        - 99-appendices.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: assets/css/cdi-guide.css
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-summary: "Show code"
+    code-copy: true
+    link-external-newwindow: true
+    mermaid:
+      theme: forest
+
+execute:
+  echo: true
+  warning: true
+  error: false

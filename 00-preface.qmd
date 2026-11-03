@@ -1,0 +1,17 @@
+# Preface
+
+This guide is a reference: read the foundations once, then open the chapter that matches your question and design.
+
+## How each chapter works
+
+Question, suitable use, target estimate or hypothesis, assumptions, runnable analysis, output interpretation, reporting, and alternatives.
+
+## Current status
+
+This is a scaffold, not a finished statistical textbook. Chapter 05 includes a runnable starter example. Other chapters contain explicit development prompts.
+
+## Tools
+
+Use R or Python for analysis and Bash for setup and checks. Run commands from the repository root. Rendering does not run the external analysis scripts; run them separately when developing examples.
+
+See `README.md` for setup. The examples use synthetic data and do not establish real-world effects.

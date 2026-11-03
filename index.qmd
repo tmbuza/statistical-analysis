@@ -1,0 +1,17 @@
+# Welcome {.unnumbered}
+
+::: {.callout-note}
+## Scaffold edition
+The chapter structure is ready. Method chapters are outlines awaiting worked examples and statistical review.
+:::
+
+Use this free CDI reference to move from a question to an analysis you can explain and defend.
+
+- Start with [Questions and methods](01-questions-and-methods.qmd).
+- Review [Statistical inference](02-statistical-inference.qmd).
+- Try the runnable [two-group example](05-independent-t-test.qmd).
+- Apply your learning in the [Statistical Inference Practical](https://complexdatainsights.com/practical-guides/statistical-inference-practical/).
+
+**Your question → Your inputs → Run the analysis → Check evidence → Explain with limitations.**
+
+Examples will use R and Python as appropriate. Bash scripts handle setup and workflow checks.

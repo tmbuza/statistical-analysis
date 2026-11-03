@@ -1,0 +1,10 @@
+.venv/
+.quarto/
+.Rproj.user/
+.Rhistory
+.RData
+__pycache__/
+results/tables/*.tsv
+results/figures/*.png
+
+/.quarto/

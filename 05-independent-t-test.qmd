@@ -1,0 +1,54 @@
+# Independent-Samples t-Test
+
+::: {.callout-note}
+## Starter example
+Runnable scripts and synthetic inputs are provided. Expand this chapter with output, figures, authoritative references, and review before publication.
+:::
+
+## Your question
+
+What is the mean difference in scores between independent groups B and A?
+
+## When to use this method
+
+The outcome is numerical and the groups contain different participants. Welch’s t-test allows unequal population variances. It does not correct dependence, selection bias, or confounding.
+
+## What it estimates or tests
+
+The effect is the population mean of B minus the population mean of A. The two-sided null hypothesis is a zero mean difference.
+
+## Check before running
+
+Check the study design, group counts, missing data, and distributions. Inspect extreme observations. With small samples, strong skew or outliers can undermine the t approximation.
+
+The example file has one row per synthetic participant. Its independence is part of how the example was generated.
+
+## Run the analysis
+
+From the project root, choose either implementation:
+
+```bash
+python3 scripts/python/05-independent-t-test.py
+```
+
+```bash
+Rscript scripts/R/05-independent-t-test.R
+```
+
+Both use `data/example/independent-groups.csv`, calculate B minus A, and export separate TSV results under `results/tables/`.
+
+## Understand the output
+
+Read the mean difference and its 95% confidence interval together. The interval expresses uncertainty under the model and sampling assumptions. The p-value measures incompatibility with the zero-difference null under those assumptions; it does not measure practical importance.
+
+## Report the finding
+
+Report sample sizes, group means, the B-minus-A difference, its confidence interval, Welch’s t statistic, degrees of freedom, and p-value. These synthetic scores illustrate a method and support no claim about a real intervention.
+
+## Common mistakes and alternatives
+
+Do not use an independent-groups test for paired measurements. Do not select tests solely from a normality-test p-value. Rank tests answer a different question and are not automatic tests of medians.
+
+## References
+
+Add checked statistical and software references during chapter development.

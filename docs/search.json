@@ -1,0 +1,2421 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Analysis",
+    "section": "",
+    "text": "Welcome\n\n\n\n\n\n\nScaffold edition\n\n\n\nThe chapter structure is ready. Method chapters are outlines awaiting worked examples and statistical review.\n\n\nUse this free CDI reference to move from a question to an analysis you can explain and defend.\n\nStart with Questions and methods.\nReview Statistical inference.\nTry the runnable two-group example.\nApply your learning in the Statistical Inference Practical.\n\nYour question → Your inputs → Run the analysis → Check evidence → Explain with limitations.\nExamples will use R and Python as appropriate. Bash scripts handle setup and workflow checks.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "00-preface.html",
+    "href": "00-preface.html",
+    "title": "Preface",
+    "section": "",
+    "text": "How each chapter works\nThis guide is a reference: read the foundations once, then open the chapter that matches your question and design.\nQuestion, suitable use, target estimate or hypothesis, assumptions, runnable analysis, output interpretation, reporting, and alternatives.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface.html#current-status",
+    "href": "00-preface.html#current-status",
+    "title": "Preface",
+    "section": "Current status",
+    "text": "Current status\nThis is a scaffold, not a finished statistical textbook. Chapter 05 includes a runnable starter example. Other chapters contain explicit development prompts.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface.html#tools",
+    "href": "00-preface.html#tools",
+    "title": "Preface",
+    "section": "Tools",
+    "text": "Tools\nUse R or Python for analysis and Bash for setup and checks. Run commands from the repository root. Rendering does not run the external analysis scripts; run them separately when developing examples.\nSee README.md for setup. The examples use synthetic data and do not establish real-world effects.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html",
+    "href": "01-questions-and-methods.html",
+    "title": "From Questions to Statistical Methods",
+    "section": "",
+    "text": "Your question\nIdentify the outcome, study design, and quantity you want to estimate.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#when-to-use-this-method",
+    "href": "01-questions-and-methods.html#when-to-use-this-method",
+    "title": "From Questions to Statistical Methods",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#what-it-estimates-or-tests",
+    "href": "01-questions-and-methods.html#what-it-estimates-or-tests",
+    "title": "From Questions to Statistical Methods",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#check-before-running",
+    "href": "01-questions-and-methods.html#check-before-running",
+    "title": "From Questions to Statistical Methods",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#run-the-analysis",
+    "href": "01-questions-and-methods.html#run-the-analysis",
+    "title": "From Questions to Statistical Methods",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#understand-the-output",
+    "href": "01-questions-and-methods.html#understand-the-output",
+    "title": "From Questions to Statistical Methods",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#report-the-finding",
+    "href": "01-questions-and-methods.html#report-the-finding",
+    "title": "From Questions to Statistical Methods",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#common-mistakes-and-alternatives",
+    "href": "01-questions-and-methods.html#common-mistakes-and-alternatives",
+    "title": "From Questions to Statistical Methods",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "01-questions-and-methods.html#references",
+    "href": "01-questions-and-methods.html#references",
+    "title": "From Questions to Statistical Methods",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html",
+    "href": "02-statistical-inference.html",
+    "title": "Understanding Statistical Inference",
+    "section": "",
+    "text": "Your question\nDistinguish estimates, confidence intervals, effect sizes, and p-values.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#when-to-use-this-method",
+    "href": "02-statistical-inference.html#when-to-use-this-method",
+    "title": "Understanding Statistical Inference",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#what-it-estimates-or-tests",
+    "href": "02-statistical-inference.html#what-it-estimates-or-tests",
+    "title": "Understanding Statistical Inference",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#check-before-running",
+    "href": "02-statistical-inference.html#check-before-running",
+    "title": "Understanding Statistical Inference",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#run-the-analysis",
+    "href": "02-statistical-inference.html#run-the-analysis",
+    "title": "Understanding Statistical Inference",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#understand-the-output",
+    "href": "02-statistical-inference.html#understand-the-output",
+    "title": "Understanding Statistical Inference",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#report-the-finding",
+    "href": "02-statistical-inference.html#report-the-finding",
+    "title": "Understanding Statistical Inference",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#common-mistakes-and-alternatives",
+    "href": "02-statistical-inference.html#common-mistakes-and-alternatives",
+    "title": "Understanding Statistical Inference",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "02-statistical-inference.html#references",
+    "href": "02-statistical-inference.html#references",
+    "title": "Understanding Statistical Inference",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html",
+    "href": "03-data-and-assumptions.html",
+    "title": "Checking Data and Assumptions",
+    "section": "",
+    "text": "Your question\nInspect missing values, outliers, distributions, and study independence.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#when-to-use-this-method",
+    "href": "03-data-and-assumptions.html#when-to-use-this-method",
+    "title": "Checking Data and Assumptions",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#what-it-estimates-or-tests",
+    "href": "03-data-and-assumptions.html#what-it-estimates-or-tests",
+    "title": "Checking Data and Assumptions",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#check-before-running",
+    "href": "03-data-and-assumptions.html#check-before-running",
+    "title": "Checking Data and Assumptions",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#run-the-analysis",
+    "href": "03-data-and-assumptions.html#run-the-analysis",
+    "title": "Checking Data and Assumptions",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#understand-the-output",
+    "href": "03-data-and-assumptions.html#understand-the-output",
+    "title": "Checking Data and Assumptions",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#report-the-finding",
+    "href": "03-data-and-assumptions.html#report-the-finding",
+    "title": "Checking Data and Assumptions",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#common-mistakes-and-alternatives",
+    "href": "03-data-and-assumptions.html#common-mistakes-and-alternatives",
+    "title": "Checking Data and Assumptions",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "03-data-and-assumptions.html#references",
+    "href": "03-data-and-assumptions.html#references",
+    "title": "Checking Data and Assumptions",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Getting started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html",
+    "href": "04-one-sample-t-test.html",
+    "title": "One-Sample t-Test",
+    "section": "",
+    "text": "Your question\nIs the population mean different from a prespecified reference value?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#when-to-use-this-method",
+    "href": "04-one-sample-t-test.html#when-to-use-this-method",
+    "title": "One-Sample t-Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#what-it-estimates-or-tests",
+    "href": "04-one-sample-t-test.html#what-it-estimates-or-tests",
+    "title": "One-Sample t-Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#check-before-running",
+    "href": "04-one-sample-t-test.html#check-before-running",
+    "title": "One-Sample t-Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#run-the-analysis",
+    "href": "04-one-sample-t-test.html#run-the-analysis",
+    "title": "One-Sample t-Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#understand-the-output",
+    "href": "04-one-sample-t-test.html#understand-the-output",
+    "title": "One-Sample t-Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#report-the-finding",
+    "href": "04-one-sample-t-test.html#report-the-finding",
+    "title": "One-Sample t-Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#common-mistakes-and-alternatives",
+    "href": "04-one-sample-t-test.html#common-mistakes-and-alternatives",
+    "title": "One-Sample t-Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "04-one-sample-t-test.html#references",
+    "href": "04-one-sample-t-test.html#references",
+    "title": "One-Sample t-Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html",
+    "href": "05-independent-t-test.html",
+    "title": "Independent-Samples t-Test",
+    "section": "",
+    "text": "Your question\nWhat is the mean difference in scores between independent groups B and A?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#when-to-use-this-method",
+    "href": "05-independent-t-test.html#when-to-use-this-method",
+    "title": "Independent-Samples t-Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nThe outcome is numerical and the groups contain different participants. Welch’s t-test allows unequal population variances. It does not correct dependence, selection bias, or confounding.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#what-it-estimates-or-tests",
+    "href": "05-independent-t-test.html#what-it-estimates-or-tests",
+    "title": "Independent-Samples t-Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nThe effect is the population mean of B minus the population mean of A. The two-sided null hypothesis is a zero mean difference.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#check-before-running",
+    "href": "05-independent-t-test.html#check-before-running",
+    "title": "Independent-Samples t-Test",
+    "section": "Check before running",
+    "text": "Check before running\nCheck the study design, group counts, missing data, and distributions. Inspect extreme observations. With small samples, strong skew or outliers can undermine the t approximation.\nThe example file has one row per synthetic participant. Its independence is part of how the example was generated.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#run-the-analysis",
+    "href": "05-independent-t-test.html#run-the-analysis",
+    "title": "Independent-Samples t-Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nFrom the project root, choose either implementation:\npython3 scripts/python/05-independent-t-test.py\nRscript scripts/R/05-independent-t-test.R\nBoth use data/example/independent-groups.csv, calculate B minus A, and export separate TSV results under results/tables/.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#understand-the-output",
+    "href": "05-independent-t-test.html#understand-the-output",
+    "title": "Independent-Samples t-Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nRead the mean difference and its 95% confidence interval together. The interval expresses uncertainty under the model and sampling assumptions. The p-value measures incompatibility with the zero-difference null under those assumptions; it does not measure practical importance.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#report-the-finding",
+    "href": "05-independent-t-test.html#report-the-finding",
+    "title": "Independent-Samples t-Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nReport sample sizes, group means, the B-minus-A difference, its confidence interval, Welch’s t statistic, degrees of freedom, and p-value. These synthetic scores illustrate a method and support no claim about a real intervention.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#common-mistakes-and-alternatives",
+    "href": "05-independent-t-test.html#common-mistakes-and-alternatives",
+    "title": "Independent-Samples t-Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nDo not use an independent-groups test for paired measurements. Do not select tests solely from a normality-test p-value. Rank tests answer a different question and are not automatic tests of medians.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "05-independent-t-test.html#references",
+    "href": "05-independent-t-test.html#references",
+    "title": "Independent-Samples t-Test",
+    "section": "References",
+    "text": "References\nAdd checked statistical and software references during chapter development.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html",
+    "href": "06-paired-t-test.html",
+    "title": "Paired t-Test",
+    "section": "",
+    "text": "Your question\nWhat is the mean within-person change?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#when-to-use-this-method",
+    "href": "06-paired-t-test.html#when-to-use-this-method",
+    "title": "Paired t-Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#what-it-estimates-or-tests",
+    "href": "06-paired-t-test.html#what-it-estimates-or-tests",
+    "title": "Paired t-Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#check-before-running",
+    "href": "06-paired-t-test.html#check-before-running",
+    "title": "Paired t-Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#run-the-analysis",
+    "href": "06-paired-t-test.html#run-the-analysis",
+    "title": "Paired t-Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#understand-the-output",
+    "href": "06-paired-t-test.html#understand-the-output",
+    "title": "Paired t-Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#report-the-finding",
+    "href": "06-paired-t-test.html#report-the-finding",
+    "title": "Paired t-Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#common-mistakes-and-alternatives",
+    "href": "06-paired-t-test.html#common-mistakes-and-alternatives",
+    "title": "Paired t-Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "06-paired-t-test.html#references",
+    "href": "06-paired-t-test.html#references",
+    "title": "Paired t-Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html",
+    "href": "07-mann-whitney.html",
+    "title": "Mann–Whitney U Test",
+    "section": "",
+    "text": "Your question\nDo independent groups differ in their outcome distributions?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#when-to-use-this-method",
+    "href": "07-mann-whitney.html#when-to-use-this-method",
+    "title": "Mann–Whitney U Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#what-it-estimates-or-tests",
+    "href": "07-mann-whitney.html#what-it-estimates-or-tests",
+    "title": "Mann–Whitney U Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#check-before-running",
+    "href": "07-mann-whitney.html#check-before-running",
+    "title": "Mann–Whitney U Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#run-the-analysis",
+    "href": "07-mann-whitney.html#run-the-analysis",
+    "title": "Mann–Whitney U Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#understand-the-output",
+    "href": "07-mann-whitney.html#understand-the-output",
+    "title": "Mann–Whitney U Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#report-the-finding",
+    "href": "07-mann-whitney.html#report-the-finding",
+    "title": "Mann–Whitney U Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#common-mistakes-and-alternatives",
+    "href": "07-mann-whitney.html#common-mistakes-and-alternatives",
+    "title": "Mann–Whitney U Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "07-mann-whitney.html#references",
+    "href": "07-mann-whitney.html#references",
+    "title": "Mann–Whitney U Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html",
+    "href": "08-wilcoxon-signed-rank.html",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "",
+    "text": "Your question\nIs the distribution of paired differences centered at zero, under symmetry?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#when-to-use-this-method",
+    "href": "08-wilcoxon-signed-rank.html#when-to-use-this-method",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#what-it-estimates-or-tests",
+    "href": "08-wilcoxon-signed-rank.html#what-it-estimates-or-tests",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#check-before-running",
+    "href": "08-wilcoxon-signed-rank.html#check-before-running",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#run-the-analysis",
+    "href": "08-wilcoxon-signed-rank.html#run-the-analysis",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#understand-the-output",
+    "href": "08-wilcoxon-signed-rank.html#understand-the-output",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#report-the-finding",
+    "href": "08-wilcoxon-signed-rank.html#report-the-finding",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#common-mistakes-and-alternatives",
+    "href": "08-wilcoxon-signed-rank.html#common-mistakes-and-alternatives",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "08-wilcoxon-signed-rank.html#references",
+    "href": "08-wilcoxon-signed-rank.html#references",
+    "title": "Wilcoxon Signed-Rank Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html",
+    "href": "09-one-way-anova.html",
+    "title": "One-Way ANOVA",
+    "section": "",
+    "text": "Your question\nDo population means differ across independent groups?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#when-to-use-this-method",
+    "href": "09-one-way-anova.html#when-to-use-this-method",
+    "title": "One-Way ANOVA",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#what-it-estimates-or-tests",
+    "href": "09-one-way-anova.html#what-it-estimates-or-tests",
+    "title": "One-Way ANOVA",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#check-before-running",
+    "href": "09-one-way-anova.html#check-before-running",
+    "title": "One-Way ANOVA",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#run-the-analysis",
+    "href": "09-one-way-anova.html#run-the-analysis",
+    "title": "One-Way ANOVA",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#understand-the-output",
+    "href": "09-one-way-anova.html#understand-the-output",
+    "title": "One-Way ANOVA",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#report-the-finding",
+    "href": "09-one-way-anova.html#report-the-finding",
+    "title": "One-Way ANOVA",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#common-mistakes-and-alternatives",
+    "href": "09-one-way-anova.html#common-mistakes-and-alternatives",
+    "title": "One-Way ANOVA",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "09-one-way-anova.html#references",
+    "href": "09-one-way-anova.html#references",
+    "title": "One-Way ANOVA",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html",
+    "href": "10-kruskal-wallis.html",
+    "title": "Kruskal–Wallis Test",
+    "section": "",
+    "text": "Your question\nDo outcome distributions differ across independent groups?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#when-to-use-this-method",
+    "href": "10-kruskal-wallis.html#when-to-use-this-method",
+    "title": "Kruskal–Wallis Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#what-it-estimates-or-tests",
+    "href": "10-kruskal-wallis.html#what-it-estimates-or-tests",
+    "title": "Kruskal–Wallis Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#check-before-running",
+    "href": "10-kruskal-wallis.html#check-before-running",
+    "title": "Kruskal–Wallis Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#run-the-analysis",
+    "href": "10-kruskal-wallis.html#run-the-analysis",
+    "title": "Kruskal–Wallis Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#understand-the-output",
+    "href": "10-kruskal-wallis.html#understand-the-output",
+    "title": "Kruskal–Wallis Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#report-the-finding",
+    "href": "10-kruskal-wallis.html#report-the-finding",
+    "title": "Kruskal–Wallis Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#common-mistakes-and-alternatives",
+    "href": "10-kruskal-wallis.html#common-mistakes-and-alternatives",
+    "title": "Kruskal–Wallis Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "10-kruskal-wallis.html#references",
+    "href": "10-kruskal-wallis.html#references",
+    "title": "Kruskal–Wallis Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html",
+    "href": "11-repeated-measures.html",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "",
+    "text": "Your question\nHow do outcomes differ across repeated measurements?",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#when-to-use-this-method",
+    "href": "11-repeated-measures.html#when-to-use-this-method",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#what-it-estimates-or-tests",
+    "href": "11-repeated-measures.html#what-it-estimates-or-tests",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#check-before-running",
+    "href": "11-repeated-measures.html#check-before-running",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#run-the-analysis",
+    "href": "11-repeated-measures.html#run-the-analysis",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#understand-the-output",
+    "href": "11-repeated-measures.html#understand-the-output",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#report-the-finding",
+    "href": "11-repeated-measures.html#report-the-finding",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#common-mistakes-and-alternatives",
+    "href": "11-repeated-measures.html#common-mistakes-and-alternatives",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "11-repeated-measures.html#references",
+    "href": "11-repeated-measures.html#references",
+    "title": "Repeated-Measures ANOVA and Friedman Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Comparing numerical outcomes",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html",
+    "href": "12-chi-square.html",
+    "title": "Chi-Square Test of Independence",
+    "section": "",
+    "text": "Your question\nAre two categorical variables associated?",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#when-to-use-this-method",
+    "href": "12-chi-square.html#when-to-use-this-method",
+    "title": "Chi-Square Test of Independence",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#what-it-estimates-or-tests",
+    "href": "12-chi-square.html#what-it-estimates-or-tests",
+    "title": "Chi-Square Test of Independence",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#check-before-running",
+    "href": "12-chi-square.html#check-before-running",
+    "title": "Chi-Square Test of Independence",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#run-the-analysis",
+    "href": "12-chi-square.html#run-the-analysis",
+    "title": "Chi-Square Test of Independence",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#understand-the-output",
+    "href": "12-chi-square.html#understand-the-output",
+    "title": "Chi-Square Test of Independence",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#report-the-finding",
+    "href": "12-chi-square.html#report-the-finding",
+    "title": "Chi-Square Test of Independence",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#common-mistakes-and-alternatives",
+    "href": "12-chi-square.html#common-mistakes-and-alternatives",
+    "title": "Chi-Square Test of Independence",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "12-chi-square.html#references",
+    "href": "12-chi-square.html#references",
+    "title": "Chi-Square Test of Independence",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html",
+    "href": "13-fisher-exact.html",
+    "title": "Fisher’s Exact Test",
+    "section": "",
+    "text": "Your question\nIs there evidence of association in a small contingency table?",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#when-to-use-this-method",
+    "href": "13-fisher-exact.html#when-to-use-this-method",
+    "title": "Fisher’s Exact Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#what-it-estimates-or-tests",
+    "href": "13-fisher-exact.html#what-it-estimates-or-tests",
+    "title": "Fisher’s Exact Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#check-before-running",
+    "href": "13-fisher-exact.html#check-before-running",
+    "title": "Fisher’s Exact Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#run-the-analysis",
+    "href": "13-fisher-exact.html#run-the-analysis",
+    "title": "Fisher’s Exact Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#understand-the-output",
+    "href": "13-fisher-exact.html#understand-the-output",
+    "title": "Fisher’s Exact Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#report-the-finding",
+    "href": "13-fisher-exact.html#report-the-finding",
+    "title": "Fisher’s Exact Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#common-mistakes-and-alternatives",
+    "href": "13-fisher-exact.html#common-mistakes-and-alternatives",
+    "title": "Fisher’s Exact Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "13-fisher-exact.html#references",
+    "href": "13-fisher-exact.html#references",
+    "title": "Fisher’s Exact Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html",
+    "href": "14-proportions.html",
+    "title": "Tests for Proportions",
+    "section": "",
+    "text": "Your question\nHow does a proportion compare with a reference or another group?",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#when-to-use-this-method",
+    "href": "14-proportions.html#when-to-use-this-method",
+    "title": "Tests for Proportions",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#what-it-estimates-or-tests",
+    "href": "14-proportions.html#what-it-estimates-or-tests",
+    "title": "Tests for Proportions",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#check-before-running",
+    "href": "14-proportions.html#check-before-running",
+    "title": "Tests for Proportions",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#run-the-analysis",
+    "href": "14-proportions.html#run-the-analysis",
+    "title": "Tests for Proportions",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#understand-the-output",
+    "href": "14-proportions.html#understand-the-output",
+    "title": "Tests for Proportions",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#report-the-finding",
+    "href": "14-proportions.html#report-the-finding",
+    "title": "Tests for Proportions",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#common-mistakes-and-alternatives",
+    "href": "14-proportions.html#common-mistakes-and-alternatives",
+    "title": "Tests for Proportions",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "14-proportions.html#references",
+    "href": "14-proportions.html#references",
+    "title": "Tests for Proportions",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html",
+    "href": "15-mcnemar.html",
+    "title": "McNemar’s Test",
+    "section": "",
+    "text": "Your question\nDo paired binary outcomes have different marginal proportions?",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#when-to-use-this-method",
+    "href": "15-mcnemar.html#when-to-use-this-method",
+    "title": "McNemar’s Test",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#what-it-estimates-or-tests",
+    "href": "15-mcnemar.html#what-it-estimates-or-tests",
+    "title": "McNemar’s Test",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#check-before-running",
+    "href": "15-mcnemar.html#check-before-running",
+    "title": "McNemar’s Test",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#run-the-analysis",
+    "href": "15-mcnemar.html#run-the-analysis",
+    "title": "McNemar’s Test",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#understand-the-output",
+    "href": "15-mcnemar.html#understand-the-output",
+    "title": "McNemar’s Test",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#report-the-finding",
+    "href": "15-mcnemar.html#report-the-finding",
+    "title": "McNemar’s Test",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#common-mistakes-and-alternatives",
+    "href": "15-mcnemar.html#common-mistakes-and-alternatives",
+    "title": "McNemar’s Test",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "15-mcnemar.html#references",
+    "href": "15-mcnemar.html#references",
+    "title": "McNemar’s Test",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Analyzing categorical outcomes",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html",
+    "href": "16-pearson.html",
+    "title": "Pearson Correlation",
+    "section": "",
+    "text": "Your question\nHow strong is the linear association between two numerical variables?",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#when-to-use-this-method",
+    "href": "16-pearson.html#when-to-use-this-method",
+    "title": "Pearson Correlation",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#what-it-estimates-or-tests",
+    "href": "16-pearson.html#what-it-estimates-or-tests",
+    "title": "Pearson Correlation",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#check-before-running",
+    "href": "16-pearson.html#check-before-running",
+    "title": "Pearson Correlation",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#run-the-analysis",
+    "href": "16-pearson.html#run-the-analysis",
+    "title": "Pearson Correlation",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#understand-the-output",
+    "href": "16-pearson.html#understand-the-output",
+    "title": "Pearson Correlation",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#report-the-finding",
+    "href": "16-pearson.html#report-the-finding",
+    "title": "Pearson Correlation",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#common-mistakes-and-alternatives",
+    "href": "16-pearson.html#common-mistakes-and-alternatives",
+    "title": "Pearson Correlation",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "16-pearson.html#references",
+    "href": "16-pearson.html#references",
+    "title": "Pearson Correlation",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html",
+    "href": "17-spearman.html",
+    "title": "Spearman Correlation",
+    "section": "",
+    "text": "Your question\nHow strong is the monotonic association between two variables?",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#when-to-use-this-method",
+    "href": "17-spearman.html#when-to-use-this-method",
+    "title": "Spearman Correlation",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#what-it-estimates-or-tests",
+    "href": "17-spearman.html#what-it-estimates-or-tests",
+    "title": "Spearman Correlation",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#check-before-running",
+    "href": "17-spearman.html#check-before-running",
+    "title": "Spearman Correlation",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#run-the-analysis",
+    "href": "17-spearman.html#run-the-analysis",
+    "title": "Spearman Correlation",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#understand-the-output",
+    "href": "17-spearman.html#understand-the-output",
+    "title": "Spearman Correlation",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#report-the-finding",
+    "href": "17-spearman.html#report-the-finding",
+    "title": "Spearman Correlation",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#common-mistakes-and-alternatives",
+    "href": "17-spearman.html#common-mistakes-and-alternatives",
+    "title": "Spearman Correlation",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "17-spearman.html#references",
+    "href": "17-spearman.html#references",
+    "title": "Spearman Correlation",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html",
+    "href": "18-linear-regression.html",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "Your question\nHow does a numerical outcome relate to one or more predictors?",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#when-to-use-this-method",
+    "href": "18-linear-regression.html#when-to-use-this-method",
+    "title": "Linear Regression",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#what-it-estimates-or-tests",
+    "href": "18-linear-regression.html#what-it-estimates-or-tests",
+    "title": "Linear Regression",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#check-before-running",
+    "href": "18-linear-regression.html#check-before-running",
+    "title": "Linear Regression",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#run-the-analysis",
+    "href": "18-linear-regression.html#run-the-analysis",
+    "title": "Linear Regression",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#understand-the-output",
+    "href": "18-linear-regression.html#understand-the-output",
+    "title": "Linear Regression",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#report-the-finding",
+    "href": "18-linear-regression.html#report-the-finding",
+    "title": "Linear Regression",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#common-mistakes-and-alternatives",
+    "href": "18-linear-regression.html#common-mistakes-and-alternatives",
+    "title": "Linear Regression",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "18-linear-regression.html#references",
+    "href": "18-linear-regression.html#references",
+    "title": "Linear Regression",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html",
+    "href": "19-logistic-regression.html",
+    "title": "Logistic Regression",
+    "section": "",
+    "text": "Your question\nHow does a binary outcome relate to one or more predictors?",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#when-to-use-this-method",
+    "href": "19-logistic-regression.html#when-to-use-this-method",
+    "title": "Logistic Regression",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#what-it-estimates-or-tests",
+    "href": "19-logistic-regression.html#what-it-estimates-or-tests",
+    "title": "Logistic Regression",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#check-before-running",
+    "href": "19-logistic-regression.html#check-before-running",
+    "title": "Logistic Regression",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#run-the-analysis",
+    "href": "19-logistic-regression.html#run-the-analysis",
+    "title": "Logistic Regression",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#understand-the-output",
+    "href": "19-logistic-regression.html#understand-the-output",
+    "title": "Logistic Regression",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#report-the-finding",
+    "href": "19-logistic-regression.html#report-the-finding",
+    "title": "Logistic Regression",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#common-mistakes-and-alternatives",
+    "href": "19-logistic-regression.html#common-mistakes-and-alternatives",
+    "title": "Logistic Regression",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "19-logistic-regression.html#references",
+    "href": "19-logistic-regression.html#references",
+    "title": "Logistic Regression",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Examining relationships",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html",
+    "href": "20-resampling.html",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "",
+    "text": "Your question\nHow can resampling quantify uncertainty or test a hypothesis?",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#when-to-use-this-method",
+    "href": "20-resampling.html#when-to-use-this-method",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#what-it-estimates-or-tests",
+    "href": "20-resampling.html#what-it-estimates-or-tests",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#check-before-running",
+    "href": "20-resampling.html#check-before-running",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#run-the-analysis",
+    "href": "20-resampling.html#run-the-analysis",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#understand-the-output",
+    "href": "20-resampling.html#understand-the-output",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#report-the-finding",
+    "href": "20-resampling.html#report-the-finding",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#common-mistakes-and-alternatives",
+    "href": "20-resampling.html#common-mistakes-and-alternatives",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "20-resampling.html#references",
+    "href": "20-resampling.html#references",
+    "title": "Bootstrap and Permutation Methods",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html",
+    "href": "21-multiple-testing.html",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "",
+    "text": "Your question\nWhich family of comparisons requires error control?",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#when-to-use-this-method",
+    "href": "21-multiple-testing.html#when-to-use-this-method",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#what-it-estimates-or-tests",
+    "href": "21-multiple-testing.html#what-it-estimates-or-tests",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#check-before-running",
+    "href": "21-multiple-testing.html#check-before-running",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#run-the-analysis",
+    "href": "21-multiple-testing.html#run-the-analysis",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#understand-the-output",
+    "href": "21-multiple-testing.html#understand-the-output",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#report-the-finding",
+    "href": "21-multiple-testing.html#report-the-finding",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#common-mistakes-and-alternatives",
+    "href": "21-multiple-testing.html#common-mistakes-and-alternatives",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "21-multiple-testing.html#references",
+    "href": "21-multiple-testing.html#references",
+    "title": "Multiple Testing and Follow-Up Comparisons",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html",
+    "href": "22-sample-size.html",
+    "title": "Sample Size and Power",
+    "section": "",
+    "text": "Your question\nWhat sample size supports meaningful precision or power?",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#when-to-use-this-method",
+    "href": "22-sample-size.html#when-to-use-this-method",
+    "title": "Sample Size and Power",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#what-it-estimates-or-tests",
+    "href": "22-sample-size.html#what-it-estimates-or-tests",
+    "title": "Sample Size and Power",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#check-before-running",
+    "href": "22-sample-size.html#check-before-running",
+    "title": "Sample Size and Power",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#run-the-analysis",
+    "href": "22-sample-size.html#run-the-analysis",
+    "title": "Sample Size and Power",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#understand-the-output",
+    "href": "22-sample-size.html#understand-the-output",
+    "title": "Sample Size and Power",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#report-the-finding",
+    "href": "22-sample-size.html#report-the-finding",
+    "title": "Sample Size and Power",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#common-mistakes-and-alternatives",
+    "href": "22-sample-size.html#common-mistakes-and-alternatives",
+    "title": "Sample Size and Power",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "22-sample-size.html#references",
+    "href": "22-sample-size.html#references",
+    "title": "Sample Size and Power",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html",
+    "href": "23-reporting.html",
+    "title": "Reporting Statistical Findings",
+    "section": "",
+    "text": "Your question\nHow can estimates, uncertainty, and limitations answer the question?",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#when-to-use-this-method",
+    "href": "23-reporting.html#when-to-use-this-method",
+    "title": "Reporting Statistical Findings",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#what-it-estimates-or-tests",
+    "href": "23-reporting.html#what-it-estimates-or-tests",
+    "title": "Reporting Statistical Findings",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#check-before-running",
+    "href": "23-reporting.html#check-before-running",
+    "title": "Reporting Statistical Findings",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#run-the-analysis",
+    "href": "23-reporting.html#run-the-analysis",
+    "title": "Reporting Statistical Findings",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#understand-the-output",
+    "href": "23-reporting.html#understand-the-output",
+    "title": "Reporting Statistical Findings",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#report-the-finding",
+    "href": "23-reporting.html#report-the-finding",
+    "title": "Reporting Statistical Findings",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#common-mistakes-and-alternatives",
+    "href": "23-reporting.html#common-mistakes-and-alternatives",
+    "title": "Reporting Statistical Findings",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "23-reporting.html#references",
+    "href": "23-reporting.html#references",
+    "title": "Reporting Statistical Findings",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Strengthening conclusions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html",
+    "href": "99-appendices.html",
+    "title": "Appendices and References",
+    "section": "",
+    "text": "Your question\nMethod chooser, glossary, reproducibility, and references.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#when-to-use-this-method",
+    "href": "99-appendices.html#when-to-use-this-method",
+    "title": "Appendices and References",
+    "section": "When to use this method",
+    "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#what-it-estimates-or-tests",
+    "href": "99-appendices.html#what-it-estimates-or-tests",
+    "title": "Appendices and References",
+    "section": "What it estimates or tests",
+    "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#check-before-running",
+    "href": "99-appendices.html#check-before-running",
+    "title": "Appendices and References",
+    "section": "Check before running",
+    "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#run-the-analysis",
+    "href": "99-appendices.html#run-the-analysis",
+    "title": "Appendices and References",
+    "section": "Run the analysis",
+    "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#understand-the-output",
+    "href": "99-appendices.html#understand-the-output",
+    "title": "Appendices and References",
+    "section": "Understand the output",
+    "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#report-the-finding",
+    "href": "99-appendices.html#report-the-finding",
+    "title": "Appendices and References",
+    "section": "Report the finding",
+    "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#common-mistakes-and-alternatives",
+    "href": "99-appendices.html#common-mistakes-and-alternatives",
+    "title": "Appendices and References",
+    "section": "Common mistakes and alternatives",
+    "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  },
+  {
+    "objectID": "99-appendices.html#references",
+    "href": "99-appendices.html#references",
+    "title": "Appendices and References",
+    "section": "References",
+    "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
+    "crumbs": [
+      "Reference",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+    ]
+  }
+]

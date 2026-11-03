@@ -1,0 +1,43 @@
+# Understanding Statistical Inference
+
+::: {.callout-note}
+## Chapter status
+Outline only. Worked examples, references, and review are still required.
+:::
+
+## Your question
+
+Distinguish estimates, confidence intervals, effect sizes, and p-values.
+
+## When to use this method
+
+*To develop:* Describe the outcome, sampling unit, and eligible study designs.
+
+## What it estimates or tests
+
+*To develop:* Define the target quantity and null and alternative hypotheses where relevant.
+
+## Check before running
+
+*To develop:* Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.
+
+## Run the analysis
+
+*To develop:* Add a reproducible example linked to a chapter script and input dataset.
+
+## Understand the output
+
+*To develop:* Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.
+
+## Report the finding
+
+*To develop:* Write an answer tied to the original question, with units and limitations.
+
+## Common mistakes and alternatives
+
+*To develop:* Explain when the method does not answer the question and identify suitable alternatives.
+
+## References
+
+*To develop:* Add authoritative method and software references when developing this chapter.
+
