@@ -52,7 +52,7 @@ book:
 format:
   html:
     theme: cosmo
-    css: assets/css/cdi-guide.css
+    css: assets/css/cdi.css
     toc: true
     toc-depth: 3
     number-sections: false
