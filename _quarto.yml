@@ -3,6 +3,9 @@ project:
   output-dir: docs
   execute-dir: project
 
+date: 2026-11-03
+date-format: "MMM YYYY"
+
 book:
   title: "Statistical Analysis"
   subtitle: "Choose appropriate methods, check assumptions, and explain your findings."

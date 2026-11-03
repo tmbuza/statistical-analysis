@@ -8,3 +8,47 @@ results/tables/*.tsv
 results/figures/*.png
 
 /.quarto/
+
+
+# macOS
+.DS_Store
+._*
+
+# R session files
+.Rhistory
+.RData
+.RDataTmp
+.Ruserdata
+.Rproj.user/
+
+# Local renv packages and temporary installation files
+/renv/library/
+/renv/staging/
+/renv/cache/
+/renv/lock/
+# Keep renv/activate.R, renv/settings.json, and renv.lock
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Quarto temporary files
+.quarto/
+/_site/
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Temporary and backup files
+*.tmp
+*.bak
+*~
+/renv-before-r-upgrade.lock
+
+# Local archive files
+/Archive*.zip

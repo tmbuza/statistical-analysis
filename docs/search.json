@@ -4,42 +4,42 @@
     "href": "index.html",
     "title": "Statistical Analysis",
     "section": "",
-    "text": "Welcome\n\n\n\n\n\n\nScaffold edition\n\n\n\nThe chapter structure is ready. Method chapters are outlines awaiting worked examples and statistical review.\n\n\nUse this free CDI reference to move from a question to an analysis you can explain and defend.\n\nStart with Questions and methods.\nReview Statistical inference.\nTry the runnable two-group example.\nApply your learning in the Statistical Inference Practical.\n\nYour question → Your inputs → Run the analysis → Check evidence → Explain with limitations.\nExamples will use R and Python as appropriate. Bash scripts handle setup and workflow checks.",
+    "text": "Free Guide: Updated Nov 2026",
     "crumbs": [
-      "Welcome"
+      "index.html"
     ]
   },
   {
     "objectID": "00-preface.html",
     "href": "00-preface.html",
-    "title": "Preface",
+    "title": "Welcome",
     "section": "",
-    "text": "How each chapter works\nThis guide is a reference: read the foundations once, then open the chapter that matches your question and design.\nQuestion, suitable use, target estimate or hypothesis, assumptions, runnable analysis, output interpretation, reporting, and alternatives.",
+    "text": "How each chapter works\nUse this free CDI reference to move from a question to an analysis you can explain and defend.\nYour question → Your inputs → Run the analysis → Check evidence → Explain with limitations.\nExamples will use R and Python as appropriate. Bash scripts handle setup and workflow checks.\nThis guide is a reference: read the foundations once, then open the chapter that matches your question and design.\nQuestion, suitable use, target estimate or hypothesis, assumptions, runnable analysis, output interpretation, reporting, and alternatives.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+      "Welcome"
     ]
   },
   {
     "objectID": "00-preface.html#current-status",
     "href": "00-preface.html#current-status",
-    "title": "Preface",
+    "title": "Welcome",
     "section": "Current status",
     "text": "Current status\nThis is a scaffold, not a finished statistical textbook. Chapter 05 includes a runnable starter example. Other chapters contain explicit development prompts.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+      "Welcome"
     ]
   },
   {
     "objectID": "00-preface.html#tools",
     "href": "00-preface.html#tools",
-    "title": "Preface",
+    "title": "Welcome",
     "section": "Tools",
     "text": "Tools\nUse R or Python for analysis and Bash for setup and checks. Run commands from the repository root. Rendering does not run the external analysis scripts; run them separately when developing examples.\nSee README.md for setup. The examples use synthetic data and do not establish real-world effects.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+      "Welcome"
     ]
   },
   {
@@ -50,7 +50,7 @@
     "text": "Your question\nIdentify the outcome, study design, and quantity you want to estimate.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -61,7 +61,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -72,7 +72,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -83,7 +83,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -94,7 +94,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -105,7 +105,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -116,7 +116,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -127,7 +127,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -138,7 +138,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>From Questions to Statistical Methods</span>"
     ]
   },
   {
@@ -149,7 +149,7 @@
     "text": "Your question\nDistinguish estimates, confidence intervals, effect sizes, and p-values.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -160,7 +160,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -171,7 +171,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -182,7 +182,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -193,7 +193,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -204,7 +204,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -215,7 +215,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -226,7 +226,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -237,7 +237,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Understanding Statistical Inference</span>"
     ]
   },
   {
@@ -248,7 +248,7 @@
     "text": "Your question\nInspect missing values, outliers, distributions, and study independence.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -259,7 +259,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -270,7 +270,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -281,7 +281,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -292,7 +292,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -303,7 +303,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -314,7 +314,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -325,7 +325,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -336,7 +336,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Getting started",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Checking Data and Assumptions</span>"
     ]
   },
   {
@@ -347,7 +347,7 @@
     "text": "Your question\nIs the population mean different from a prespecified reference value?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -358,7 +358,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -369,7 +369,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -380,7 +380,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -391,7 +391,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -402,7 +402,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -413,7 +413,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -424,7 +424,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -435,7 +435,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>One-Sample t-Test</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>One-Sample t-Test</span>"
     ]
   },
   {
@@ -446,7 +446,7 @@
     "text": "Your question\nWhat is the mean difference in scores between independent groups B and A?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -457,7 +457,7 @@
     "text": "When to use this method\nThe outcome is numerical and the groups contain different participants. Welch’s t-test allows unequal population variances. It does not correct dependence, selection bias, or confounding.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -468,7 +468,7 @@
     "text": "What it estimates or tests\nThe effect is the population mean of B minus the population mean of A. The two-sided null hypothesis is a zero mean difference.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -479,7 +479,7 @@
     "text": "Check before running\nCheck the study design, group counts, missing data, and distributions. Inspect extreme observations. With small samples, strong skew or outliers can undermine the t approximation.\nThe example file has one row per synthetic participant. Its independence is part of how the example was generated.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -490,7 +490,7 @@
     "text": "Run the analysis\nFrom the project root, choose either implementation:\npython3 scripts/python/05-independent-t-test.py\nRscript scripts/R/05-independent-t-test.R\nBoth use data/example/independent-groups.csv, calculate B minus A, and export separate TSV results under results/tables/.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -501,7 +501,7 @@
     "text": "Understand the output\nRead the mean difference and its 95% confidence interval together. The interval expresses uncertainty under the model and sampling assumptions. The p-value measures incompatibility with the zero-difference null under those assumptions; it does not measure practical importance.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -512,7 +512,7 @@
     "text": "Report the finding\nReport sample sizes, group means, the B-minus-A difference, its confidence interval, Welch’s t statistic, degrees of freedom, and p-value. These synthetic scores illustrate a method and support no claim about a real intervention.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -523,7 +523,7 @@
     "text": "Common mistakes and alternatives\nDo not use an independent-groups test for paired measurements. Do not select tests solely from a normality-test p-value. Rank tests answer a different question and are not automatic tests of medians.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -534,7 +534,7 @@
     "text": "References\nAdd checked statistical and software references during chapter development.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Independent-Samples t-Test</span>"
     ]
   },
   {
@@ -545,7 +545,7 @@
     "text": "Your question\nWhat is the mean within-person change?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -556,7 +556,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -567,7 +567,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -578,7 +578,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -589,7 +589,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -600,7 +600,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -611,7 +611,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -622,7 +622,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -633,7 +633,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Paired t-Test</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Paired t-Test</span>"
     ]
   },
   {
@@ -644,7 +644,7 @@
     "text": "Your question\nDo independent groups differ in their outcome distributions?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -655,7 +655,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -666,7 +666,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -677,7 +677,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -688,7 +688,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -699,7 +699,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -710,7 +710,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -721,7 +721,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -732,7 +732,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Mann–Whitney U Test</span>"
     ]
   },
   {
@@ -743,7 +743,7 @@
     "text": "Your question\nIs the distribution of paired differences centered at zero, under symmetry?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -754,7 +754,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -765,7 +765,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -776,7 +776,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -787,7 +787,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -798,7 +798,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -809,7 +809,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -820,7 +820,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -831,7 +831,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Wilcoxon Signed-Rank Test</span>"
     ]
   },
   {
@@ -842,7 +842,7 @@
     "text": "Your question\nDo population means differ across independent groups?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -853,7 +853,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -864,7 +864,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -875,7 +875,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -886,7 +886,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -897,7 +897,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -908,7 +908,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -919,7 +919,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -930,7 +930,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>One-Way ANOVA</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>One-Way ANOVA</span>"
     ]
   },
   {
@@ -941,7 +941,7 @@
     "text": "Your question\nDo outcome distributions differ across independent groups?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -952,7 +952,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -963,7 +963,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -974,7 +974,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -985,7 +985,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -996,7 +996,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -1007,7 +1007,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -1018,7 +1018,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -1029,7 +1029,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Kruskal–Wallis Test</span>"
     ]
   },
   {
@@ -1040,7 +1040,7 @@
     "text": "Your question\nHow do outcomes differ across repeated measurements?",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1051,7 +1051,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1062,7 +1062,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1073,7 +1073,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1084,7 +1084,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1095,7 +1095,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1106,7 +1106,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1117,7 +1117,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1128,7 +1128,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Comparing numerical outcomes",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Repeated-Measures ANOVA and Friedman Test</span>"
     ]
   },
   {
@@ -1139,7 +1139,7 @@
     "text": "Your question\nAre two categorical variables associated?",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1150,7 +1150,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1161,7 +1161,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1172,7 +1172,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1183,7 +1183,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1194,7 +1194,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1205,7 +1205,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1216,7 +1216,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1227,7 +1227,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Chi-Square Test of Independence</span>"
     ]
   },
   {
@@ -1238,7 +1238,7 @@
     "text": "Your question\nIs there evidence of association in a small contingency table?",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1249,7 +1249,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1260,7 +1260,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1271,7 +1271,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1282,7 +1282,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1293,7 +1293,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1304,7 +1304,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1315,7 +1315,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1326,7 +1326,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Fisher’s Exact Test</span>"
     ]
   },
   {
@@ -1337,7 +1337,7 @@
     "text": "Your question\nHow does a proportion compare with a reference or another group?",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1348,7 +1348,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1359,7 +1359,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1370,7 +1370,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1381,7 +1381,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1392,7 +1392,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1403,7 +1403,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1414,7 +1414,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1425,7 +1425,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Tests for Proportions</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Tests for Proportions</span>"
     ]
   },
   {
@@ -1436,7 +1436,7 @@
     "text": "Your question\nDo paired binary outcomes have different marginal proportions?",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1447,7 +1447,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1458,7 +1458,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1469,7 +1469,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1480,7 +1480,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1491,7 +1491,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1502,7 +1502,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1513,7 +1513,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1524,7 +1524,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Analyzing categorical outcomes",
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>McNemar’s Test</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>McNemar’s Test</span>"
     ]
   },
   {
@@ -1535,7 +1535,7 @@
     "text": "Your question\nHow strong is the linear association between two numerical variables?",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1546,7 +1546,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1557,7 +1557,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1568,7 +1568,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1579,7 +1579,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1590,7 +1590,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1601,7 +1601,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1612,7 +1612,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1623,7 +1623,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Pearson Correlation</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Pearson Correlation</span>"
     ]
   },
   {
@@ -1634,7 +1634,7 @@
     "text": "Your question\nHow strong is the monotonic association between two variables?",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1645,7 +1645,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1656,7 +1656,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1667,7 +1667,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1678,7 +1678,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1689,7 +1689,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1700,7 +1700,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1711,7 +1711,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1722,7 +1722,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Spearman Correlation</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Spearman Correlation</span>"
     ]
   },
   {
@@ -1733,7 +1733,7 @@
     "text": "Your question\nHow does a numerical outcome relate to one or more predictors?",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1744,7 +1744,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1755,7 +1755,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1766,7 +1766,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1777,7 +1777,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1788,7 +1788,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1799,7 +1799,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1810,7 +1810,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1821,7 +1821,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Linear Regression</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Linear Regression</span>"
     ]
   },
   {
@@ -1832,7 +1832,7 @@
     "text": "Your question\nHow does a binary outcome relate to one or more predictors?",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1843,7 +1843,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1854,7 +1854,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1865,7 +1865,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1876,7 +1876,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1887,7 +1887,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1898,7 +1898,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1909,7 +1909,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1920,7 +1920,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Examining relationships",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Logistic Regression</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Logistic Regression</span>"
     ]
   },
   {
@@ -1931,7 +1931,7 @@
     "text": "Your question\nHow can resampling quantify uncertainty or test a hypothesis?",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1942,7 +1942,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1953,7 +1953,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1964,7 +1964,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1975,7 +1975,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1986,7 +1986,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -1997,7 +1997,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -2008,7 +2008,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -2019,7 +2019,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Bootstrap and Permutation Methods</span>"
     ]
   },
   {
@@ -2030,7 +2030,7 @@
     "text": "Your question\nWhich family of comparisons requires error control?",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2041,7 +2041,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2052,7 +2052,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2063,7 +2063,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2074,7 +2074,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2085,7 +2085,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2096,7 +2096,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2107,7 +2107,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2118,7 +2118,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Multiple Testing and Follow-Up Comparisons</span>"
     ]
   },
   {
@@ -2129,7 +2129,7 @@
     "text": "Your question\nWhat sample size supports meaningful precision or power?",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2140,7 +2140,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2151,7 +2151,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2162,7 +2162,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2173,7 +2173,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2184,7 +2184,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2195,7 +2195,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2206,7 +2206,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2217,7 +2217,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Sample Size and Power</span>"
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Sample Size and Power</span>"
     ]
   },
   {
@@ -2228,7 +2228,7 @@
     "text": "Your question\nHow can estimates, uncertainty, and limitations answer the question?",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2239,7 +2239,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2250,7 +2250,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2261,7 +2261,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2272,7 +2272,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2283,7 +2283,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2294,7 +2294,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2305,7 +2305,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2316,7 +2316,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Strengthening conclusions",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Reporting Statistical Findings</span>"
     ]
   },
   {
@@ -2327,7 +2327,7 @@
     "text": "Your question\nMethod chooser, glossary, reproducibility, and references.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2338,7 +2338,7 @@
     "text": "When to use this method\nTo develop: Describe the outcome, sampling unit, and eligible study designs.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2349,7 +2349,7 @@
     "text": "What it estimates or tests\nTo develop: Define the target quantity and null and alternative hypotheses where relevant.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2360,7 +2360,7 @@
     "text": "Check before running\nTo develop: Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2371,7 +2371,7 @@
     "text": "Run the analysis\nTo develop: Add a reproducible example linked to a chapter script and input dataset.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2382,7 +2382,7 @@
     "text": "Understand the output\nTo develop: Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2393,7 +2393,7 @@
     "text": "Report the finding\nTo develop: Write an answer tied to the original question, with units and limitations.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2404,7 +2404,7 @@
     "text": "Common mistakes and alternatives\nTo develop: Explain when the method does not answer the question and identify suitable alternatives.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   },
   {
@@ -2415,7 +2415,7 @@
     "text": "References\nTo develop: Add authoritative method and software references when developing this chapter.",
     "crumbs": [
       "Reference",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Appendices and References</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendices and References</span>"
     ]
   }
 ]
