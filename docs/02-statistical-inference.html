@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#start-with-the-estimate" id="toc-start-with-the-estimate" class="nav-link" data-scroll-target="#start-with-the-estimate">2. Start with the estimate</a></li>
+  <li><a href="#distinguish-spread-from-precision" id="toc-distinguish-spread-from-precision" class="nav-link" data-scroll-target="#distinguish-spread-from-precision">3. Distinguish spread from precision</a></li>
+  <li><a href="#understand-a-confidence-interval" id="toc-understand-a-confidence-interval" class="nav-link" data-scroll-target="#understand-a-confidence-interval">4. Understand a confidence interval</a>
+  <ul class="collapse">
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">Worked example</a></li>
+  <li><a href="#verify-the-calculation-in-r" id="toc-verify-the-calculation-in-r" class="nav-link" data-scroll-target="#verify-the-calculation-in-r">Verify the calculation in R</a></li>
+  </ul></li>
+  <li><a href="#state-the-hypotheses" id="toc-state-the-hypotheses" class="nav-link" data-scroll-target="#state-the-hypotheses">5. State the hypotheses</a></li>
+  <li><a href="#interpret-the-p-value" id="toc-interpret-the-p-value" class="nav-link" data-scroll-target="#interpret-the-p-value">6. Interpret the p-value</a></li>
+  <li><a href="#understand-thresholds-and-errors" id="toc-understand-thresholds-and-errors" class="nav-link" data-scroll-target="#understand-thresholds-and-errors">7. Understand thresholds and errors</a></li>
+  <li><a href="#separate-statistical-and-practical-importance" id="toc-separate-statistical-and-practical-importance" class="nav-link" data-scroll-target="#separate-statistical-and-practical-importance">8. Separate statistical and practical importance</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</a>
+  <ul class="collapse">
+  <li><a href="#example-prompt" id="toc-example-prompt" class="nav-link" data-scroll-target="#example-prompt">Example prompt</a></li>
+  <li><a href="#verify-before-using-the-explanation" id="toc-verify-before-using-the-explanation" class="nav-link" data-scroll-target="#verify-before-using-the-explanation">Verify before using the explanation</a></li>
+  </ul></li>
+  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">10. Report the finding</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">11. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +432,331 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-002</li>
+<li><strong>Type:</strong> Reference guide</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Explain estimates, uncertainty, hypotheses, and statistical evidence, including checks for AI-assisted interpretations</li>
+</ul>
+</div>
+<p>A sample gives us information about a larger population, but another sample would usually produce a different result. <strong>Statistical inference</strong> uses data and assumptions to estimate population quantities and assess uncertainty.</p>
+<p>This chapter helps you distinguish the size of a finding from the strength of evidence against a statistical hypothesis.</p>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>What is the mean assessment score among learners in a training program, and how precisely can we estimate it?</p>
+</blockquote>
+<p>We observe scores for a sample of learners. The sample mean is available to calculate; the population mean is the unknown quantity we want to estimate.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+<th>Training example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population</td>
+<td>The group the question concerns</td>
+<td>All eligible learners in the program</td>
+</tr>
+<tr class="even">
+<td>Sample</td>
+<td>The units actually observed</td>
+<td>The learners whose scores we collect</td>
+</tr>
+<tr class="odd">
+<td>Parameter</td>
+<td>A population quantity</td>
+<td>Population mean assessment score</td>
+</tr>
+<tr class="even">
+<td>Statistic</td>
+<td>A quantity calculated from a sample</td>
+<td>Sample mean assessment score</td>
+</tr>
+<tr class="odd">
+<td>Estimate</td>
+<td>A statistic used to approximate a parameter</td>
+<td>Sample mean used to estimate population mean</td>
+</tr>
+</tbody>
+</table>
+<p>Inference depends on how the sample was obtained. A narrow confidence interval cannot correct a biased sample or an inappropriate design.</p>
+</section>
+<section id="start-with-the-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-estimate">2. Start with the estimate</h2>
+<p>An estimate answers <strong>“How much?”</strong> Examples include:</p>
+<ul>
+<li>A mean score of 72 points.</li>
+<li>A mean difference of 5 points between groups.</li>
+<li>A pass proportion of 0.80, or 80%.</li>
+<li>A difference in pass proportions of 0.10, or 10 percentage points.</li>
+</ul>
+<p>State the direction and units. For a comparison defined as A minus B, a positive mean difference means A has the higher estimated mean.</p>
+<p>An <strong>effect size</strong> describes the magnitude of a difference or relationship. It may be expressed in the original units, such as score points, or on a standardized scale. Original units often make practical meaning easier to judge.</p>
+</section>
+<section id="distinguish-spread-from-precision" class="level2">
+<h2 class="anchored" data-anchor-id="distinguish-spread-from-precision">3. Distinguish spread from precision</h2>
+<p><strong>Standard deviation (SD)</strong> describes variation among individual observations. <strong>Standard error (SE)</strong> describes the sampling variability of an estimator under the assumed design and model.</p>
+<p>For the mean of independent observations with a common finite variance, the usual estimated SE is:</p>
+<p><span class="math display">\[
+SE(\bar{x}) = \frac{s}{\sqrt{n}}
+\]</span></p>
+<p>Here, <span class="math inline">\(s\)</span> is the sample SD and <span class="math inline">\(n\)</span> is the sample size. This simple formula is not appropriate for every design, such as unaccounted repeated measurements or clustering.</p>
+<p>If the SD stays similar, collecting more independent observations generally reduces the SE. It does not necessarily reduce the variation among individuals.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+More rows do not always mean more independent information
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Ten measurements from each of ten learners are not equivalent to one measurement from each of 100 independent learners. The analysis must account for the relationship among measurements.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Distinguish estimates, confidence intervals, effect sizes, and p-values.</p>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
+<section id="understand-a-confidence-interval" class="level2">
+<h2 class="anchored" data-anchor-id="understand-a-confidence-interval">4. Understand a confidence interval</h2>
+<p>A confidence interval combines an estimate with uncertainty calculated using a specified procedure.</p>
+<p>For a population mean, the usual one-sample t interval is:</p>
+<p><span class="math display">\[
+\bar{x} \pm t_{0.975,\,n-1}\frac{s}{\sqrt{n}}
+\]</span></p>
+<p>The multiplier is a t-distribution critical value for a two-sided 95% interval. Its suitability depends on the design and distributional conditions. The method chapters explain these conditions in context.</p>
+<section id="worked-example" class="level3">
+<h3 class="anchored" data-anchor-id="worked-example">Worked example</h3>
+<p>Suppose a synthetic sample has:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent learners</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td>Sample mean</td>
+<td style="text-align: right;">72 points</td>
+</tr>
+<tr class="odd">
+<td>Sample SD</td>
+<td style="text-align: right;">10 points</td>
+</tr>
+<tr class="even">
+<td>Estimated SE</td>
+<td style="text-align: right;">2 points</td>
+</tr>
+<tr class="odd">
+<td>t critical value, 24 degrees of freedom</td>
+<td style="text-align: right;">Approximately 2.064</td>
+</tr>
+</tbody>
+</table>
+<p>The interval is:</p>
+<p><span class="math display">\[
+72 \pm 2.064 \times 2 \approx [67.87,\;76.13]
+\]</span></p>
+<p>We estimate the population mean as <strong>72 points</strong>, with a <strong>95% confidence interval from approximately 67.87 to 76.13 points</strong>.</p>
+<p>The 95% describes the long-run coverage of the procedure: under its assumptions, intervals calculated from repeated samples would contain the fixed population mean about 95% of the time.</p>
+<p>It does <strong>not</strong> mean that 95% of individual learners score within this interval. It also does not assign a 95% probability to the fixed population mean lying inside this particular observed interval.</p>
 </section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
+<section id="verify-the-calculation-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="verify-the-calculation-in-r">Verify the calculation in R</h3>
+<p>This code uses summary statistics for illustration. It does not check the underlying scores or study design.</p>
+<p>The following blocks display excerpts from <a href="scripts/R/02-statistical-inference.R">the complete R script</a>. Quarto does not execute them. Copy the script into <code>scripts/R/</code> and run it from the repository root:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/02-statistical-inference.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script uses base R and prints both the confidence interval and the test result. No additional R packages are required.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for the synthetic example.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="ot">&lt;-</span> <span class="dv">72</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sample_sd <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate precision and calculate the t-based interval.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>standard_error <span class="ot">&lt;-</span> sample_sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>critical_value <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>margin <span class="ot">&lt;-</span> critical_value <span class="sc">*</span> standard_error</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> sample_mean,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">standard_error =</span> standard_error,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower_95 =</span> sample_mean <span class="sc">-</span> margin,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_95 =</span> sample_mean <span class="sc">+</span> margin</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Expected output, rounded:</strong> mean = 72; SE = 2; lower limit = 67.87; upper limit = 76.13.</p>
+<p>The code is displayed for you to run in R; rendering this chapter does not execute it.</p>
 </section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
 </section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<section id="state-the-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="state-the-hypotheses">5. State the hypotheses</h2>
+<p>Suppose the reference mean score is 70 points. A two-sided test asks whether the population mean differs from that value.</p>
+<ul>
+<li><strong>Null hypothesis (<span class="math inline">\(H_0\)</span>):</strong> The population mean equals 70 points.</li>
+<li><strong>Alternative hypothesis (<span class="math inline">\(H_1\)</span>):</strong> The population mean differs from 70 points.</li>
+</ul>
+<p>The hypotheses concern the population parameter. The observed sample mean need not equal the reference value even when the null hypothesis is true.</p>
+<p>Choose a one-sided alternative only when it is justified by the question and specified before inspecting the results. Do not switch direction after seeing the data.</p>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
+<section id="interpret-the-p-value" class="level2">
+<h2 class="anchored" data-anchor-id="interpret-the-p-value">6. Interpret the p-value</h2>
+<p>A <strong>p-value</strong> is the probability, under the null hypothesis and the test’s other assumptions, of a test statistic at least as extreme as the observed statistic in the direction or directions specified by the test.</p>
+<p>In the synthetic example:</p>
+<p><span class="math display">\[
+t = \frac{72 - 70}{2} = 1
+\]</span></p>
+<p>For a two-sided one-sample t-test with 24 degrees of freedom, the p-value is approximately <strong>0.327</strong>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run after the preceding summary-statistic code.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>reference_mean <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>t_statistic <span class="ot">&lt;-</span> (sample_mean <span class="sc">-</span> reference_mean) <span class="sc">/</span> standard_error</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(t_statistic), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">t =</span> t_statistic, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>, <span class="at">p_value =</span> p_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This result does not provide strong evidence against a population mean of 70 under the test assumptions. The 95% confidence interval also includes 70.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>A p-value does not tell you…</th>
+<th>What to examine instead</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The probability that the null hypothesis is true</td>
+<td>The test assumptions and broader evidence; hypothesis probabilities require a different inferential framework</td>
+</tr>
+<tr class="even">
+<td>The probability that the result occurred “by chance”</td>
+<td>The specific probability defined under the null model</td>
+</tr>
+<tr class="odd">
+<td>How large or useful the effect is</td>
+<td>The estimate, units, uncertainty, and practical context</td>
+</tr>
+<tr class="even">
+<td>Whether the study design establishes causation</td>
+<td>Sampling, assignment, confounding, and other design features</td>
+</tr>
+<tr class="odd">
+<td>Whether a large p-value proves no effect</td>
+<td>The interval and whether important effects remain compatible with the data and model</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="understand-thresholds-and-errors" class="level2">
+<h2 class="anchored" data-anchor-id="understand-thresholds-and-errors">7. Understand thresholds and errors</h2>
+<p>A significance level, often written <span class="math inline">\(\alpha\)</span>, is a threshold specified for a testing procedure. A common choice is 0.05, but its appropriateness depends on the purpose and consequences of the decision.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Type I error</td>
+<td>Rejecting a true null hypothesis</td>
+</tr>
+<tr class="even">
+<td>Type II error</td>
+<td>Failing to reject a false null hypothesis</td>
+</tr>
+<tr class="odd">
+<td>Power</td>
+<td>Probability of rejecting the null for a specified alternative, design, and test</td>
+</tr>
+</tbody>
+</table>
+<p>For a valid test, the significance level controls the Type I error rate under its assumptions. It is not the probability that a particular reported finding is false.</p>
+<p>A p-value of 0.049 and one of 0.051 provide very similar evidence. Avoid making sharply different scientific claims solely because they fall on different sides of a threshold.</p>
+<p>For matching two-sided tests and confidence intervals constructed using the same method, a 95% interval excluding the null value corresponds to rejection at the 0.05 level. This correspondence need not hold when methods, adjustments, or alternatives differ.</p>
+</section>
+<section id="separate-statistical-and-practical-importance" class="level2">
+<h2 class="anchored" data-anchor-id="separate-statistical-and-practical-importance">8. Separate statistical and practical importance</h2>
+<p>Suppose a comparison estimates a mean score difference of 0.4 points, with a 95% confidence interval from 0.2 to 0.6 points. The interval excludes zero, but a difference this small may have little practical value.</p>
+<p>Another comparison estimates 5 points, with an interval from -1 to 11 points. That interval includes zero and potentially important positive differences. The result is uncertain; it does not establish no difference.</p>
+<p>Define a meaningful difference using the subject area, measurement scale, costs, and intended decision. Specify it before examining results where possible. Establishing equivalence requires a suitable design and analysis; an ordinary nonsignificant test is insufficient.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</h2>
+<section id="example-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="example-prompt">Example prompt</h3>
+<blockquote class="blockquote">
+<p>A synthetic sample of 25 independent learners has a mean score of 72 and a sample SD of 10. The reference population mean is 70. Explain the SE, a two-sided 95% t confidence interval, and the two-sided one-sample t-test p-value. State the assumptions that cannot be checked from these summaries. Distinguish uncertainty about the population mean from variation among learner scores. Do not describe the p-value as the probability that the null hypothesis is true.</p>
+</blockquote>
+</section>
+<section id="verify-before-using-the-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="verify-before-using-the-explanation">Verify before using the explanation</h3>
+<ul>
+<li>Recalculate the SE: <span class="math inline">\(10 / \sqrt{25} = 2\)</span>.</li>
+<li>Check the degrees of freedom: <span class="math inline">\(25 - 1 = 24\)</span>.</li>
+<li>Check that the interval is centered on 72 and includes 70.</li>
+<li>Check that the test statistic is 1 and the two-sided p-value is approximately 0.327.</li>
+<li>Check that the interpretation addresses the population mean, not individual scores.</li>
+<li>Ask which design and distributional assumptions remain unverified.</li>
+</ul>
+<p>AI-generated precision is not evidence of correctness. Verify numbers and wording against the calculation and the method’s definition.</p>
+</section>
 </section>
 <section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+<h2 class="anchored" data-anchor-id="report-the-finding">10. Report the finding</h2>
+<p>For this teaching example:</p>
+<blockquote class="blockquote">
+<p>In the synthetic sample of 25 learners, the mean assessment score was 72 points (SD 10). The estimated population mean had a 95% t confidence interval of 67.87 to 76.13 points. A two-sided one-sample t-test against 70 points yielded <span class="math inline">\(t(24)=1.00\)</span>, <span class="math inline">\(p=0.327\)</span>. These data provide limited evidence against the reference mean under the test assumptions. The summary statistics alone do not allow assessment of sampling quality, independence, or unusual observations.</p>
+</blockquote>
+<p>Keep the estimate and uncertainty central. Avoid reducing the report to “significant” or “not significant.”</p>
 </section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">11. Check your understanding</h2>
+<p>A report states:</p>
+<blockquote class="blockquote">
+<p>The p-value was 0.18, so there is an 18% probability that no difference exists.</p>
+</blockquote>
+<p>What is wrong with this interpretation? What additional results would you request?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A p-value is calculated assuming the null hypothesis and the test’s other assumptions. It does not give the probability that the null is true. Request the estimated difference, confidence interval, units, sample sizes, design, and relevant assumption checks. These help assess the magnitude, precision, and limitations of the finding.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./03-data-and-assumptions.html">Checking Data and Assumptions</a>. Before trusting an inference, inspect the inputs and understand how the observations were collected.</p>
 
 
 </section>

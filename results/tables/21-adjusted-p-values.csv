@@ -1,0 +1,7 @@
+"hypothesis","p_value","p_bonferroni","p_holm","p_BH","reject_unadjusted","reject_holm","reject_BH"
+"H1",0.003,0.018,0.018,0.018,TRUE,TRUE,TRUE
+"H2",0.012,0.072,0.06,0.036,TRUE,FALSE,TRUE
+"H3",0.021,0.126,0.084,0.042,TRUE,FALSE,TRUE
+"H4",0.04,0.24,0.12,0.06,TRUE,FALSE,FALSE
+"H5",0.2,1,0.4,0.24,FALSE,FALSE,FALSE
+"H6",0.6,1,0.6,0.6,FALSE,FALSE,FALSE

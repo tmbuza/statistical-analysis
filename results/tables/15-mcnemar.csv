@@ -1,0 +1,2 @@
+"complete_pairs","gains","losses","discordant_pairs","proportion_before","proportion_after","difference_after_minus_before","exact_conditional_p","X_squared_uncorrected","approximate_p_uncorrected","X_squared_corrected","approximate_p_corrected"
+60,18,4,22,0.366666666666667,0.6,0.233333333333333,0.00434350967407227,8.90909090909091,0.00283754488879232,7.68181818181818,0.00557799400339827

@@ -1,0 +1,2 @@
+meaningful_difference,common_sd,target_power,alpha,expected_loss_fraction
+5,10,0.80,0.05,0.15

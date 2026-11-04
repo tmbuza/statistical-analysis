@@ -1,0 +1,2 @@
+"n","reference_mean","mean","sd","standard_error","difference","mean_ci_lower","mean_ci_upper","difference_ci_lower","difference_ci_upper","t","df","p_value","cohens_d"
+20,65,69.3,6.96683874546147,1.55783250231312,4.3,66.0394190999195,72.5605809000805,1.03941909991954,7.56058090008045,2.76024540097553,19,0.012455065534231,0.617209635116246

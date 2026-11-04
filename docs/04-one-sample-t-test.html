@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-your-data-and-assumptions" id="toc-check-your-data-and-assumptions" class="nav-link" data-scroll-target="#check-your-data-and-assumptions">4. Check your data and assumptions</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#optional-standardized-effect-size" id="toc-optional-standardized-effect-size" class="nav-link" data-scroll-target="#optional-standardized-effect-size">Optional standardized effect size</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +426,342 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-004</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Compare a population mean with a fixed reference value, check assumptions, and explain the estimate and uncertainty</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Does the population mean assessment score differ from a prespecified reference of 65 points?</p>
+</blockquote>
+<p>We use 20 synthetic learner scores. The target estimate is the <strong>population mean minus 65</strong>, measured in score points. Positive values indicate a mean above the reference.</p>
+<p>The reference is an illustrative fixed benchmark chosen before analysis. It is not a universal passing standard. The data reuse the 20 observed Approach A scores from Chapter 03 as a standalone teaching example; this does not justify ignoring that chapter’s missing scores in an applied analysis.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Use a one-sample t-test when you have a numerical outcome from independent units and want to compare its population mean with a fixed reference.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Suitable question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Does a mean differ from a benchmark?</td>
+<td>Mean assessment score versus 65 points</td>
+</tr>
+<tr class="even">
+<td>Does a mean measurement differ from a specification?</td>
+<td>Mean package weight versus 500 grams</td>
+</tr>
+<tr class="odd">
+<td>Is a mean difference zero?</td>
+<td>Paired differences analyzed as one numerical sample; see Chapter 06</td>
+</tr>
+</tbody>
+</table>
+<p>If the reference is an estimate from another sample, treating it as fixed ignores its uncertainty. A two-sample comparison or another model may be appropriate. If your question concerns a proportion or a median, this test does not directly answer it.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>Let <span class="math inline">\(\mu\)</span> denote the population mean and <span class="math inline">\(\mu_0=65\)</span> the fixed reference.</p>
+<ul>
+<li><strong>Null hypothesis:</strong> <span class="math inline">\(H_0: \mu=65\)</span>.</li>
+<li><strong>Two-sided alternative:</strong> <span class="math inline">\(H_1: \mu\ne65\)</span>.</li>
+<li><strong>Estimated difference:</strong> <span class="math inline">\(\bar{x}-65\)</span>.</li>
+</ul>
+<p>The test statistic expresses the difference in estimated standard errors:</p>
+<p><span class="math display">\[
+t = \frac{\bar{x}-\mu_0}{s/\sqrt{n}}, \qquad df=n-1.
+\]</span></p>
+<p>For independent observations from a normal population, this statistic follows a t distribution under the null. Under other distributions, the accuracy of the approximation depends on sample size, shape, and tail behavior.</p>
+<p>A two-sided test allows departures in either direction. Specify a one-sided alternative only when justified before looking at the scores.</p>
+</section>
+<section id="check-your-data-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-data-and-assumptions">4. Check your data and assumptions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>What to establish</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent units</td>
+<td>One score per independently observed learner; no unaccounted classroom clustering</td>
+</tr>
+<tr class="even">
+<td>Appropriate sampling</td>
+<td>A defensible connection between the sample and target population</td>
+</tr>
+<tr class="odd">
+<td>Numerical scale</td>
+<td>A mean is meaningful and units are consistent</td>
+</tr>
+<tr class="even">
+<td>Missingness</td>
+<td>Missing scores and exclusions are understood and documented</td>
+</tr>
+<tr class="odd">
+<td>Shape and unusual values</td>
+<td>No severe skewness or influential extremes that make small-sample t inference unreliable</td>
+</tr>
+<tr class="even">
+<td>Reference</td>
+<td>Benchmark is fixed, relevant, and chosen without searching for significance</td>
+</tr>
+</tbody>
+</table>
+<p>Use individual-value plots and a normal Q-Q plot. At <span class="math inline">\(n=20\)</span>, shape and unusual observations deserve attention. A nonsignificant normality test does not establish normality. The script saves diagnostic plots for inspection after you run it.</p>
+<p>No distributional diagnostic can establish independence or representative sampling. Review the study records as well as the scores.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the companion folders into your repository root. The example uses base R only.</p>
+<ul>
+<li><a href="data/example/04-assessment-scores.csv">Input data</a></li>
+<li><a href="scripts/R/04-one-sample-t-test.R">Complete R script</a></li>
+</ul>
+<p>Run from the repository root:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/04-one-sample-t-test.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following plain code blocks display the main steps. Quarto does not execute them; the complete script includes input checks and output export.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the supplied synthetic learner scores.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/04-assessment-scores.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> dat<span class="sc">$</span>score</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>reference_mean <span class="ot">&lt;-</span> <span class="dv">65</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the population mean with the prespecified reference.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">t.test</span>(scores, <span class="at">mu =</span> reference_mean, <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calculate the difference and its confidence interval:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R's t.test() interval is for the population mean.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mean_difference <span class="ot">&lt;-</span> <span class="fu">mean</span>(scores) <span class="sc">-</span> reference_mean</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>difference_ci <span class="ot">&lt;-</span> fit<span class="sc">$</span>conf.int <span class="sc">-</span> reference_mean</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">difference =</span> mean_difference,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower_95 =</span> difference_ci[<span class="dv">1</span>],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_95 =</span> difference_ci[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script writes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Output</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/04-one-sample-t-test.csv</code></td>
+<td>Summary statistics, estimates, intervals, and test result</td>
+</tr>
+<tr class="even">
+<td><code>results/figures/04-one-sample-diagnostics.png</code></td>
+<td>Observed scores and normal Q-Q plot</td>
+</tr>
+</tbody>
+</table>
+<p>These outputs are created when you run the R script. Generate the files before rendering this chapter. They are not included as pre-generated R outputs in this package.</p>
+<div id="fig-04-one-sample-diagnostics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-04-one-sample-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/04-one-sample-diagnostics.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-04-one-sample-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Observed assessment scores and normal Q-Q plot. The dashed reference in the score panel marks 65 points; the Q-Q plot helps assess distribution shape, not independence.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>Expected values, rounded:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observations</td>
+<td style="text-align: right;">20</td>
+<td>Independent learner scores assumed for illustration</td>
+</tr>
+<tr class="even">
+<td>Sample mean</td>
+<td style="text-align: right;">69.30 points</td>
+<td>Estimate of the population mean</td>
+</tr>
+<tr class="odd">
+<td>Sample SD</td>
+<td style="text-align: right;">6.97 points</td>
+<td>Variation among observed scores</td>
+</tr>
+<tr class="even">
+<td>Estimated SE</td>
+<td style="text-align: right;">1.558 points</td>
+<td>Estimated precision of the mean</td>
+</tr>
+<tr class="odd">
+<td>Mean difference</td>
+<td style="text-align: right;">4.30 points</td>
+<td>Sample mean minus 65</td>
+</tr>
+<tr class="even">
+<td>95% CI for population mean</td>
+<td style="text-align: right;">66.04 to 72.56 points</td>
+<td>Uncertainty about the population mean</td>
+</tr>
+<tr class="odd">
+<td>95% CI for mean difference</td>
+<td style="text-align: right;">1.04 to 7.56 points</td>
+<td>Uncertainty about the difference from 65</td>
+</tr>
+<tr class="even">
+<td>Test statistic</td>
+<td style="text-align: right;">2.760</td>
+<td>Difference divided by its SE</td>
+</tr>
+<tr class="odd">
+<td>Degrees of freedom</td>
+<td style="text-align: right;">19</td>
+<td><span class="math inline">\(n-1\)</span></td>
+</tr>
+<tr class="even">
+<td>Two-sided p-value</td>
+<td style="text-align: right;">0.0125</td>
+<td>Evidence against the null under the test assumptions</td>
+</tr>
+</tbody>
+</table>
+<p>Verify that <span class="math inline">\(69.30-65=4.30\)</span> and <span class="math inline">\(4.30/1.558\approx2.760\)</span>. Subtracting 65 from both limits of the mean interval gives the difference interval.</p>
+<p>The estimated population mean is above the reference. The difference interval excludes zero and the matching two-sided p-value is below 0.05. Neither establishes that the difference is educationally important or caused by training.</p>
+<section id="optional-standardized-effect-size" class="level3">
+<h3 class="anchored" data-anchor-id="optional-standardized-effect-size">Optional standardized effect size</h3>
+<p>The script also calculates one-sample Cohen’s <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[
+d = \frac{\bar{x}-\mu_0}{s} \approx 0.617.
+\]</span></p>
+<p>This expresses the estimated difference in sample SD units. It is a point estimate, not a confidence interval or a bias-corrected effect size. Report the difference in score points first and assess importance using the educational context rather than automatic size labels.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>I have 20 independent synthetic scores with mean 69.30 and SD approximately 6.97. The prespecified fixed reference is 65. Explain a two-sided one-sample t-test and distinguish the confidence interval for the population mean from the interval for the difference. Ask about sampling, independence, missingness, and distribution shape. Check the code against the supplied input rather than inventing scores. Do not interpret the result as proof that training caused an improvement.</p>
+</blockquote>
+<p>Check that an AI response:</p>
+<ul>
+<li>Uses a one-sample comparison with <code>mu = 65</code>.</li>
+<li>Uses sample SD and 19 degrees of freedom.</li>
+<li>Reports a difference of positive 4.30 points.</li>
+<li>Distinguishes mean and difference intervals.</li>
+<li>Keeps the alternative two-sided as planned.</li>
+<li>Explains that assumptions and practical importance still need assessment.</li>
+</ul>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In this synthetic sample of 20 learners, the mean assessment score was 69.30 points (SD 6.97). The estimated difference from the prespecified reference of 65 was 4.30 points (95% CI 1.04 to 7.56). A two-sided one-sample t-test yielded <span class="math inline">\(t(19)=2.76\)</span>, <span class="math inline">\(p=0.0125\)</span>. Under the test assumptions, the results provide evidence that the population mean differs from the benchmark, with the estimate above it. The comparison does not establish a training effect, and practical importance depends on the educational context.</p>
+</blockquote>
+<p>For an applied report, add the sampling process, relevant diagnostic findings, handling of missing data, and any deviations from the analysis plan.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating an estimated comparison-group mean as fixed</td>
+<td>Account for both samples’ uncertainty</td>
+</tr>
+<tr class="even">
+<td>Treating repeated scores as independent</td>
+<td>Use a paired or repeated-measures approach</td>
+</tr>
+<tr class="odd">
+<td>Switching to a one-sided test after seeing the result</td>
+<td>Retain the planned alternative; label later exploration</td>
+</tr>
+<tr class="even">
+<td>Removing a valid extreme score to obtain significance</td>
+<td>Investigate and document it; consider a justified sensitivity analysis</td>
+</tr>
+<tr class="odd">
+<td>Equating a small p-value with an important difference</td>
+<td>Report the difference, interval, and context</td>
+</tr>
+<tr class="even">
+<td>Choosing a rank test solely because a normality test rejects</td>
+<td>Consider the target quantity and assumptions of each alternative</td>
+</tr>
+</tbody>
+</table>
+<p>For strong skewness or influential values, reassess the data, design, and inferential target. A transformation changes the scale and interpretation. A bootstrap interval for a mean can be useful under suitable sampling conditions but may perform poorly with very small samples or heavy tails. A signed-rank test has different assumptions and does not generally test the arithmetic mean. Obtain more independent information or specialist advice when the design or distribution makes a simple comparison unreliable.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>A researcher compares the mean of 20 new learners with the published mean from 12 learners in an earlier study. They enter the earlier mean as <code>mu</code> in a one-sample t-test.</p>
+<p>What uncertainty has been omitted?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>The earlier mean is itself an estimate with sampling uncertainty. Treating it as a fixed population value ignores that uncertainty. A defensible comparison may require both groups’ data or summary statistics and an appropriate two-sample method. Differences in populations, timing, and measurement also affect comparability.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Is the population mean different from a prespecified reference value?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./05-independent-t-test.html">Independent-Samples t-Test</a> to compare two independent group means while accounting for uncertainty in both groups.</p>
 
 
 </section>

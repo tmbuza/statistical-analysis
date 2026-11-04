@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-your-data-and-assumptions" id="toc-check-your-data-and-assumptions" class="nav-link" data-scroll-target="#check-your-data-and-assumptions">4. Check your data and assumptions</a>
+  <ul class="collapse">
+  <li><a href="#exact-and-approximate-p-values" id="toc-exact-and-approximate-p-values" class="nav-link" data-scroll-target="#exact-and-approximate-p-values">Exact and approximate p-values</a></li>
+  </ul></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#location-estimates-require-care" id="toc-location-estimates-require-care" class="nav-link" data-scroll-target="#location-estimates-require-care">Location estimates require care</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +429,319 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-007</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Compare independent groups using ranks, verify the statistic, and distinguish distributional evidence from claims about medians</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Do task completion times tend to be higher in one of two independent groups?</p>
+</blockquote>
+<p>We observe eight synthetic participants in each group. Each participant completes the task once. Lower completion times mean faster completion.</p>
+<p>The example emphasizes ordering rather than a difference in arithmetic means. It is a new dataset, separate from the assessment scores in previous chapters.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>The Mann–Whitney U test, also called the <strong>Wilcoxon rank-sum test</strong>, uses the pooled ranks of numerical or ordered outcomes from two independent groups.</p>
+<p>It can be useful when ordering is meaningful and the question concerns relative tendency rather than a specific arithmetic mean difference. It does not require normal outcome distributions, but it still requires a suitable sampling design and independent observations.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question or design</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rank-based comparison of two independent groups</td>
+<td>Mann–Whitney U test</td>
+</tr>
+<tr class="even">
+<td>Difference in independent population means</td>
+<td><a href="./05-independent-t-test.html">Welch’s t-test</a></td>
+</tr>
+<tr class="odd">
+<td>Paired numerical or ordered observations</td>
+<td><a href="./08-wilcoxon-signed-rank.html">Wilcoxon signed-rank method</a>, with its own conditions</td>
+</tr>
+<tr class="even">
+<td>Several independent groups</td>
+<td><a href="./10-kruskal-wallis.html">Kruskal–Wallis test</a></td>
+</tr>
+</tbody>
+</table>
+<p>Do not choose this test solely because a normality test gives a small p-value. First identify the quantity or comparison you want to explain.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>For the standard test in this chapter, the null hypothesis is that the two populations have the <strong>same outcome distribution</strong>. Under that null, group labels are exchangeable for the rank calculation. The two-sided procedure detects departures that produce sufficiently unusual rank sums; it is not equally sensitive to every possible difference between distributions.</p>
+<p>A useful accompanying effect estimate is:</p>
+<p><span class="math display">\[
+\theta = P(X_A &gt; X_B) + \tfrac12 P(X_A = X_B).
+\]</span></p>
+<p>This describes the probability that a randomly selected A outcome exceeds an independently selected B outcome, with half credit for ties. The sample estimate compares every observed A value with every observed B value.</p>
+<p>For completion times, a value below 0.5 means A tends to have <strong>shorter</strong>, not longer, times in this pairwise sense. This is not a within-person improvement probability or evidence of causation.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Not automatically a test of medians
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>If distributions differ only by a location shift and otherwise have the same shape and spread, a location interpretation is reasonable and a shift also corresponds to a difference in medians. Without those additional conditions, rejection should not automatically be described as evidence of different medians.</p>
+<p>The usual null-calibrated Mann–Whitney test is also not a generally valid test of only <span class="math inline">\(\theta=0.5\)</span> under arbitrary unequal distributions. Methods designed for that weaker null require separate consideration.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Do independent groups differ in their outcome distributions?</p>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
+<section id="check-your-data-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-data-and-assumptions">4. Check your data and assumptions</h2>
+<ul>
+<li>Verify that observations are independent within and between groups.</li>
+<li>Confirm that the outcome has a meaningful order and is measured comparably.</li>
+<li>Check missing values, group labels, duplicate IDs, and unexpected measurements.</li>
+<li>Inspect individual observations and empirical cumulative distribution curves.</li>
+<li>Identify ties, which affect the rank calculation and available p-value methods.</li>
+<li>Assess shape and spread before making a location or median interpretation.</li>
+</ul>
+<p>A rank transformation does not remove clustering, confounding, or missing-data bias. Valid extreme observations still matter through their ordering; ranks do not justify ignoring data-quality checks.</p>
+<section id="exact-and-approximate-p-values" class="level3">
+<h3 class="anchored" data-anchor-id="exact-and-approximate-p-values">Exact and approximate p-values</h3>
+<p>This small example has no ties, so we request an exact two-sided p-value. The exact null distribution comes from possible allocations of the pooled ranks to groups of the observed sizes.</p>
+<p>For larger samples or tied values, software may use a tie-adjusted normal approximation, possibly with a continuity correction, or a supported permutation procedure. Record the method and settings. Do not ignore software warnings or assume all implementations use the same defaults.</p>
+<p>The supplied script stops if ties are introduced because its documented example specifically uses the untied exact calculation. This is a teaching guard, not a claim that tied outcomes cannot be analyzed.</p>
 </section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
 </section>
 <section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the companion folders into your repository root:</p>
+<ul>
+<li><a href="data/example/07-completion-times.csv">Synthetic input</a></li>
+<li><a href="scripts/R/07-mann-whitney.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/07-mann-whitney.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All chapter code blocks are non-executable displays. The actual analysis is in the script.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explicit order defines the statistic and effect estimate for A relative to B.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/07-completion-times.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> dat<span class="sc">$</span>minutes[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"A"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> dat<span class="sc">$</span>minutes[dat<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"B"</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(a, b, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">exact =</span> <span class="cn">TRUE</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calculate the directional pairwise effect:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pairwise_scores <span class="ot">&lt;-</span> <span class="fu">outer</span>(a, b, <span class="cf">function</span>(x, y) (x <span class="sc">&gt;</span> y) <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> (x <span class="sc">==</span> y))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>probability_a_higher <span class="ot">&lt;-</span> <span class="fu">mean</span>(pairwise_scores)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rank_biserial_a_higher <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> probability_a_higher <span class="sc">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script writes these outputs when run:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Output</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/07-mann-whitney.csv</code></td>
+<td>Descriptive medians, U statistics, effect estimates, and exact p-value</td>
+</tr>
+<tr class="even">
+<td><code>results/tables/07-pooled-ranks.csv</code></td>
+<td>Input records and their pooled ranks</td>
+</tr>
+<tr class="odd">
+<td><code>results/figures/07-rank-comparison.png</code></td>
+<td>Individual values and empirical cumulative distributions</td>
+</tr>
+</tbody>
+</table>
+<p>Pre-generated R outputs are not included. Generate the files before rendering the figure references below.</p>
+<div id="fig-07-rank-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-07-rank-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/07-rank-comparison.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-07-rank-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Individual completion times and empirical cumulative distributions for independent groups A and B. Lower times indicate faster completion; inspect overlap, shape, and spread before making a location interpretation.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>The input times, in minutes, are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>12, 15, 18, 22, 27, 35, 48, 70</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>20, 25, 30, 38, 45, 55, 80, 110</td>
+</tr>
+</tbody>
+</table>
+<p>Pooling and ranking all 16 values gives A the ranks <strong>1, 2, 3, 5, 7, 9, 12, 14</strong>, whose sum is 53.</p>
+<p><span class="math display">\[
+U_A = 53-\frac{8(8+1)}{2}=17.
+\]</span></p>
+<p>This convention counts A-greater-than-B pairs, with half credit for ties. Its complementary statistic is <span class="math inline">\(U_B=64-17=47\)</span>. Some references report the smaller U, and software labels differ; check the convention rather than comparing statistic names alone.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Participants per group</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>Median A</td>
+<td style="text-align: right;">24.5 minutes</td>
+</tr>
+<tr class="odd">
+<td>Median B</td>
+<td style="text-align: right;">41.5 minutes</td>
+</tr>
+<tr class="even">
+<td>A rank sum</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(U_A\)</span></td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(U_B\)</span></td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="odd">
+<td>Exact two-sided p-value</td>
+<td style="text-align: right;">0.13038</td>
+</tr>
+<tr class="even">
+<td>Estimated <span class="math inline">\(\theta\)</span>, A higher than B</td>
+<td style="text-align: right;">17/64 = 0.265625</td>
+</tr>
+<tr class="odd">
+<td>Rank-biserial effect, A-higher convention</td>
+<td style="text-align: right;">-0.46875</td>
+</tr>
+</tbody>
+</table>
+<p>Base R labels its shifted two-sample rank-sum statistic <strong>W</strong>; for this call it equals the <span class="math inline">\(U_A\)</span> defined above, 17. It is not the unshifted rank sum of 53.</p>
+<p>A exceeds B in 17 of the 64 cross-group comparisons. Equivalently, A is lower in 47/64, about 73.4%, of these comparisons because there are no ties. These comparisons share participants and are not 64 independent observations.</p>
+<p>The sample tends toward lower times in A, but the exact p-value does not provide strong evidence against equal distributions. This does not establish equality or equivalence. The reported medians are descriptive and do not turn the test into a median test.</p>
+<p>The rank-biserial value is a directional point estimate, calculated here as <span class="math inline">\(2\hat\theta-1\)</span>. We do not provide a confidence interval for it in this introductory example. Avoid treating its magnitude as precisely known with eight participants per group.</p>
+<section id="location-estimates-require-care" class="level3">
+<h3 class="anchored" data-anchor-id="location-estimates-require-care">Location estimates require care</h3>
+<p>For numerical data, some software can estimate a location shift using the median of all cross-group differences, commonly called a Hodges–Lehmann estimate. This is not generally the difference between the two sample medians. A shift interpretation and its interval require appropriate model conditions. This chapter deliberately reports the rank-based probability estimate without asserting a common-shape shift model.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Compare task completion times from two independent groups using the supplied CSV. Explain the Mann–Whitney U test with an exact two-sided p-value for these untied observations. Define U for A as the number of A-greater-than-B comparisons and check it against R’s reported W. Explain the directional probability estimate, ties, and why the test is not automatically a test of medians. Do not interpret the 64 pairwise comparisons as 64 independent participants.</p>
+</blockquote>
+<p>Verify that the response preserves eight participants per group, distinguishes rank sum 53 from U=17, reports the exact p-value, and explains that lower times indicate faster completion.</p>
+<p>If an AI tool says “A’s median is significantly lower,” check both the p-value and whether the necessary location-model assumptions support that interpretation.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In this synthetic example, completion times had medians of 24.5 minutes in A and 41.5 minutes in B, with eight independent participants per group. A two-sided exact Mann–Whitney test yielded <span class="math inline">\(U_A=17\)</span> and <span class="math inline">\(p=0.1304\)</span>. The estimated probability of an A time exceeding a B time was 0.266, indicating a sample tendency toward shorter times in A. The small sample provides limited evidence against equal distributions; the result does not establish equivalence, a median-specific difference, or a causal group effect.</p>
+</blockquote>
+<p>For an applied report, describe sampling, missingness, ties, distributional plots, and the p-value method used.</p>
 </section>
 <section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Describing every rank-sum test as a median test</td>
+<td>State the null and justify any location interpretation</td>
+</tr>
+<tr class="even">
+<td>Assuming nonparametric means assumption-free</td>
+<td>Check independence, measurement, and null calibration</td>
+</tr>
+<tr class="odd">
+<td>Confusing W, rank sum, and U</td>
+<td>State the software’s convention and verify the calculation</td>
+</tr>
+<tr class="even">
+<td>Using the exact untied method after adding ties</td>
+<td>Choose and document a procedure that handles ties</td>
+</tr>
+<tr class="odd">
+<td>Interpreting lower times as worse outcomes</td>
+<td>Connect the direction to the outcome’s meaning</td>
+</tr>
+<tr class="even">
+<td>Treating p &gt; 0.05 as proof of equality</td>
+<td>Report uncertainty and the limits of the sample</td>
+</tr>
+</tbody>
+</table>
+<p>Use Welch’s method when the target is an arithmetic mean difference and its conditions are defensible. For inference specifically about a probability-of-superiority parameter with unequal shapes or spreads, consider a method designed for that target, such as a suitable Brunner–Munzel procedure. For paired data, use an appropriate paired method. A change of method must follow the question and design rather than a search for significance.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>Two groups have the same median but different spreads. An AI response says a Mann–Whitney test must give a large p-value because the medians match.</p>
+<p>Is that reasoning sufficient?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No.&nbsp;Equal medians do not imply identical distributions or determine a rank-sum p-value. The result depends on the full observed ordering and the sampling distribution of the statistic. Conversely, the rank-sum test is not guaranteed to detect every spread difference. Inspect the distributions and state the inferential target before interpreting the result.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./08-wilcoxon-signed-rank.html">Wilcoxon Signed-Rank Test</a> for a paired rank-based analysis.</p>
 
 
 </section>

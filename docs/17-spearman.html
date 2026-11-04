@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a>
+  <ul class="collapse">
+  <li><a href="#a-shortcut-with-limits" id="toc-a-shortcut-with-limits" class="nav-link" data-scroll-target="#a-shortcut-with-limits">A shortcut with limits</a></li>
+  </ul></li>
+  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">4. Check before running</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a>
+  <ul class="collapse">
+  <li><a href="#p-value-settings" id="toc-p-value-settings" class="nav-link" data-scroll-target="#p-value-settings">P-value settings</a></li>
+  </ul></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
+  <li><a href="#read-the-generated-figure" id="toc-read-the-generated-figure" class="nav-link" data-scroll-target="#read-the-generated-figure">Read the generated figure</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +433,240 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-017</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Estimate monotonic association using ranks, handle ties explicitly, and distinguish the coefficient from its inferential assumptions</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Do learners with more practice sessions tend to have higher assessment scores?</p>
+</blockquote>
+<p>Twelve independent synthetic learners each contribute a practice-session count and a score. Two learners report two sessions, and two report four sessions. These repeated values are <strong>ties</strong>, not duplicate participants.</p>
+<p>The target is a rank-based association between practice and score. It is not a score increase per session or a causal effect of practice.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Spearman correlation is Pearson correlation calculated on the ranks of two variables. It describes monotonic association: as one variable increases, the other tends consistently upward or downward, without requiring a straight-line relationship on the original scale.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monotonic association for numerical or ordered variables</td>
+<td>Spearman correlation</td>
+</tr>
+<tr class="even">
+<td>Linear association on original numerical scales</td>
+<td><a href="./16-pearson.html">Pearson correlation</a></td>
+</tr>
+<tr class="odd">
+<td>Outcome change in units per predictor unit</td>
+<td><a href="./18-linear-regression.html">Linear regression</a>, with an appropriate model</td>
+</tr>
+<tr class="even">
+<td>Agreement between measurements</td>
+<td>An agreement method, not correlation alone</td>
+</tr>
+</tbody>
+</table>
+<p>Monotonic does not mean every observation must follow the same ordering. Sampling variation and measurement noise can produce reversals.</p>
+<p>Spearman can miss strong nonmonotonic relationships, such as a U-shaped pattern. It does not automatically solve clustering, confounding, missing-data bias, or influential observations.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>The sample coefficient is:</p>
+<p><span class="math display">\[
+r_s=\operatorname{cor}(\operatorname{rank}(X),\operatorname{rank}(Y)).
+\]</span></p>
+<p>Assign average ranks to tied values. The coefficient ranges from -1 to +1 when both rank vectors have nonzero variation. It is unitless and unchanged when the variables are swapped.</p>
+<p>For continuous variables, population Spearman correlation can be defined as the correlation between their population cumulative-distribution transforms. With discrete or ordered variables, tie conventions matter to the corresponding rank-based target.</p>
+<p>The conventional two-sided test is described as testing zero population Spearman correlation against a nonzero value. Its p-value calibration requires suitable independent observations and distributional or null assumptions. Exact permutation calibration is justified under an independence/exchangeability null; zero rank correlation alone is not equivalent to independence and does not justify arbitrary permutation under every dependent distribution.</p>
+<section id="a-shortcut-with-limits" class="level3">
+<h3 class="anchored" data-anchor-id="a-shortcut-with-limits">A shortcut with limits</h3>
+<p>Without ties, the familiar identity is:</p>
+<p><span class="math display">\[
+r_s=1-\frac{6\sum_i d_i^2}{n(n^2-1)},
+\]</span></p>
+<p>where <span class="math inline">\(d_i\)</span> is the difference between each observation’s two ranks. Do not apply this shortcut unchanged to tied data. Compute Pearson correlation of the average ranks instead.</p>
+</section>
+</section>
+<section id="check-before-running" class="level2">
+<h2 class="anchored" data-anchor-id="check-before-running">4. Check before running</h2>
+<p>Verify IDs and row alignment, meaningful ordering, missing values, and nonconstant variables. Never independently sort the two columns. A learner’s practice count must remain linked to that learner’s score.</p>
+<p>Inspect a scatterplot on the original scales. Look for monotonic patterns, subgroups, ceiling effects, restricted ranges, and influential observations. A rank plot can help reveal how the coefficient arises, but it does not replace the original-scale plot.</p>
+<p>Rank-based measures require meaningful order, not equal intervals between ordinal categories. Code category order explicitly and justify it. For example, alphabetical ordering of Low, Medium, High would give the wrong ranks.</p>
+<p>Many ties reduce the available ordering information and can affect attainable correlations and inference. Constant variables make the coefficient undefined. Missing values require an explicit strategy; complete-pair deletion can bias the analysis when missingness is informative.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the supplied files into the repository root:</p>
+<ul>
+<li><a href="data/example/17-practice-scores.csv">Synthetic practice and score data</a></li>
+<li><a href="scripts/R/17-spearman.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/17-spearman.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All code blocks here are non-executable displays. The actual calculations and exports are in the script.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tied counts are handled using average ranks.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/17-practice-scores.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(dat<span class="sc">$</span>practice_sessions, dat<span class="sc">$</span>score, <span class="at">method =</span> <span class="st">"spearman"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">exact =</span> <span class="cn">FALSE</span>, <span class="at">continuity =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Verify the coefficient directly:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>practice_rank <span class="ot">&lt;-</span> <span class="fu">rank</span>(dat<span class="sc">$</span>practice_sessions, <span class="at">ties.method =</span> <span class="st">"average"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>score_rank <span class="ot">&lt;-</span> <span class="fu">rank</span>(dat<span class="sc">$</span>score, <span class="at">ties.method =</span> <span class="st">"average"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(practice_rank, score_rank, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script exports <code>results/tables/17-spearman.csv</code>, <code>results/tables/17-ranks.csv</code>, and <code>results/figures/17-spearman-scatter.png</code>. These are generated by R, not by Quarto. Generate the figure file before rendering this chapter.</p>
+<section id="p-value-settings" class="level3">
+<h3 class="anchored" data-anchor-id="p-value-settings">P-value settings</h3>
+<p>We explicitly use <code>exact = FALSE</code> and <code>continuity = FALSE</code> because this example has ties and uses R’s asymptotic t approximation. The coefficient is calculated from ranks; the small p-value is an <strong>approximation</strong>, not an exact permutation result.</p>
+<p>At n=12, approximation quality needs caution even when the numerical result looks decisive. For a small applied study, consider a suitable permutation calculation under a defensible independence null. Preserve pairs while permuting one variable relative to the other, and respect any sampling or design restrictions. Report simulation settings and uncertainty if the permutation distribution is sampled rather than fully enumerated.</p>
+<div id="fig-17-spearman-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-17-spearman-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/17-spearman-scatter.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-17-spearman-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: Original measurements and their average ranks. Tied practice counts share horizontal ranks; the original-scale panel retains the practical meaning of score and session differences.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>The practice values are:</p>
+<p><strong>1, 2, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10.</strong></p>
+<p>Their average ranks are:</p>
+<p><strong>1, 2.5, 2.5, 4, 5.5, 5.5, 7, 8, 9, 10, 11, 12.</strong></p>
+<p>The tied twos occupy ranks 2 and 3, giving each rank 2.5. The tied fours occupy ranks 5 and 6, giving each rank 5.5.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value, rounded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent learners</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>Spearman coefficient</td>
+<td style="text-align: right;">0.961409</td>
+</tr>
+<tr class="odd">
+<td>Asymptotic two-sided p-value, no continuity correction</td>
+<td style="text-align: right;">0.0000006317</td>
+</tr>
+</tbody>
+</table>
+<p>The sample shows a pronounced positive rank association. Learners with more sessions tend to have higher scores. That does not establish a particular score gain per session or that all learner pairs follow the pattern.</p>
+<p>Base R may print a statistic labeled <strong>S</strong>. With ties, do not automatically interpret that number as the uncorrected sum of squared rank differences from the no-ties shortcut. Verify the coefficient from the actual average ranks and record the software’s calculation convention.</p>
+<section id="confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h3>
+<p>Base R’s <code>cor.test()</code> does not provide a Spearman confidence interval in this example. Do not copy a Pearson Fisher-z interval and label it as a Spearman interval without justification.</p>
+<p>A suitable paired-observation bootstrap can estimate uncertainty under independent sampling, but small samples, ties, and degenerate resamples complicate coverage. This introductory script does not implement an interval. Report that limitation rather than inventing precision from the p-value.</p>
+</section>
+<section id="read-the-generated-figure" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-generated-figure">Read the generated figure</h3>
+<p>The first panel shows sessions and scores in their original units. The second shows average ranks. Tied counts produce shared horizontal ranks. Interpret the original-scale pattern alongside the coefficient; the rank plot alone cannot reveal the practical size of score differences.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Calculate Spearman correlation from the supplied 12 synthetic learners, preserving row alignment. Show average ranks for tied practice counts and verify the coefficient as Pearson correlation of those ranks. Use and label the specified asymptotic p-value without continuity correction. Explain the small-sample limitation, why a no-ties shortcut is unsuitable, and why an independence permutation null differs from only zero correlation. Do not invent a confidence interval or a causal score gain per session.</p>
+</blockquote>
+<p>Check n=12, ranks 2.5 and 5.5 for the tied values, a positive coefficient near 0.9614, and explicit labeling of the approximate p-value. A response claiming an exact result despite the specified approximation needs correction.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>Among 12 synthetic independent learner observations, practice-session counts and assessment scores showed a positive rank association, Spearman r_s=0.961. Using average ranks for ties and an asymptotic two-sided test without continuity correction gave approximate p=0.000000632. No confidence interval was calculated. The small sample and tied practice counts limit inferential precision, and the association does not establish a causal effect of practice.</p>
+</blockquote>
+<p>For an applied report, add sampling, missing-data handling, the observed plot pattern, subgroup structure, and a justified uncertainty procedure when available.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Applying the no-ties shortcut unchanged</td>
+<td>Correlate average ranks</td>
+</tr>
+<tr class="even">
+<td>Ranking ordinal categories alphabetically</td>
+<td>Define their meaningful order</td>
+</tr>
+<tr class="odd">
+<td>Treating nonparametric as assumption-free</td>
+<td>Check independence, ordering, and inferential calibration</td>
+</tr>
+<tr class="even">
+<td>Calling the asymptotic p-value exact</td>
+<td>State the actual calculation</td>
+</tr>
+<tr class="odd">
+<td>Concluding no relationship from r_s near zero</td>
+<td>Inspect for nonmonotonic patterns</td>
+</tr>
+<tr class="even">
+<td>Calling the coefficient points per session</td>
+<td>Use a suitable regression model for a units-based question</td>
+</tr>
+</tbody>
+</table>
+<p>Kendall’s tau is another rank-based association measure with its own interpretation and tie handling. Regression can address a conditional relationship or adjustment variables under a specified model. Repeated measurements need dependence-aware methods; ranks alone do not provide that adjustment.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>An AI tool ranks two tied practice counts as 2 and 3, based on their row order, then calculates Spearman correlation.</p>
+<p>What should change?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Equal values should receive the same average rank, 2.5, for the standard Spearman calculation. Breaking ties by arbitrary row order introduces unsupported ordering and can change the coefficient. Preserve the pairing and correlate the average-rank vectors.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>How strong is the monotonic association between two variables?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./18-linear-regression.html">Linear Regression</a> to estimate relationships in outcome units and introduce adjustment for additional predictors.</p>
 
 
 </section>

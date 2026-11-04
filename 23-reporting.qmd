@@ -1,43 +1,189 @@
 # Reporting Statistical Findings
 
-::: {.callout-note}
-## Chapter status
-Outline only. Worked examples, references, and review are still required.
+::: {.cdi-message}
+- **ID:** STATS-023
+- **Type:** Reporting reference
+- **Audience:** Beginner to intermediate learners, researchers, and analysts
+- **Theme:** Present estimates, uncertainty, methods, and limitations in a clear account that readers can trace to the analysis
 :::
 
-## Your question
+## 1. Your task
 
-How can estimates, uncertainty, and limitations answer the question?
+> Explain what the analysis found, how it was obtained, and what it does not establish.
 
-## When to use this method
+A statistical report should answer the original question. Readers need the size and direction of the finding, its uncertainty, the relevant design and methods, and the limits of interpretation.
 
-*To develop:* Describe the outcome, sampling unit, and eligible study designs.
+This chapter reuses Chapter 05's synthetic independent-group scores to demonstrate a reproducible reporting workflow. It introduces no new statistical test.
 
-## What it estimates or tests
+## 2. Start with an evidence summary
 
-*To develop:* Define the target quantity and null and alternative hypotheses where relevant.
+Before writing, assemble the information needed to support the claim.
 
-## Check before running
+| Element | What to record |
+|---|---|
+| Question | Population, outcome, comparison, and target quantity |
+| Design | Independent, paired, repeated, clustered, or another structure |
+| Data | Source, units, sample sizes, exclusions, and missingness |
+| Method | Test or model, alternatives, reference categories, and key assumptions |
+| Estimate | Magnitude, direction, and meaningful units |
+| Uncertainty | Interval level and construction; test result when relevant |
+| Diagnostics | Checks performed, findings, and consequential problems |
+| Multiplicity | Family, adjustment, and planned versus exploratory analyses |
+| Limitations | Bias, confounding, imprecision, generalizability, and design restrictions |
+| Reproducibility | Input version, script, software environment, and output paths |
 
-*To develop:* Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.
+Do not invent missing design details to make a paragraph sound complete. Mark unresolved facts and investigate them before applied reporting.
 
-## Run the analysis
+## 3. Use a short results structure
 
-*To develop:* Add a reproducible example linked to a chapter script and input dataset.
+A useful sequence is:
 
-## Understand the output
+1. Describe the analyzed sample and relevant group summaries.
+2. State the estimate and its direction in units the reader understands.
+3. Report an appropriate interval and, where relevant, the test statistic and p-value.
+4. Answer the question with uncertainty and design limitations.
 
-*To develop:* Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.
+A general writing template is:
 
-## Report the finding
+> Among [analyzed units], [descriptive summary]. The estimated [target quantity], defined as [direction], was [estimate and units] ([interval level and method] CI [limits]). [Specified test or model] yielded [statistic, degrees of freedom if applicable, p-value and adjustment status]. These results [careful answer], with limitations from [relevant issues].
 
-*To develop:* Write an answer tied to the original question, with units and limitations.
+Adapt the template to the actual method. An exact test may have no familiar t statistic or degrees of freedom to report. Do not force every analysis into identical fields.
 
-## Common mistakes and alternatives
+## 4. Worked reporting example
 
-*To develop:* Explain when the method does not answer the question and identify suitable alternatives.
+| Quantity | Synthetic result |
+|---|---:|
+| Group A | n=20; mean 69.30; SD 6.97 |
+| Group B | n=20; mean 74.10; SD 13.96 |
+| Mean difference, A minus B | -4.80 points |
+| 95% Welch confidence interval | -11.95 to 2.35 points |
+| Welch t statistic | -1.376 |
+| Approximate df | 27.91 |
+| Two-sided p-value | 0.1798 |
 
-## References
+A suitable results paragraph is:
 
-*To develop:* Add authoritative method and software references when developing this chapter.
+> In the synthetic example, mean assessment scores were 69.30 points (SD 6.97, n=20) in A and 74.10 points (SD 13.96, n=20) in B. The estimated mean difference, A minus B, was -4.80 points (95% Welch CI -11.95 to 2.35). A two-sided Welch t-test gave t(27.91)=-1.38, p=0.1798. The interval includes zero and potentially important differences; these results do not establish equivalence or a causal group effect.
 
+For a less technical audience:
+
+> The sample mean was 4.8 points lower in A than in B. The uncertainty interval ranged from about 12 points lower to 2.3 points higher. The data do not give a precise answer about the population difference, and this comparison alone does not show that either approach caused a change in scores.
+
+These paragraphs summarize a teaching calculation. A real report must include the actual sampling process, diagnostic findings, missing-data handling, and relevant study context.
+
+## 5. Separate methods, results, and interpretation
+
+| Section | Purpose | Example content |
+|---|---|---|
+| Methods | Explain what was planned and done | Independent-unit design, outcome definition, Welch test, interval level, missingness strategy |
+| Results | Present observed summaries and estimates | Group means, A-minus-B difference, interval, and p-value |
+| Discussion | Explain meaning and limitations | Practical importance, uncertainty, possible bias, and scope of claims |
+
+Record departures from the plan and why they occurred. Label exploratory findings and sensitivity analyses. Do not rewrite the methods as if an outcome-driven decision had been prespecified.
+
+## 6. Report numbers consistently
+
+Use enough precision to support interpretation without implying unrealistic accuracy. Keep units and comparison direction consistent across text, tables, code, and figures.
+
+- Report an SD for individual variation and an SE or interval for estimate uncertainty; do not interchange them.
+- State whether an interval is ordinary, simultaneous, bootstrap, Wald, exact conditional, or another construction.
+- Label adjusted p-values with the method and comparison family.
+- Avoid p=0.000. Use suitable scientific notation or a clearly stated reporting threshold.
+- Distinguish percentage points from relative percentage changes.
+- Distinguish odds ratios, proportion ratios, and absolute differences.
+
+A 95% confidence interval describes the long-run performance of its procedure under assumptions. It does not generally assign a 95% probability to the fixed parameter lying within the observed interval.
+
+## 7. Choose language that matches the evidence
+
+| Avoid | More defensible wording |
+|---|---|
+| “There was no difference” solely because p > 0.05 | “The interval includes zero and differences that may matter; the estimate is uncertain” |
+| “The result proves the intervention works” | “The result supports [specific claim] under the design and analysis assumptions” |
+| “X causes Y” from an observational association | “X was associated with Y,” with potential confounding explained |
+| “The result was significant,” with no magnitude | Report the estimate, interval, and practical context |
+| “The groups are equivalent” after a nonsignificant ordinary test | Explain that equivalence needs a justified margin and appropriate procedure |
+| “AI verified the result” | Describe the checks actually performed by the analyst and software |
+
+A small p-value does not establish a large or useful difference. A large p-value does not establish absence. Keep the estimate, uncertainty, and decision context together.
+
+## 8. Make figures and tables interpretable
+
+Use figures when they clarify distributions, relationships, or uncertainty. Show individual observations where suitable, preserve pairing visually when relevant, and state units and denominators.
+
+For interval plots, explain what the dot and interval represent. Distinguish mean confidence intervals from individual prediction intervals. Avoid significance stars as the only explanation of evidence.
+
+A table should identify the sample or denominator, estimate, direction, interval construction, and adjustment status. State whether descriptive summaries use all available observations or the same analysis sample as the inferential result.
+
+## 9. Reproduce the reporting example
+
+Copy these companion files into the repository root:
+
+- [Synthetic input](data/example/23-reporting-scores.csv)
+- [Complete base R script](scripts/R/23-reporting.R)
+- [Reusable reporting template](23-reporting-template.md)
+
+```bash
+Rscript scripts/R/23-reporting.R
+```
+
+All code blocks are non-executable displays. The actual calculations and exports are in the script.
+
+```r
+# Recalculate the numeric evidence rather than copying rounded values by hand.
+fit <- t.test(a, b, var.equal = FALSE, alternative = "two.sided",
+              conf.level = 0.95)
+mean(a) - mean(b)
+fit$conf.int
+fit$p.value
+```
+
+The full script reads and checks the input before defining `a` and `b`. It generates:
+
+| Output | Purpose |
+|---|---|
+| `results/tables/23-reporting-evidence.csv` | Unrounded numeric evidence for text and tables |
+| `results/reports/23-finding-draft.md` | Draft paragraph calculated from the analysis |
+| `results/reports/23-session-info.txt` | R and package environment information |
+| `results/reports/23-input-checksum.csv` | Input MD5 fingerprint for accidental-change tracking |
+
+A checksum helps identify whether file bytes changed; it does not verify data accuracy or replace access controls and provenance. Keep original inputs and analysis decisions alongside the scripts.
+
+Pre-generated R outputs are not included or required for chapter rendering. Review the generated paragraph before publication; software cannot infer unrecorded design details or substantive limitations.
+
+## 10. Use AI and check the draft
+
+> Using only the supplied evidence table and verified study notes, draft a concise methods description and results paragraph. Preserve the A-minus-B direction, units, sample sizes, interval method, and p-value. Separate observed findings from interpretation. Identify missing facts instead of inventing them. Do not turn a nonsignificant test into equivalence or an association into causation. List every numerical statement so I can check it against the exported results.
+
+Check every number against the saved output, every claim against the design, and every reference against its actual source. Keep track of consequential AI suggestions and revisions. Follow applicable institutional or publication requirements for disclosing AI assistance.
+
+Use synthetic data or authorized de-identified summaries when seeking drafting help. A fluent paragraph is not evidence that the underlying calculation or claim is correct.
+
+## 11. Review before sharing
+
+Ask yourself:
+
+1. Can the reader identify the question and independent unit?
+2. Are estimates, units, direction, and uncertainty correct?
+3. Are missingness, exclusions, and analysis changes documented?
+4. Are assumptions and diagnostic findings described accurately?
+5. Is multiplicity handled and labeled where relevant?
+6. Does the interpretation distinguish association, prediction, and causation?
+7. Can another person trace the paragraph to the inputs, script, and outputs?
+
+Resolve discrepancies between figures, tables, and text before sharing. Preserve the exact output version used in the report.
+
+## 12. Check your understanding
+
+An AI draft changes “A minus B was -4.80 points” to “A improved scores by 4.80 points compared with B.”
+
+Which claims changed?
+
+::: {.callout-note collapse="true"}
+## Check your reasoning
+The draft reverses the direction: the original estimate indicates a lower mean in A. It also introduces improvement over time and a causal effect, neither established by this independent-group comparison. Restore the signed estimate, interval, and design-appropriate wording.
+:::
+
+## Next step
+
+Use [Appendices and References](99-appendices.qmd) for a method chooser, terminology, and supporting references. Return to the relevant method chapter whenever a reporting claim depends on its assumptions.

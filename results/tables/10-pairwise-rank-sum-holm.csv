@@ -1,0 +1,4 @@
+"comparison","U_first_group","method","p_unadjusted","p_holm"
+"A versus B",17,"exact",0.13038073038073,0.13038073038073
+"A versus C",4,"exact",0.00186480186480186,0.00559440559440559
+"B versus C",13,"exact",0.0498834498834499,0.0997668997668998

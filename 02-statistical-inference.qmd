@@ -1,43 +1,240 @@
 # Understanding Statistical Inference
 
-::: {.callout-note}
-## Chapter status
-Outline only. Worked examples, references, and review are still required.
+::: {.cdi-message}
+- **ID:** STATS-002
+- **Type:** Reference guide
+- **Audience:** Beginner to intermediate learners, researchers, and analysts
+- **Theme:** Explain estimates, uncertainty, hypotheses, and statistical evidence, including checks for AI-assisted interpretations
 :::
 
-## Your question
+A sample gives us information about a larger population, but another sample would usually produce a different result. **Statistical inference** uses data and assumptions to estimate population quantities and assess uncertainty.
 
-Distinguish estimates, confidence intervals, effect sizes, and p-values.
+This chapter helps you distinguish the size of a finding from the strength of evidence against a statistical hypothesis.
 
-## When to use this method
+## 1. Your question
 
-*To develop:* Describe the outcome, sampling unit, and eligible study designs.
+> What is the mean assessment score among learners in a training program, and how precisely can we estimate it?
 
-## What it estimates or tests
+We observe scores for a sample of learners. The sample mean is available to calculate; the population mean is the unknown quantity we want to estimate.
 
-*To develop:* Define the target quantity and null and alternative hypotheses where relevant.
+| Term | Meaning | Training example |
+|---|---|---|
+| Population | The group the question concerns | All eligible learners in the program |
+| Sample | The units actually observed | The learners whose scores we collect |
+| Parameter | A population quantity | Population mean assessment score |
+| Statistic | A quantity calculated from a sample | Sample mean assessment score |
+| Estimate | A statistic used to approximate a parameter | Sample mean used to estimate population mean |
 
-## Check before running
+Inference depends on how the sample was obtained. A narrow confidence interval cannot correct a biased sample or an inappropriate design.
 
-*To develop:* Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.
+## 2. Start with the estimate
 
-## Run the analysis
+An estimate answers **“How much?”** Examples include:
 
-*To develop:* Add a reproducible example linked to a chapter script and input dataset.
+- A mean score of 72 points.
+- A mean difference of 5 points between groups.
+- A pass proportion of 0.80, or 80%.
+- A difference in pass proportions of 0.10, or 10 percentage points.
 
-## Understand the output
+State the direction and units. For a comparison defined as A minus B, a positive mean difference means A has the higher estimated mean.
 
-*To develop:* Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.
+An **effect size** describes the magnitude of a difference or relationship. It may be expressed in the original units, such as score points, or on a standardized scale. Original units often make practical meaning easier to judge.
 
-## Report the finding
+## 3. Distinguish spread from precision
 
-*To develop:* Write an answer tied to the original question, with units and limitations.
+**Standard deviation (SD)** describes variation among individual observations. **Standard error (SE)** describes the sampling variability of an estimator under the assumed design and model.
 
-## Common mistakes and alternatives
+For the mean of independent observations with a common finite variance, the usual estimated SE is:
 
-*To develop:* Explain when the method does not answer the question and identify suitable alternatives.
+$$
+SE(\bar{x}) = \frac{s}{\sqrt{n}}
+$$
 
-## References
+Here, $s$ is the sample SD and $n$ is the sample size. This simple formula is not appropriate for every design, such as unaccounted repeated measurements or clustering.
 
-*To develop:* Add authoritative method and software references when developing this chapter.
+If the SD stays similar, collecting more independent observations generally reduces the SE. It does not necessarily reduce the variation among individuals.
 
+::: {.callout-note}
+## More rows do not always mean more independent information
+Ten measurements from each of ten learners are not equivalent to one measurement from each of 100 independent learners. The analysis must account for the relationship among measurements.
+:::
+
+## 4. Understand a confidence interval
+
+A confidence interval combines an estimate with uncertainty calculated using a specified procedure.
+
+For a population mean, the usual one-sample t interval is:
+
+$$
+\bar{x} \pm t_{0.975,\,n-1}\frac{s}{\sqrt{n}}
+$$
+
+The multiplier is a t-distribution critical value for a two-sided 95% interval. Its suitability depends on the design and distributional conditions. The method chapters explain these conditions in context.
+
+### Worked example
+
+Suppose a synthetic sample has:
+
+| Quantity | Value |
+|---|---:|
+| Independent learners | 25 |
+| Sample mean | 72 points |
+| Sample SD | 10 points |
+| Estimated SE | 2 points |
+| t critical value, 24 degrees of freedom | Approximately 2.064 |
+
+The interval is:
+
+$$
+72 \pm 2.064 \times 2 \approx [67.87,\;76.13]
+$$
+
+We estimate the population mean as **72 points**, with a **95% confidence interval from approximately 67.87 to 76.13 points**.
+
+The 95% describes the long-run coverage of the procedure: under its assumptions, intervals calculated from repeated samples would contain the fixed population mean about 95% of the time.
+
+It does **not** mean that 95% of individual learners score within this interval. It also does not assign a 95% probability to the fixed population mean lying inside this particular observed interval.
+
+### Verify the calculation in R
+
+This code uses summary statistics for illustration. It does not check the underlying scores or study design.
+
+The following blocks display excerpts from [the complete R script](scripts/R/02-statistical-inference.R). Quarto does not execute them. Copy the script into `scripts/R/` and run it from the repository root:
+
+```bash
+Rscript scripts/R/02-statistical-inference.R
+```
+
+The script uses base R and prints both the confidence interval and the test result. No additional R packages are required.
+
+```r
+# Summary statistics for the synthetic example.
+n <- 25
+sample_mean <- 72
+sample_sd <- 10
+
+# Estimate precision and calculate the t-based interval.
+standard_error <- sample_sd / sqrt(n)
+critical_value <- qt(0.975, df = n - 1)
+margin <- critical_value * standard_error
+
+c(
+  mean = sample_mean,
+  standard_error = standard_error,
+  lower_95 = sample_mean - margin,
+  upper_95 = sample_mean + margin
+)
+```
+
+**Expected output, rounded:** mean = 72; SE = 2; lower limit = 67.87; upper limit = 76.13.
+
+The code is displayed for you to run in R; rendering this chapter does not execute it.
+
+## 5. State the hypotheses
+
+Suppose the reference mean score is 70 points. A two-sided test asks whether the population mean differs from that value.
+
+- **Null hypothesis ($H_0$):** The population mean equals 70 points.
+- **Alternative hypothesis ($H_1$):** The population mean differs from 70 points.
+
+The hypotheses concern the population parameter. The observed sample mean need not equal the reference value even when the null hypothesis is true.
+
+Choose a one-sided alternative only when it is justified by the question and specified before inspecting the results. Do not switch direction after seeing the data.
+
+## 6. Interpret the p-value
+
+A **p-value** is the probability, under the null hypothesis and the test's other assumptions, of a test statistic at least as extreme as the observed statistic in the direction or directions specified by the test.
+
+In the synthetic example:
+
+$$
+t = \frac{72 - 70}{2} = 1
+$$
+
+For a two-sided one-sample t-test with 24 degrees of freedom, the p-value is approximately **0.327**.
+
+```r
+# Run after the preceding summary-statistic code.
+reference_mean <- 70
+
+t_statistic <- (sample_mean - reference_mean) / standard_error
+p_value <- 2 * pt(-abs(t_statistic), df = n - 1)
+
+c(t = t_statistic, df = n - 1, p_value = p_value)
+```
+
+This result does not provide strong evidence against a population mean of 70 under the test assumptions. The 95% confidence interval also includes 70.
+
+| A p-value does not tell you… | What to examine instead |
+|---|---|
+| The probability that the null hypothesis is true | The test assumptions and broader evidence; hypothesis probabilities require a different inferential framework |
+| The probability that the result occurred “by chance” | The specific probability defined under the null model |
+| How large or useful the effect is | The estimate, units, uncertainty, and practical context |
+| Whether the study design establishes causation | Sampling, assignment, confounding, and other design features |
+| Whether a large p-value proves no effect | The interval and whether important effects remain compatible with the data and model |
+
+## 7. Understand thresholds and errors
+
+A significance level, often written $\alpha$, is a threshold specified for a testing procedure. A common choice is 0.05, but its appropriateness depends on the purpose and consequences of the decision.
+
+| Concept | Meaning |
+|---|---|
+| Type I error | Rejecting a true null hypothesis |
+| Type II error | Failing to reject a false null hypothesis |
+| Power | Probability of rejecting the null for a specified alternative, design, and test |
+
+For a valid test, the significance level controls the Type I error rate under its assumptions. It is not the probability that a particular reported finding is false.
+
+A p-value of 0.049 and one of 0.051 provide very similar evidence. Avoid making sharply different scientific claims solely because they fall on different sides of a threshold.
+
+For matching two-sided tests and confidence intervals constructed using the same method, a 95% interval excluding the null value corresponds to rejection at the 0.05 level. This correspondence need not hold when methods, adjustments, or alternatives differ.
+
+## 8. Separate statistical and practical importance
+
+Suppose a comparison estimates a mean score difference of 0.4 points, with a 95% confidence interval from 0.2 to 0.6 points. The interval excludes zero, but a difference this small may have little practical value.
+
+Another comparison estimates 5 points, with an interval from -1 to 11 points. That interval includes zero and potentially important positive differences. The result is uncertain; it does not establish no difference.
+
+Define a meaningful difference using the subject area, measurement scale, costs, and intended decision. Specify it before examining results where possible. Establishing equivalence requires a suitable design and analysis; an ordinary nonsignificant test is insufficient.
+
+## 9. Use AI and check its suggestions
+
+### Example prompt
+
+> A synthetic sample of 25 independent learners has a mean score of 72 and a sample SD of 10. The reference population mean is 70. Explain the SE, a two-sided 95% t confidence interval, and the two-sided one-sample t-test p-value. State the assumptions that cannot be checked from these summaries. Distinguish uncertainty about the population mean from variation among learner scores. Do not describe the p-value as the probability that the null hypothesis is true.
+
+### Verify before using the explanation
+
+- Recalculate the SE: $10 / \sqrt{25} = 2$.
+- Check the degrees of freedom: $25 - 1 = 24$.
+- Check that the interval is centered on 72 and includes 70.
+- Check that the test statistic is 1 and the two-sided p-value is approximately 0.327.
+- Check that the interpretation addresses the population mean, not individual scores.
+- Ask which design and distributional assumptions remain unverified.
+
+AI-generated precision is not evidence of correctness. Verify numbers and wording against the calculation and the method's definition.
+
+## 10. Report the finding
+
+For this teaching example:
+
+> In the synthetic sample of 25 learners, the mean assessment score was 72 points (SD 10). The estimated population mean had a 95% t confidence interval of 67.87 to 76.13 points. A two-sided one-sample t-test against 70 points yielded $t(24)=1.00$, $p=0.327$. These data provide limited evidence against the reference mean under the test assumptions. The summary statistics alone do not allow assessment of sampling quality, independence, or unusual observations.
+
+Keep the estimate and uncertainty central. Avoid reducing the report to “significant” or “not significant.”
+
+## 11. Check your understanding
+
+A report states:
+
+> The p-value was 0.18, so there is an 18% probability that no difference exists.
+
+What is wrong with this interpretation? What additional results would you request?
+
+::: {.callout-note collapse="true"}
+## Check your reasoning
+A p-value is calculated assuming the null hypothesis and the test's other assumptions. It does not give the probability that the null is true. Request the estimated difference, confidence interval, units, sample sizes, design, and relevant assumption checks. These help assess the magnitude, precision, and limitations of the finding.
+:::
+
+## Next step
+
+Continue to [Checking Data and Assumptions](03-data-and-assumptions.qmd). Before trusting an inference, inspect the inputs and understand how the observations were collected.

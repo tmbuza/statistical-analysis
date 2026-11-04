@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-the-pairing-and-assumptions" id="toc-check-the-pairing-and-assumptions" class="nav-link" data-scroll-target="#check-the-pairing-and-assumptions">4. Check the pairing and assumptions</a>
+  <ul class="collapse">
+  <li><a href="#preserve-identities" id="toc-preserve-identities" class="nav-link" data-scroll-target="#preserve-identities">Preserve identities</a></li>
+  <li><a href="#missing-measurements" id="toc-missing-measurements" class="nav-link" data-scroll-target="#missing-measurements">Missing measurements</a></li>
+  </ul></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#read-the-generated-plot" id="toc-read-the-generated-plot" class="nav-link" data-scroll-target="#read-the-generated-plot">Read the generated plot</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +430,342 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-006</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Analyze matched numerical measurements using within-pair differences and explain uncertainty without overstating causation</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>What is the population mean change in assessment score from before to after training?</p>
+</blockquote>
+<p>The same 16 synthetic learners complete two assessments. Define each learner’s change as <strong>after minus before</strong>, in points. Positive changes mean higher scores after training.</p>
+<p>The learner is the independent unit. Two scores from each learner form one pair; they are not two independent learners. These are new synthetic data for this chapter.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Use a paired t-test for two numerical measurements linked by a meaningful pairing, when the target is a population mean difference.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>Pairing unit</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assessment before and after training</td>
+<td>Learner</td>
+<td>After minus before</td>
+</tr>
+<tr class="even">
+<td>Two measurement devices used on each specimen</td>
+<td>Specimen</td>
+<td>Device A minus Device B</td>
+</tr>
+<tr class="odd">
+<td>Matched treatment and comparison plots</td>
+<td>Matched pair</td>
+<td>Treated minus comparison</td>
+</tr>
+</tbody>
+</table>
+<p>Distinct pairs must provide independent information. Matching must be justified by the design, not invented by sorting the outcomes. Matching does not by itself eliminate confounding.</p>
+<p>Use an <a href="./05-independent-t-test.html">independent-samples method</a> for different, unmatched units in two groups. More than two repeated conditions generally requires a <a href="./11-repeated-measures.html">repeated-measures approach</a>.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>Let <span class="math inline">\(d_i = \text{after}_i-\text{before}_i\)</span>, and let <span class="math inline">\(\mu_d\)</span> denote the population mean change.</p>
+<ul>
+<li><strong>Null hypothesis:</strong> <span class="math inline">\(H_0: \mu_d=0\)</span>.</li>
+<li><strong>Two-sided alternative:</strong> <span class="math inline">\(H_1: \mu_d\ne0\)</span>.</li>
+<li><strong>Estimate:</strong> The sample mean change, <span class="math inline">\(\bar d\)</span>.</li>
+</ul>
+<p>The paired t-test is a one-sample t-test on the differences:</p>
+<p><span class="math display">\[
+t = \frac{\bar d}{s_d/\sqrt{n}}, \qquad df=n-1.
+\]</span></p>
+<p>Here, <span class="math inline">\(n\)</span> is the number of complete pairs and <span class="math inline">\(s_d\)</span> is the sample SD of the differences. A 95% interval for the population mean change is:</p>
+<p><span class="math display">\[
+\bar d \pm t_{0.975,n-1}\frac{s_d}{\sqrt{n}}.
+\]</span></p>
+<p>The SE uses variation in the paired differences. It does not come from treating the before and after scores as independent groups.</p>
+</section>
+<section id="check-the-pairing-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="check-the-pairing-and-assumptions">4. Check the pairing and assumptions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>What to establish</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Matching</td>
+<td>Each before score is linked to the correct after score by an identifier</td>
+</tr>
+<tr class="even">
+<td>Independent pairs</td>
+<td>Different learners are independent, with no unaccounted classroom or household clustering</td>
+</tr>
+<tr class="odd">
+<td>Complete pairs</td>
+<td>Both measurements are available for each included pair</td>
+</tr>
+<tr class="even">
+<td>Measurement consistency</td>
+<td>Same meaningful scale, units, and comparable assessment procedures</td>
+</tr>
+<tr class="odd">
+<td>Difference distribution</td>
+<td>Inspect changes for strong skewness and influential extremes</td>
+</tr>
+<tr class="even">
+<td>Sampling and timing</td>
+<td>Understand recruitment, assessment timing, and other changes between assessments</td>
+</tr>
+</tbody>
+</table>
+<p>For exact small-sample t inference, the differences are assumed normally distributed. The before and after distributions do not each need to be normal. At 16 pairs, inspect the changes carefully rather than treating a normality-test result as a pass/fail rule.</p>
+<section id="preserve-identities" class="level3">
+<h3 class="anchored" data-anchor-id="preserve-identities">Preserve identities</h3>
+<p>The supplied CSV has one row per learner and separate <code>before</code> and <code>after</code> columns. If the measurements come from separate files, verify unique IDs and perform a checked join. Audit unmatched records and duplicated keys. Never pair the files merely by row position or sort the two score columns separately.</p>
+</section>
+<section id="missing-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="missing-measurements">Missing measurements</h3>
+<p>An incomplete pair cannot supply an observed within-pair change. Count incomplete pairs and investigate why measurements are missing before deciding how to handle them. Complete-pair analysis can be biased when the retained learners differ systematically from those with missing measurements.</p>
+<p>The supplied script stops if scores are missing, allowing you to investigate. It does not silently omit incomplete pairs or impute scores.</p>
+</section>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the supplied files into your repository root:</p>
+<ul>
+<li><a href="data/example/06-paired-scores.csv">Synthetic paired data</a></li>
+<li><a href="scripts/R/06-paired-t-test.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/06-paired-t-test.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following code blocks are non-executable displays. Quarto does not run them. Execute the standalone script to calculate and export the results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each row contains one learner's matched measurements.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/06-paired-scores.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>change <span class="ot">&lt;-</span> dat<span class="sc">$</span>after <span class="sc">-</span> dat<span class="sc">$</span>before</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The first vector minus the second defines the direction.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">t.test</span>(dat<span class="sc">$</span>after, dat<span class="sc">$</span>before, <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Verify the equivalent calculation on the differences:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">t.test</span>(dat<span class="sc">$</span>change, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(check)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Generated file</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/06-paired-t-test.csv</code></td>
+<td>Mean change, uncertainty, and test result</td>
+</tr>
+<tr class="even">
+<td><code>results/tables/06-paired-changes.csv</code></td>
+<td>Learner IDs, both scores, and each calculated change</td>
+</tr>
+<tr class="odd">
+<td><code>results/figures/06-paired-diagnostics.png</code></td>
+<td>Matched trajectories, individual changes, and Q-Q plot of changes</td>
+</tr>
+</tbody>
+</table>
+<p>These outputs are generated by running the R script and are not included as pre-generated R results. Generate the files before rendering the figure references below.</p>
+<div id="fig-06-paired-diagnostics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-06-paired-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/06-paired-diagnostics.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-06-paired-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Matched learner trajectories, after-minus-before changes, and a normal Q-Q plot of those changes. Lines preserve learner pairing; the difference distribution is the relevant diagnostic for the paired t-test.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>Expected results, rounded:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete pairs</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td>Mean before</td>
+<td style="text-align: right;">65.81 points</td>
+</tr>
+<tr class="odd">
+<td>Mean after</td>
+<td style="text-align: right;">70.06 points</td>
+</tr>
+<tr class="even">
+<td>Mean change, after minus before</td>
+<td style="text-align: right;">4.25 points</td>
+</tr>
+<tr class="odd">
+<td>SD of changes</td>
+<td style="text-align: right;">4.359 points</td>
+</tr>
+<tr class="even">
+<td>SE of mean change</td>
+<td style="text-align: right;">1.090 points</td>
+</tr>
+<tr class="odd">
+<td>95% CI for mean change</td>
+<td style="text-align: right;">1.93 to 6.57 points</td>
+</tr>
+<tr class="even">
+<td>t statistic</td>
+<td style="text-align: right;">3.900</td>
+</tr>
+<tr class="odd">
+<td>Degrees of freedom</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td>Two-sided p-value</td>
+<td style="text-align: right;">0.00142</td>
+</tr>
+</tbody>
+</table>
+<p>For learner L01, the scores are 52 before and 48 after, so the change is <strong>-4 points</strong>. Check this pair before summarizing all changes.</p>
+<p>For all learners, the changes sum to 68 points. Verify that <span class="math inline">\(68/16=4.25\)</span>, and <span class="math inline">\(4.359/\sqrt{16}\approx1.090\)</span>. The test statistic is approximately <span class="math inline">\(4.25/1.090=3.900\)</span>.</p>
+<p>The interval excludes zero and supports a positive population mean change under the analysis assumptions. It describes uncertainty about the <strong>mean change</strong>, not a range containing 95% of individual changes. Some learners have negative changes even though the average change is positive.</p>
+<p>The difference between the two means equals the mean of the differences when calculated from the same complete pairs. The SD and SE still require the actual pairing; the two separate means and SDs alone generally cannot recover the SD of changes without additional covariance information.</p>
+<section id="read-the-generated-plot" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-generated-plot">Read the generated plot</h3>
+<ul>
+<li><strong>Matched trajectories:</strong> Each line joins the same learner’s two scores. Crossings are possible and are not errors by themselves.</li>
+<li><strong>Individual changes:</strong> Look for negative values, spread, and unusual changes relative to the others.</li>
+<li><strong>Q-Q plot:</strong> Assess the shape of the changes, rather than the raw before or after scores separately.</li>
+</ul>
+<p>Reversing the order to before minus after reverses the estimate and interval signs, while leaving the two-sided p-value unchanged.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>I have before and after assessment scores for the same 16 learners, stored as one row per learner with a unique ID. Define change as after minus before. Explain a paired t-test and the relevant assumptions. Show how to check the matching and missing pairs, and verify the equivalent one-sample test on changes. Do not analyze the 32 scores as independent observations or conclude that training caused the change.</p>
+</blockquote>
+<p>Check that the response:</p>
+<ul>
+<li>Uses <code>paired = TRUE</code> with after listed first, or a one-sample test of after-minus-before differences.</li>
+<li>Counts 16 pairs and uses 15 degrees of freedom.</li>
+<li>Checks normality of differences rather than requiring both raw distributions to be normal.</li>
+<li>Preserves ID matching and investigates missing pairs.</li>
+<li>Separates evidence of mean change from evidence of a causal training effect.</li>
+</ul>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>Among 16 synthetic learners with complete paired measurements, the mean score increased from 65.81 to 70.06 points. Mean within-learner change, defined as after minus before, was 4.25 points (SD of changes 4.36; 95% CI 1.93 to 6.57). A two-sided paired t-test yielded <span class="math inline">\(t(15)=3.90\)</span>, <span class="math inline">\(p=0.00142\)</span>. The results provide evidence of a positive mean change under the test assumptions. Without a suitable comparison design, the change cannot be attributed solely to training.</p>
+</blockquote>
+<p>For an applied report, describe recruitment, timing, diagnostic findings, missing pairs, and relevant changes in assessment procedures or conditions.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating 32 scores as independent observations</td>
+<td>Analyze 16 matched pairs</td>
+</tr>
+<tr class="even">
+<td>Pairing independently sorted score columns</td>
+<td>Match using verified identifiers</td>
+</tr>
+<tr class="odd">
+<td>Checking only the raw score distributions</td>
+<td>Examine the within-pair differences</td>
+</tr>
+<tr class="even">
+<td>Dropping missing pairs without reporting them</td>
+<td>Investigate and document missingness and exclusions</td>
+</tr>
+<tr class="odd">
+<td>Assuming pairing removes every source of bias</td>
+<td>Assess timing, measurement changes, selection, and confounding</td>
+</tr>
+<tr class="even">
+<td>Calling a before-and-after change a training effect</td>
+<td>Consider practice effects, secular trends, regression to the mean, and other explanations</td>
+</tr>
+</tbody>
+</table>
+<p>If differences are strongly skewed or contain influential extremes, first investigate data quality and the inferential target. A signed-rank test assumes a suitable symmetric difference distribution for a location interpretation and does not generally test the arithmetic mean. A sign test addresses a different target based on direction. Resampling methods also require suitable design and assumptions. Several time points or dependence between pairs may require a more general model.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>An AI tool sorts the before scores from smallest to largest, independently sorts the after scores, then performs a paired test.</p>
+<p>Why is this invalid even if the mean change stays the same?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Separate sorting destroys the actual learner pairing. Although the difference of means remains the same for complete data, the constructed differences, their SD, the SE, confidence interval, and p-value can change. Restore the verified ID matching before calculating changes.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>What is the mean within-person change?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./07-mann-whitney.html">Mann–Whitney U Test</a> for a rank-based comparison of independent groups. For a paired rank-based method, see <a href="./08-wilcoxon-signed-rank.html">Wilcoxon Signed-Rank Test</a>.</p>
 
 
 </section>

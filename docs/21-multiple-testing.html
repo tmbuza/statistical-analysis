@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#define-the-family-first" id="toc-define-the-family-first" class="nav-link" data-scroll-target="#define-the-family-first">2. Define the family first</a></li>
+  <li><a href="#choose-the-error-control-goal" id="toc-choose-the-error-control-goal" class="nav-link" data-scroll-target="#choose-the-error-control-goal">3. Choose the error-control goal</a></li>
+  <li><a href="#understand-the-adjustments" id="toc-understand-the-adjustments" class="nav-link" data-scroll-target="#understand-the-adjustments">4. Understand the adjustments</a>
+  <ul class="collapse">
+  <li><a href="#bonferroni" id="toc-bonferroni" class="nav-link" data-scroll-target="#bonferroni">Bonferroni</a></li>
+  <li><a href="#holm" id="toc-holm" class="nav-link" data-scroll-target="#holm">Holm</a></li>
+  <li><a href="#benjaminihochberg-bh" id="toc-benjaminihochberg-bh" class="nav-link" data-scroll-target="#benjaminihochberg-bh">Benjamini–Hochberg (BH)</a></li>
+  </ul></li>
+  <li><a href="#run-the-example" id="toc-run-the-example" class="nav-link" data-scroll-target="#run-the-example">5. Run the example</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a></li>
+  <li><a href="#connect-adjustment-to-follow-up-analysis" id="toc-connect-adjustment-to-follow-up-analysis" class="nav-link" data-scroll-target="#connect-adjustment-to-follow-up-analysis">7. Connect adjustment to follow-up analysis</a></li>
+  <li><a href="#confidence-intervals-and-effect-sizes" id="toc-confidence-intervals-and-effect-sizes" class="nav-link" data-scroll-target="#confidence-intervals-and-effect-sizes">8. Confidence intervals and effect sizes</a></li>
+  <li><a href="#ai-assistance-and-verification" id="toc-ai-assistance-and-verification" class="nav-link" data-scroll-target="#ai-assistance-and-verification">9. AI assistance and verification</a></li>
+  <li><a href="#report-your-strategy-and-findings" id="toc-report-your-strategy-and-findings" class="nav-link" data-scroll-target="#report-your-strategy-and-findings">10. Report your strategy and findings</a></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">11. Common mistakes</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">12. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +430,292 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-021</li>
+<li><strong>Type:</strong> Statistical reasoning and method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Define hypothesis families, choose an error-control goal, and report adjusted results without losing the estimates and uncertainty</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>How should we interpret evidence when several related hypotheses are tested?</p>
+</blockquote>
+<p>A study may compare several groups, examine multiple outcomes, or screen many features. Looking at many p-values increases opportunities for false rejection. This chapter uses six <strong>synthetic p-values</strong> to explain adjustment. They are teaching inputs, not outputs from an underlying dataset or real study.</p>
+</section>
+<section id="define-the-family-first" class="level2">
+<h2 class="anchored" data-anchor-id="define-the-family-first">2. Define the family first</h2>
+<p>A testing family is the collection of hypotheses for which you intend a joint error-control claim. Define it using the scientific question, planned decisions, and analysis strategy before selecting favorable results.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>Possible family</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All pairs among three groups</td>
+<td>Three pairwise comparisons</td>
+</tr>
+<tr class="even">
+<td>Several outcomes supporting one intervention claim</td>
+<td>Prespecified outcome tests relevant to that claim</td>
+</tr>
+<tr class="odd">
+<td>Feature discovery in an omics screen</td>
+<td>The prespecified set of tested features</td>
+</tr>
+<tr class="even">
+<td>One primary question plus exploratory analyses</td>
+<td>Explicit primary and exploratory strategies, with justified error handling</td>
+</tr>
+</tbody>
+</table>
+<p>Three groups produce <span class="math inline">\(3(3-1)/2=3\)</span> pairs; five groups produce ten. Separate files or separate software runs do not automatically make hypotheses separate families.</p>
+<p>Do not adjust only the p-values below 0.05, or split a family after seeing results. Adjustments cannot recover unrecorded model searches, outcome switching, or selective reporting.</p>
+</section>
+<section id="choose-the-error-control-goal" class="level2">
+<h2 class="anchored" data-anchor-id="choose-the-error-control-goal">3. Choose the error-control goal</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Goal</th>
+<th>Definition</th>
+<th>Example method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Family-wise error rate (FWER)</td>
+<td>Probability of one or more false rejections in the family</td>
+<td>Bonferroni or Holm</td>
+</tr>
+<tr class="even">
+<td>False discovery rate (FDR)</td>
+<td>Expected false-discovery proportion among rejections, taking that proportion as zero when there are no rejections</td>
+<td>Benjamini–Hochberg under suitable dependence conditions</td>
+</tr>
+</tbody>
+</table>
+<p>FWER and FDR are different guarantees. FDR control at 5% does not mean every rejected hypothesis has a 5% probability of being false, nor that exactly 5% of a particular discovery list is false.</p>
+<p>If 20 independent valid tests each have a 5% false-positive rate and all nulls are true, the chance of at least one false rejection is:</p>
+<p><span class="math display">\[
+1-(1-0.05)^{20}\approx0.642.
+\]</span></p>
+<p>The independence and all-null conditions matter; this calculation is not a universal false-discovery probability for every set of 20 tests.</p>
+</section>
+<section id="understand-the-adjustments" class="level2">
+<h2 class="anchored" data-anchor-id="understand-the-adjustments">4. Understand the adjustments</h2>
+<section id="bonferroni" class="level3">
+<h3 class="anchored" data-anchor-id="bonferroni">Bonferroni</h3>
+<p>For m tests, compare each raw p-value with <span class="math inline">\(\alpha/m\)</span>, or use adjusted p-values <span class="math inline">\(\min(mp,1)\)</span>. With valid marginal p-values, it controls FWER under arbitrary dependence. It can be conservative.</p>
+</section>
+<section id="holm" class="level3">
+<h3 class="anchored" data-anchor-id="holm">Holm</h3>
+<p>Order the p-values from smallest to largest. Compare them sequentially with <span class="math inline">\(\alpha/(m-i+1)\)</span>, stopping at the first failure. Adjusted p-values use cumulative maxima of <span class="math inline">\((m-i+1)p_{(i)}\)</span>, capped at one, then return to the original order.</p>
+<p>Holm controls FWER under arbitrary dependence when individual p-values are valid, and is never less powerful than ordinary Bonferroni for the same family.</p>
+</section>
+<section id="benjaminihochberg-bh" class="level3">
+<h3 class="anchored" data-anchor-id="benjaminihochberg-bh">Benjamini–Hochberg (BH)</h3>
+<p>Order the p-values and find the largest rank i satisfying:</p>
+<p><span class="math display">\[
+p_{(i)}\leq\frac{i}{m}q.
+\]</span></p>
+<p>Reject that hypothesis and all with smaller ordered p-values. Adjusted values use reverse cumulative minima of <span class="math inline">\(mp_{(i)}/i\)</span>, capped at one.</p>
+<p>The usual FDR guarantee holds under independence and certain positive dependence conditions. Arbitrary dependence may require another procedure, such as Benjamini–Yekutieli, or a justified design-specific method. Do not assume that every correlated analysis meets BH’s conditions.</p>
+</section>
+</section>
+<section id="run-the-example" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-example">5. Run the example</h2>
+<p>Copy the companion files into your repository root:</p>
+<ul>
+<li><a href="data/example/21-example-p-values.csv">Synthetic p-values</a></li>
+<li><a href="scripts/R/21-multiple-testing.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/21-multiple-testing.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Chapter code is non-executable display code; run the script separately.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All six hypotheses form the specified teaching family.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.003</span>, <span class="fl">0.012</span>, <span class="fl">0.021</span>, <span class="fl">0.040</span>, <span class="fl">0.200</span>, <span class="fl">0.600</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">p.adjust</span>(p, <span class="at">method =</span> <span class="st">"bonferroni"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p.adjust</span>(p, <span class="at">method =</span> <span class="st">"holm"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">p.adjust</span>(p, <span class="at">method =</span> <span class="st">"BH"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script exports <code>results/tables/21-adjusted-p-values.csv</code> and <code>results/figures/21-adjustments.png</code>. The plot uses a logarithmic p-value scale and a 0.05 reference line. Pre-generated R outputs are not included or needed for rendering.</p>
+<div id="fig-21-adjustments" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-21-adjustments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/21-adjustments.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-21-adjustments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.1: Raw, Bonferroni, Holm, and Benjamini–Hochberg adjusted p-values for the six-hypothesis teaching family, shown on a log scale. The reference line is 0.05; the procedures target different error-control goals.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Hypothesis</th>
+<th style="text-align: right;">Raw p</th>
+<th style="text-align: right;">Bonferroni</th>
+<th style="text-align: right;">Holm</th>
+<th style="text-align: right;">BH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>H1</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">0.018</td>
+<td style="text-align: right;">0.018</td>
+</tr>
+<tr class="even">
+<td>H2</td>
+<td style="text-align: right;">0.012</td>
+<td style="text-align: right;">0.072</td>
+<td style="text-align: right;">0.060</td>
+<td style="text-align: right;">0.036</td>
+</tr>
+<tr class="odd">
+<td>H3</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.126</td>
+<td style="text-align: right;">0.084</td>
+<td style="text-align: right;">0.042</td>
+</tr>
+<tr class="even">
+<td>H4</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.240</td>
+<td style="text-align: right;">0.120</td>
+<td style="text-align: right;">0.060</td>
+</tr>
+<tr class="odd">
+<td>H5</td>
+<td style="text-align: right;">0.200</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.400</td>
+<td style="text-align: right;">0.240</td>
+</tr>
+<tr class="even">
+<td>H6</td>
+<td style="text-align: right;">0.600</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.600</td>
+<td style="text-align: right;">0.600</td>
+</tr>
+</tbody>
+</table>
+<p>At 0.05, the unadjusted procedure rejects four hypotheses. Bonferroni and Holm reject H1 only. BH rejects H1, H2, and H3, with a different error-control goal and additional dependence conditions.</p>
+<p>For Holm, H2’s adjusted value is <span class="math inline">\(5\times0.012=0.060\)</span>, after applying the cumulative-maximum rule. For BH, H3’s initial adjusted quantity is <span class="math inline">\(6\times0.021/3=0.042\)</span>, and the reverse-minimum rule leaves it unchanged here.</p>
+<p>These numbers illustrate procedures; they do not tell us which nulls are actually true. Do not choose BH merely because it produces more rejections after inspecting the results. Select the inferential goal first.</p>
+</section>
+<section id="connect-adjustment-to-follow-up-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="connect-adjustment-to-follow-up-analysis">7. Connect adjustment to follow-up analysis</h2>
+<p>An omnibus ANOVA or Kruskal–Wallis result does not identify specific differing pairs. Use planned contrasts or an appropriate adjusted follow-up procedure. An omnibus rejection is not universal permission for unrestricted unadjusted comparisons.</p>
+<p>Examples in earlier chapters include pairwise Welch tests with Holm adjustment, Tukey comparisons under a common-variance ANOVA model, and separate rank-sum tests with Holm adjustment. They use different assumptions and should be named accurately.</p>
+<p>Prespecified contrasts can sometimes be tested without a preceding omnibus rejection under a valid planned strategy. Hierarchical or gatekeeping procedures need explicit rules; do not invent them after seeing p-values.</p>
+</section>
+<section id="confidence-intervals-and-effect-sizes" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-intervals-and-effect-sizes">8. Confidence intervals and effect sizes</h2>
+<p>Adjusted p-values do not adjust estimates, repair bias, or make small effects practically important. Report the effect estimate in meaningful units and describe uncertainty.</p>
+<p>Ordinary 95% intervals for each comparison are not automatically simultaneous 95% intervals for the family. Holm-adjusted p-values can therefore accompany ordinary intervals that appear inconsistent with threshold decisions. Label the intervals clearly.</p>
+<p>Bonferroni simultaneous intervals can be constructed using per-comparison confidence level <span class="math inline">\(1-\alpha/m\)</span> when each interval has the required coverage. Tukey intervals supply a model-specific all-pairs simultaneous procedure. FDR-adjusted p-values do not automatically imply a corresponding set of ordinary intervals with a particular simultaneous coverage guarantee.</p>
+</section>
+<section id="ai-assistance-and-verification" class="level2">
+<h2 class="anchored" data-anchor-id="ai-assistance-and-verification">9. AI assistance and verification</h2>
+<blockquote class="blockquote">
+<p>Treat all six supplied p-values as one family. Explain the distinction between FWER and FDR, calculate Bonferroni, Holm, and BH adjustments, and verify the table in original hypothesis order. State the validity and dependence conditions for each guarantee. Do not filter to significant raw p-values before adjustment, choose the method based on discoveries, or interpret BH values as individual probabilities of false hypotheses.</p>
+</blockquote>
+<p>Verify the family size, adjustment method, original row mapping, and intended error-control level. If AI generates additional outcomes, subgroups, transformations, or models during exploration, record that search and reconsider the scope of the claims. Multiplicity includes analytical choices, not just the final printed table.</p>
+</section>
+<section id="report-your-strategy-and-findings" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-strategy-and-findings">10. Report your strategy and findings</h2>
+<p>For an applied family of confirmatory comparisons:</p>
+<blockquote class="blockquote">
+<p>We prespecified the six hypotheses as one family and controlled the family-wise error rate at 0.05 using Holm’s procedure. We report all raw and adjusted p-values alongside estimates and clearly labeled intervals. In the synthetic adjustment example, only H1 met the Holm-adjusted threshold (adjusted p=0.018).</p>
+</blockquote>
+<p>For exploratory discovery using BH, state the FDR target, family definition, dependence justification, and adjustment method. Describe findings as discoveries requiring contextual evaluation and, where appropriate, further validation. Do not claim that a particular proportion of the observed list is certainly false.</p>
+</section>
+<section id="common-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes">11. Common mistakes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Adjusting only favorable p-values</td>
+<td>Include the full defined family</td>
+</tr>
+<tr class="even">
+<td>Changing families after seeing results</td>
+<td>Prespecify and explain any justified revisions</td>
+</tr>
+<tr class="odd">
+<td>Calling FDR control family-wise control</td>
+<td>State the actual guarantee</td>
+</tr>
+<tr class="even">
+<td>Treating adjusted p as probability the null is true</td>
+<td>Explain the procedure’s repeated-sampling meaning</td>
+</tr>
+<tr class="odd">
+<td>Ignoring selection across models and outcomes</td>
+<td>Record exploratory searches and limit claims</td>
+</tr>
+<tr class="even">
+<td>Equating discovery with practical importance</td>
+<td>Report magnitude, uncertainty, and context</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">12. Check your understanding</h2>
+<p>An AI tool selects the four raw p-values below 0.05, applies BH to those four, and ignores H5 and H6.</p>
+<p>What should change?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>The defined family contains six hypotheses. Selecting favorable values first changes the adjustment and invalidates the stated full-family guarantee. Apply the method to all six, retain their identities, and report the planned error-control goal and conditions.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Which family of comparisons requires error control?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./22-sample-size.html">Sample Size and Power</a> to plan studies around meaningful effects, precision, and the intended testing strategy.</p>
 
 
 </section>

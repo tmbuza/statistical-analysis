@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-tests" id="toc-what-it-tests" class="nav-link" data-scroll-target="#what-it-tests">3. What it tests</a></li>
+  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">4. Check before running</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#verify-the-p-value" id="toc-verify-the-p-value" class="nav-link" data-scroll-target="#verify-the-p-value">Verify the p-value</a></li>
+  <li><a href="#distinguish-the-odds-ratio-estimates" id="toc-distinguish-the-odds-ratio-estimates" class="nav-link" data-scroll-target="#distinguish-the-odds-ratio-estimates">Distinguish the odds-ratio estimates</a></li>
+  <li><a href="#odds-are-not-probabilities" id="toc-odds-are-not-probabilities" class="nav-link" data-scroll-target="#odds-are-not-probabilities">Odds are not probabilities</a></li>
+  </ul></li>
+  <li><a href="#larger-tables-and-simulation" id="toc-larger-tables-and-simulation" class="nav-link" data-scroll-target="#larger-tables-and-simulation">7. Larger tables and simulation</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">8. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">9. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">10. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">11. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +429,295 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-013</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Analyze independent categorical counts using an exact conditional test and interpret odds ratios with their uncertainty</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Is task completion associated with group membership?</p>
+</blockquote>
+<p>Twenty independent synthetic participants each contribute one binary outcome. Counts are aggregated in the supplied CSV.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th style="text-align: right;">Completed</th>
+<th style="text-align: right;">Not completed</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">20</td>
+</tr>
+</tbody>
+</table>
+<p>We define the odds ratio as <strong>completion odds in A divided by completion odds in B</strong>. Set the table order explicitly so the interpretation stays consistent.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Fisher’s exact test is useful for independent contingency tables, particularly small two-by-two tables where chi-square approximations may be questionable. It can also be used with larger counts; it is not restricted to small samples.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Small independent two-by-two table</td>
+<td>Fisher’s exact conditional test</td>
+</tr>
+<tr class="even">
+<td>Adequately populated independent table</td>
+<td><a href="./12-chi-square.html">Pearson chi-square test</a>, under suitable conditions</td>
+</tr>
+<tr class="odd">
+<td>Paired binary responses</td>
+<td><a href="./15-mcnemar.html">McNemar’s test</a></td>
+</tr>
+<tr class="even">
+<td>Binary outcome with adjustment variables</td>
+<td><a href="./19-logistic-regression.html">Logistic regression</a></td>
+</tr>
+</tbody>
+</table>
+<p>Exact inference does not remove the need for independent units, appropriate sampling, or correct category definitions. Complex survey weights, repeated responses, and clustering require appropriate methods.</p>
+</section>
+<section id="what-it-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-tests">3. What it tests</h2>
+<p>In the two-by-two setting, the null hypothesis is that the population odds ratio equals one: no association between row and column categories under the sampling model.</p>
+<p>Fisher’s test conditions on the observed row and column totals. Under the null, the top-left cell follows a hypergeometric distribution. The calculation considers tables with these same margins.</p>
+<p>The usual two-sided definition used by R sums the null probabilities of tables whose probabilities are no greater than that of the observed table, allowing for numerical tolerance. A two-sided p-value is not always twice the smaller one-sided p-value. State the software and definition when comparing implementations.</p>
+<p>“Exact” refers to calibration using the conditional null distribution rather than a large-sample approximation. It does not mean the interpretation is certain or that the effect is precisely estimated. Because counts are discrete, achievable p-values are also discrete and tests can be conservative.</p>
+</section>
+<section id="check-before-running" class="level2">
+<h2 class="anchored" data-anchor-id="check-before-running">4. Check before running</h2>
+<p>Verify that:</p>
+<ul>
+<li>Each participant contributes to one cell only.</li>
+<li>Counts are nonnegative integers, not percentages or ordinary survey weights.</li>
+<li>Rows and columns represent clearly defined, mutually exclusive categories.</li>
+<li>Missing outcomes and exclusions are investigated.</li>
+<li>Sampling or assignment supports the conditional analysis and intended generalization.</li>
+<li>Structural zeros, impossible combinations, and empty margins are addressed.</li>
+</ul>
+<p>Expected counts here are 4.5 completed and 5.5 not completed in each row. The small expected counts motivate examining an exact approach rather than relying only on a chi-square approximation.</p>
+<p>A zero observed cell does not prevent Fisher’s test when margins are valid, but odds-ratio estimates or interval limits may be zero or infinite. Do not add an arbitrary constant to all cells merely to make software output finite; any correction changes the estimation procedure and needs justification.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy these files into your repository root:</p>
+<ul>
+<li><a href="data/example/13-completion-counts.csv">Synthetic aggregated counts</a></li>
+<li><a href="scripts/R/13-fisher-exact.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/13-fisher-exact.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All blocks displayed here are non-executable. Run the standalone script to calculate and export results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explicit row and column order defines completion odds in A relative to B.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">9</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">group =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">outcome =</span> <span class="fu">c</span>(<span class="st">"Completed"</span>, <span class="st">"Not_completed"</span>)))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">fisher.test</span>(tab, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The full script reads these counts from the CSV and checks their structure before testing.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive cross-product estimate, distinct from the conditional estimate.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cross_product_or <span class="ot">&lt;-</span> (tab[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">*</span> tab[<span class="dv">2</span>, <span class="dv">2</span>]) <span class="sc">/</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    (tab[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">*</span> tab[<span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>estimate</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script exports <code>results/tables/13-fisher-exact.csv</code> and <code>results/figures/13-completion-proportions.png</code>. The figure displays observed proportions with count denominators, without inferential error bars. Outputs are generated when the R script runs and are not required for chapter rendering.</p>
+<div id="fig-13-completion-proportions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-13-completion-proportions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/13-completion-proportions.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-13-completion-proportions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Observed completion proportions in the two independent synthetic groups, labeled with completed counts and denominators. No uncertainty intervals are shown; consult the odds-ratio interval when assessing precision.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value, rounded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent participants</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Completion proportion in A</td>
+<td style="text-align: right;">8/10 = 0.80</td>
+</tr>
+<tr class="odd">
+<td>Completion proportion in B</td>
+<td style="text-align: right;">1/10 = 0.10</td>
+</tr>
+<tr class="even">
+<td>Descriptive proportion difference, A minus B</td>
+<td style="text-align: right;">0.70, or 70 percentage points</td>
+</tr>
+<tr class="odd">
+<td>Cross-product sample odds ratio</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr class="even">
+<td>Conditional maximum-likelihood odds ratio</td>
+<td style="text-align: right;">Approximately 27.33</td>
+</tr>
+<tr class="odd">
+<td>Exact conditional 95% odds-ratio interval</td>
+<td style="text-align: right;">Approximately 2.06 to 1767</td>
+</tr>
+<tr class="even">
+<td>Exact two-sided p-value</td>
+<td style="text-align: right;">0.0054775</td>
+</tr>
+</tbody>
+</table>
+<p>R’s numerical optimization may give slightly different final digits for the conditional estimate and interval limits.</p>
+<section id="verify-the-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="verify-the-p-value">Verify the p-value</h3>
+<p>The observed table’s null probability is:</p>
+<p><span class="math display">\[
+P(A_{11}=8)=\frac{\binom{9}{8}\binom{11}{2}}{\binom{20}{10}}.
+\]</span></p>
+<p>For these symmetric row totals, tables with top-left counts 0, 1, 8, and 9 have probabilities no greater than the observed table’s. Summing their probabilities gives approximately 0.0054775.</p>
+<p>This provides evidence against the no-association null under the conditional model. It is not the probability that the null is true or that the difference was caused by chance.</p>
+</section>
+<section id="distinguish-the-odds-ratio-estimates" class="level3">
+<h3 class="anchored" data-anchor-id="distinguish-the-odds-ratio-estimates">Distinguish the odds-ratio estimates</h3>
+<p>The completion odds are 8/2 in A and 1/9 in B, giving:</p>
+<p><span class="math display">\[
+\widehat{OR}_{\text{cross-product}}=\frac{8/2}{1/9}=36.
+\]</span></p>
+<p>Base R’s <code>fisher.test()</code> instead reports the <strong>conditional maximum-likelihood estimate</strong>, approximately 27.33, based on the conditional model. The two estimates need not agree in small samples. Report which estimate you use and pair it with an interval from the stated procedure.</p>
+<p>The conditional interval is very wide despite the small p-value. The evidence against OR=1 does not mean we know the association magnitude precisely.</p>
+</section>
+<section id="odds-are-not-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="odds-are-not-probabilities">Odds are not probabilities</h3>
+<p>The sample completion proportion ratio is 0.80/0.10=8, while the cross-product odds ratio is 36. An odds ratio of 36 does not mean participants are 36 times as likely to complete. Which probability measures are estimable also depends on sampling design; case-control samples do not directly estimate population risks from sampled row proportions without additional information.</p>
+<p>Reversing one dimension of the table reciprocates the odds ratio. Reversing both dimensions restores it. The two-sided association p-value is unchanged by such relabeling, but interpretation still requires correct labels.</p>
+</section>
+</section>
+<section id="larger-tables-and-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="larger-tables-and-simulation">7. Larger tables and simulation</h2>
+<p>R supports exact conditional testing for tables larger than two-by-two, but computation may become demanding. A supported Monte Carlo calculation can approximate the conditional p-value when appropriate. If used, report the random seed, simulation count, and Monte Carlo uncertainty; do not label the simulated number as a fully enumerated exact p-value.</p>
+<p>A single two-by-two odds ratio does not summarize a general multirow or multicolumn association. Additional contrasts or models need their own definitions and multiplicity strategy.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">8. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Analyze the supplied independent two-by-two counts with a two-sided Fisher exact test. Preserve rows A, B and columns Completed, Not completed. Explain conditioning on margins and distinguish the cross-product odds ratio from R’s conditional estimate. Report the exact conditional interval and interpret its width. Do not describe odds ratios as probability ratios or claim a causal effect.</p>
+</blockquote>
+<p>Check that the response uses N=20 rather than four observations, gives the correct table orientation and p-value, distinguishes the two odds-ratio estimates, and recognizes substantial uncertainty in magnitude.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">9. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In the synthetic sample, 8 of 10 participants in A and 1 of 10 in B completed the task. A two-sided Fisher exact test provided evidence of association, p=0.00548. The conditional odds ratio for completion in A relative to B was approximately 27.33, with an exact conditional 95% interval of approximately 2.06 to 1767. The wide interval reflects substantial uncertainty in association magnitude. The comparison does not establish causation.</p>
+</blockquote>
+<p>For an applied report, add recruitment or assignment, missingness, the table orientation, software, and the inferential procedure. Do not present this synthetic result as evidence about real programs.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">10. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating exact as assumption-free</td>
+<td>Check independence, categories, and sampling</td>
+</tr>
+<tr class="even">
+<td>Doubling a one-sided p-value without checking the definition</td>
+<td>Use the stated two-sided procedure</td>
+</tr>
+<tr class="odd">
+<td>Calling an odds ratio a risk ratio</td>
+<td>Explain the difference between odds and probabilities</td>
+</tr>
+<tr class="even">
+<td>Mixing a cross-product estimate with an unlabeled conditional interval</td>
+<td>State the estimate and interval procedures</td>
+</tr>
+<tr class="odd">
+<td>Treating a small p-value as precise effect estimation</td>
+<td>Report the interval and its width</td>
+</tr>
+<tr class="even">
+<td>Applying ordinary Fisher testing to matched binary outcomes</td>
+<td>Use an appropriate paired method</td>
+</tr>
+</tbody>
+</table>
+<p>Alternative independent two-proportion procedures, including unconditional exact methods, condition differently and may have different operating characteristics. Choose a defensible approach before comparing p-values. For paired outcomes, use McNemar; for adjustment or more complex designs, use an appropriate model.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">11. Check your understanding</h2>
+<p>An AI tool reports an odds ratio of 36 and says: “Participants in A are 36 times as likely to complete the task.”</p>
+<p>How should this be corrected?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Thirty-six is the sample ratio of completion odds, not completion probabilities. The observed proportions are 80% and 10%, whose ratio is eight. Report the intended measure, its uncertainty, and the sampling assumptions. R’s Fisher output uses a different conditional odds-ratio estimate, approximately 27.33.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Is there evidence of association in a small contingency table?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./14-proportions.html">Tests for Proportions</a> to compare a single population proportion with a reference or compare independent proportions directly.</p>
 
 
 </section>

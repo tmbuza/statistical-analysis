@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -82,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html"><span class="chapter-title">Appendices and References</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html">Appendices and References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -300,7 +335,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -315,24 +351,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#appendix-a-method-chooser" id="toc-appendix-a-method-chooser" class="nav-link active" data-scroll-target="#appendix-a-method-chooser">Appendix A: Method chooser</a></li>
+  <li><a href="#appendix-b-design-reminders" id="toc-appendix-b-design-reminders" class="nav-link" data-scroll-target="#appendix-b-design-reminders">Appendix B: Design reminders</a></li>
+  <li><a href="#appendix-c-glossary" id="toc-appendix-c-glossary" class="nav-link" data-scroll-target="#appendix-c-glossary">Appendix C: Glossary</a></li>
+  <li><a href="#appendix-d-interpretation-checks" id="toc-appendix-d-interpretation-checks" class="nav-link" data-scroll-target="#appendix-d-interpretation-checks">Appendix D: Interpretation checks</a></li>
+  <li><a href="#appendix-e-script-and-execution-index" id="toc-appendix-e-script-and-execution-index" class="nav-link" data-scroll-target="#appendix-e-script-and-execution-index">Appendix E: Script and execution index</a></li>
+  <li><a href="#appendix-f-reproducibility-record" id="toc-appendix-f-reproducibility-record" class="nav-link" data-scroll-target="#appendix-f-reproducibility-record">Appendix F: Reproducibility record</a></li>
+  <li><a href="#appendix-g-documentation-and-references" id="toc-appendix-g-documentation-and-references" class="nav-link" data-scroll-target="#appendix-g-documentation-and-references">Appendix G: Documentation and references</a>
+  <ul class="collapse">
+  <li><a href="#r-method-documentation" id="toc-r-method-documentation" class="nav-link" data-scroll-target="#r-method-documentation">R method documentation</a></li>
+  <li><a href="#statistical-interpretation" id="toc-statistical-interpretation" class="nav-link" data-scroll-target="#statistical-interpretation">Statistical interpretation</a></li>
+  </ul></li>
+  <li><a href="#appendix-h-guide-validation-status" id="toc-appendix-h-guide-validation-status" class="nav-link" data-scroll-target="#appendix-h-guide-validation-status">Appendix H: Guide validation status</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html"><span class="chapter-title">Appendices and References</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html">Appendices and References</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Appendices and References</span></h1>
+<h1 class="title">Appendices and References</h1>
 </div>
 
 
@@ -355,54 +394,474 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-099</li>
+<li><strong>Type:</strong> Quick reference and supporting documentation</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Locate suitable methods, clarify terminology, and trace calculations to scripts and authoritative documentation</li>
+</ul>
 </div>
-<div class="callout-title-container flex-fill">
-Chapter status
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
-</div>
-</div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Method chooser, glossary, reproducibility, and references.</p>
+<p>Use these appendices alongside the method chapters. A lookup table helps you navigate; it does not replace checking the question, design, assumptions, and target estimate.</p>
+<section id="appendix-a-method-chooser" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a-method-chooser">Appendix A: Method chooser</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Design and target</th>
+<th>Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compare a mean with a fixed reference</td>
+<td>Independent numerical observations; population mean</td>
+<td><a href="./04-one-sample-t-test.html">04 One-sample t-test</a></td>
+</tr>
+<tr class="even">
+<td>Compare two means</td>
+<td>Independent groups; population mean difference</td>
+<td><a href="./05-independent-t-test.html">05 Welch’s t-test</a></td>
+</tr>
+<tr class="odd">
+<td>Estimate mean within-pair change</td>
+<td>Matched numerical measurements</td>
+<td><a href="./06-paired-t-test.html">06 Paired t-test</a></td>
+</tr>
+<tr class="even">
+<td>Compare independent outcomes using ranks</td>
+<td>Two independent groups; distributional/rank-based question</td>
+<td><a href="./07-mann-whitney.html">07 Mann–Whitney</a></td>
+</tr>
+<tr class="odd">
+<td>Assess a paired location shift</td>
+<td>Numerical differences with suitable symmetry</td>
+<td><a href="./08-wilcoxon-signed-rank.html">08 Signed-rank test</a></td>
+</tr>
+<tr class="even">
+<td>Compare several means</td>
+<td>Independent groups; classical or Welch assumptions</td>
+<td><a href="./09-one-way-anova.html">09 One-way ANOVA</a></td>
+</tr>
+<tr class="odd">
+<td>Compare several groups using ranks</td>
+<td>Independent groups; common-distribution null</td>
+<td><a href="./10-kruskal-wallis.html">10 Kruskal–Wallis</a></td>
+</tr>
+<tr class="even">
+<td>Compare several repeated conditions</td>
+<td>Independent units, dependent measurements within units</td>
+<td><a href="./11-repeated-measures.html">11 Repeated-measures methods</a></td>
+</tr>
+<tr class="odd">
+<td>Assess categorical association</td>
+<td>Independent contingency-table counts</td>
+<td><a href="./12-chi-square.html">12 Chi-square</a></td>
+</tr>
+<tr class="even">
+<td>Analyze a small independent contingency table</td>
+<td>Exact conditional association question</td>
+<td><a href="./13-fisher-exact.html">13 Fisher’s exact test</a></td>
+</tr>
+<tr class="odd">
+<td>Compare proportions</td>
+<td>One reference or two independent binary groups</td>
+<td><a href="./14-proportions.html">14 Proportion methods</a></td>
+</tr>
+<tr class="even">
+<td>Compare paired binary proportions</td>
+<td>Matched binary measurements</td>
+<td><a href="./15-mcnemar.html">15 McNemar</a></td>
+</tr>
+<tr class="odd">
+<td>Measure linear association</td>
+<td>Two numerical variables on independent units</td>
+<td><a href="./16-pearson.html">16 Pearson correlation</a></td>
+</tr>
+<tr class="even">
+<td>Measure monotonic rank association</td>
+<td>Meaningfully ordered variables</td>
+<td><a href="./17-spearman.html">17 Spearman correlation</a></td>
+</tr>
+<tr class="odd">
+<td>Model a numerical conditional mean</td>
+<td>Suitable numerical outcome model</td>
+<td><a href="./18-linear-regression.html">18 Linear regression</a></td>
+</tr>
+<tr class="even">
+<td>Model a binary event probability</td>
+<td>Suitable binary outcome model</td>
+<td><a href="./19-logistic-regression.html">19 Logistic regression</a></td>
+</tr>
+</tbody>
+</table>
+<p>For uncertainty resampling and null distributions, see <a href="./20-resampling.html">20 Resampling</a>. For joint error control, see <a href="./21-multiple-testing.html">21 Multiple testing</a>. For study planning, see <a href="./22-sample-size.html">22 Sample size</a>. For writing findings, see <a href="./23-reporting.html">23 Reporting</a>.</p>
+<p>Methods for complex surveys, survival outcomes, counts, equivalence, multilevel designs, and causal inference require additional treatment beyond this introductory guide.</p>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
+<section id="appendix-b-design-reminders" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-b-design-reminders">Appendix B: Design reminders</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Practical meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent unit</td>
+<td>A participant, plot, cluster, or other unit supplying independent information</td>
+</tr>
+<tr class="even">
+<td>Paired measurements</td>
+<td>Two observations linked by the same unit or justified matching</td>
+</tr>
+<tr class="odd">
+<td>Repeated measurements</td>
+<td>Several observations from the same unit</td>
+</tr>
+<tr class="even">
+<td>Clustered observations</td>
+<td>Units sharing a higher-level grouping that may induce dependence</td>
+</tr>
+<tr class="odd">
+<td>Random sampling</td>
+<td>A sampling mechanism supporting inference to a specified population</td>
+</tr>
+<tr class="even">
+<td>Random assignment</td>
+<td>An allocation mechanism supporting a treatment comparison under additional conditions</td>
+</tr>
+</tbody>
+</table>
+<p>Random assignment and random sampling serve different purposes. Neither can be inferred from the appearance of the data table. Unique identifiers do not prove independence.</p>
 </section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
+<section id="appendix-c-glossary" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-c-glossary">Appendix C: Glossary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parameter</td>
+<td>A quantity defined for a population or statistical model</td>
+</tr>
+<tr class="even">
+<td>Estimator</td>
+<td>A rule for estimating a parameter from data</td>
+</tr>
+<tr class="odd">
+<td>Estimate</td>
+<td>The value obtained by applying that rule</td>
+</tr>
+<tr class="even">
+<td>Standard deviation</td>
+<td>Variation among observations</td>
+</tr>
+<tr class="odd">
+<td>Standard error</td>
+<td>Sampling variability of an estimator under the specified design and model</td>
+</tr>
+<tr class="even">
+<td>Confidence interval</td>
+<td>An interval procedure with a stated long-run coverage property under assumptions</td>
+</tr>
+<tr class="odd">
+<td>Prediction interval</td>
+<td>An interval for a new observation under a specified prediction model</td>
+</tr>
+<tr class="even">
+<td>P-value</td>
+<td>Probability under the null and other test assumptions of a statistic at least as extreme as observed, under the stated extremeness rule</td>
+</tr>
+<tr class="odd">
+<td>Effect size</td>
+<td>Magnitude of a difference or relationship, in original or standardized units</td>
+</tr>
+<tr class="even">
+<td>Odds</td>
+<td>Event probability divided by one minus that probability</td>
+</tr>
+<tr class="odd">
+<td>Percentage-point difference</td>
+<td>Absolute difference between percentages</td>
+</tr>
+<tr class="even">
+<td>Confounding</td>
+<td>Distortion of an intended relationship by other variables in the causal structure</td>
+</tr>
+<tr class="odd">
+<td>Exchangeability</td>
+<td>Invariance of a joint distribution to specified relabelings under the relevant model or design</td>
+</tr>
+<tr class="even">
+<td>Sphericity</td>
+<td>Equal variances of pairwise contrasts for the repeated conditions in the standard setting</td>
+</tr>
+<tr class="odd">
+<td>FWER</td>
+<td>Probability of at least one false rejection within a family</td>
+</tr>
+<tr class="even">
+<td>FDR</td>
+<td>Expected false-discovery proportion, defined as zero when there are no rejections</td>
+</tr>
+<tr class="odd">
+<td>Power</td>
+<td>Probability of rejecting the null at a specified alternative under a design and test</td>
+</tr>
+<tr class="even">
+<td>Sensitivity analysis</td>
+<td>Examination of how conclusions change under justified alternative assumptions or decisions</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
+<section id="appendix-d-interpretation-checks" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-d-interpretation-checks">Appendix D: Interpretation checks</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>If you are about to write…</th>
+<th>Check first</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“No effect”</td>
+<td>Does the interval rule out effects that matter, or is the estimate imprecise?</td>
+</tr>
+<tr class="even">
+<td>“Equivalent”</td>
+<td>Was a justified equivalence margin and matching procedure used?</td>
+</tr>
+<tr class="odd">
+<td>“Caused”</td>
+<td>Does the design and causal argument support that claim?</td>
+</tr>
+<tr class="even">
+<td>“Median test”</td>
+<td>Do the rank method and distributional conditions support a median interpretation?</td>
+</tr>
+<tr class="odd">
+<td>“Exact”</td>
+<td>Was the null distribution enumerated or calculated exactly, or only approximated/simulated?</td>
+</tr>
+<tr class="even">
+<td>“95% CI”</td>
+<td>Which construction, parameter, and adjustment status?</td>
+</tr>
+<tr class="odd">
+<td>“Higher by 20%”</td>
+<td>Relative percent change or percentage points?</td>
+</tr>
+<tr class="even">
+<td>“Adjusted”</td>
+<td>Covariate adjustment, multiplicity adjustment, or another specific operation?</td>
+</tr>
+<tr class="odd">
+<td>“Verified by AI”</td>
+<td>What reproducible checks were actually performed?</td>
+</tr>
+</tbody>
+</table>
+<p>Statistical significance does not measure effect magnitude or practical importance. The American Statistical Association’s 2016 statement also emphasizes transparent reporting and interpretation beyond threshold decisions; see the source below.</p>
 </section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<section id="appendix-e-script-and-execution-index" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-e-script-and-execution-index">Appendix E: Script and execution index</h2>
+<p>Run scripts from the repository root. Chapter code uses plain language fences such as <code>r</code>, <code>python</code>, and <code>bash</code>, with no executable chunk braces. Rendering does not run the analysis scripts.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Chapter</th>
+<th>Script path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>02</td>
+<td><code>scripts/R/02-statistical-inference.R</code></td>
+</tr>
+<tr class="even">
+<td>03</td>
+<td><code>scripts/python/03-check-data.py</code></td>
+</tr>
+<tr class="odd">
+<td>04</td>
+<td><code>scripts/R/04-one-sample-t-test.R</code></td>
+</tr>
+<tr class="even">
+<td>05</td>
+<td><code>scripts/R/05-independent-t-test.R</code></td>
+</tr>
+<tr class="odd">
+<td>06</td>
+<td><code>scripts/R/06-paired-t-test.R</code></td>
+</tr>
+<tr class="even">
+<td>07</td>
+<td><code>scripts/R/07-mann-whitney.R</code></td>
+</tr>
+<tr class="odd">
+<td>08</td>
+<td><code>scripts/R/08-wilcoxon-signed-rank.R</code></td>
+</tr>
+<tr class="even">
+<td>09</td>
+<td><code>scripts/R/09-one-way-anova.R</code></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td><code>scripts/R/10-kruskal-wallis.R</code></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td><code>scripts/R/11-repeated-measures.R</code></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td><code>scripts/R/12-chi-square.R</code></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td><code>scripts/R/13-fisher-exact.R</code></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td><code>scripts/R/14-proportions.R</code></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td><code>scripts/R/15-mcnemar.R</code></td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td><code>scripts/R/16-pearson.R</code></td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td><code>scripts/R/17-spearman.R</code></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td><code>scripts/R/18-linear-regression.R</code></td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td><code>scripts/R/19-logistic-regression.R</code></td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td><code>scripts/R/20-resampling.R</code></td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td><code>scripts/R/21-multiple-testing.R</code></td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td><code>scripts/R/22-sample-size.R</code></td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td><code>scripts/R/23-reporting.R</code></td>
+</tr>
+</tbody>
+</table>
+<p>The index refers to the developed chapter packages. Copy their companion folders into the book repository before running commands. Earlier scaffold scripts may have different filenames; use each developed chapter’s linked script.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/05-independent-t-test.R</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/python/03-check-data.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The developed R examples use base R. The Python diagnostic example uses NumPy, SciPy, and Matplotlib. Keep a project-specific environment and record actual installed versions. Do not substitute a language’s simulated outputs for another language’s random sequence.</p>
+<p>The Chapter 03 Python script regenerates its fixed teaching input. Most other scripts read supplied data and overwrite only their chapter-specific outputs. Review the script before adapting it to your own files.</p>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
+<section id="appendix-f-reproducibility-record" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-f-reproducibility-record">Appendix F: Reproducibility record</h2>
+<p>Keep the following with a completed analysis:</p>
+<ul>
+<li>Original inputs, data dictionary, provenance, and authorized access information.</li>
+<li>Cleaning rules, exclusions, missingness decisions, and input checks.</li>
+<li>The question, target estimate, analysis plan, and later changes.</li>
+<li>Scripts, software versions, package environment, and random seeds where relevant.</li>
+<li>Exported numeric results and figures used in the report.</li>
+<li>AI prompts or suggestions that materially affected decisions, plus human checks.</li>
+</ul>
+<p>In R, inspect documentation and record the environment locally:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"t.test"</span>, <span class="at">package =</span> <span class="st">"stats"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"wilcox.test"</span>, <span class="at">package =</span> <span class="st">"stats"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These are displayed commands for you to run, not executable book chunks. Prefer your installed-version help when checking actual behavior; online documentation may describe a different R release.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+<section id="appendix-g-documentation-and-references" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-g-documentation-and-references">Appendix G: Documentation and references</h2>
+<section id="r-method-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="r-method-documentation">R method documentation</h3>
+<p>The <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">R stats documentation index</a> provides function help and references. The online development manual can change; verify behavior against the installed R version used for an analysis.</p>
+<p>Use its entries for the functions below, or call <code>help()</code> locally:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Functions to look up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean comparisons</td>
+<td><code>t.test</code>, <code>oneway.test</code>, <code>aov</code>, <code>TukeyHSD</code></td>
+</tr>
+<tr class="even">
+<td>Rank methods</td>
+<td><code>wilcox.test</code>, <code>kruskal.test</code>, <code>friedman.test</code></td>
+</tr>
+<tr class="odd">
+<td>Categorical data</td>
+<td><code>chisq.test</code>, <code>fisher.test</code>, <code>binom.test</code>, <code>prop.test</code>, <code>mcnemar.test</code></td>
+</tr>
+<tr class="even">
+<td>Association and regression</td>
+<td><code>cor.test</code>, <code>lm</code>, <code>glm</code>, <code>predict.lm</code>, <code>predict.glm</code>, <code>confint</code></td>
+</tr>
+<tr class="odd">
+<td>Multiplicity and planning</td>
+<td><code>p.adjust</code>, <code>power.t.test</code></td>
+</tr>
+</tbody>
+</table>
+<p>Function documentation is an implementation reference, not a replacement for study-design reasoning. Read its details, assumptions, warning behavior, and cited methodological sources before extending an example.</p>
 </section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<section id="statistical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-interpretation">Statistical interpretation</h3>
+<p>American Statistical Association (2016). <a href="https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf">Statement announcement and six principles on statistical significance and p-values</a>. This official document links to the published statement by Wasserstein and Lazar, <em>The ASA Statement on p-Values: Context, Process, and Purpose</em>, DOI: 10.1080/00031305.2016.1154108.</p>
+<p>Use the statement for interpretation principles and the method-specific documentation for computational details. Verify any additional article, quotation, or AI-suggested citation before including it in a report.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+</section>
+<section id="appendix-h-guide-validation-status" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-h-guide-validation-status">Appendix H: Guide validation status</h2>
+<p>The developed chapters provide synthetic examples, scripts, and interpretation checks. Numerical examples were checked with independent Python calculations where reported during development. Such checks do not constitute execution of the R scripts.</p>
+<p><strong>R execution, generated R figures, and complete Quarto rendering still require validation in the target environment.</strong> Some chapters intentionally omit particular effect intervals or advanced procedures and state those limits explicitly. Simulation outputs in Chapter 20 must be obtained from the supplied R script before being reported as R results.</p>
+<p>Before publishing the guide, run the scripts, inspect output tables and figures, render the assembled book, and resolve any broken links or discrepancies. Ensure the title page, Preface status, and method chapters describe the same release state.</p>
 
 
 </section>

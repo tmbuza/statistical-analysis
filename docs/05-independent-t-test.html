@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -161,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -336,7 +365,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -351,15 +381,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-your-data-and-assumptions" id="toc-check-your-data-and-assumptions" class="nav-link" data-scroll-target="#check-your-data-and-assumptions">4. Check your data and assumptions</a>
+  <ul class="collapse">
+  <li><a href="#welch-versus-pooled-students-t-test" id="toc-welch-versus-pooled-students-t-test" class="nav-link" data-scroll-target="#welch-versus-pooled-students-t-test">Welch versus pooled Student’s t-test</a></li>
+  </ul></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#read-the-generated-figures" id="toc-read-the-generated-figures" class="nav-link" data-scroll-target="#read-the-generated-figures">Read the generated figures</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -391,58 +429,312 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-005</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Compare two independent population means using Welch’s t-test and explain the difference, uncertainty, and limitations</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>How much does the population mean assessment score differ between teaching approaches A and B?</p>
+</blockquote>
+<p>Our target is <strong>mean A minus mean B</strong>, in score points. A negative estimate means A has the lower mean; a positive estimate means A has the higher mean.</p>
+<p>This example uses 40 synthetic learners, with 20 complete scores per group. The scores reuse the observed values from Chapter 03 for a standalone illustration. Excluding that chapter’s missing scores would require justification in an applied study.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Use an independent-samples t-test to compare the means of a numerical outcome in two independent groups.</p>
+<p>Examples include yield from independently assigned field plots, expenditure among independent customers in two groups, and assessment scores from different learners.</p>
+<p><strong>Welch’s t-test</strong> estimates the difference without assuming equal population variances. It is a useful starting choice for independent mean comparisons. It still requires a suitable design and attention to the outcome distributions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Design</th>
+<th>Relevant approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Different independent learners in A and B</td>
+<td>Independent-samples t-test</td>
+</tr>
+<tr class="even">
+<td>Same learners before and after training</td>
+<td><a href="./06-paired-t-test.html">Paired t-test</a></td>
+</tr>
+<tr class="odd">
+<td>Learners grouped within classrooms</td>
+<td>A method accounting for classroom clustering</td>
+</tr>
+<tr class="even">
+<td>More than two independent groups</td>
+<td><a href="./09-one-way-anova.html">One-way ANOVA methods</a></td>
+</tr>
+<tr class="odd">
+<td>Numerical outcome with important adjustment variables</td>
+<td><a href="./18-linear-regression.html">Linear regression</a>, with appropriate design and diagnostics</td>
+</tr>
+</tbody>
+</table>
+<p>Equal group sizes do not make observations paired. Meaningful pairing must come from the design.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<ul>
+<li><strong>Target:</strong> <span class="math inline">\(\mu_A-\mu_B\)</span>, the population mean difference.</li>
+<li><strong>Null hypothesis:</strong> <span class="math inline">\(H_0: \mu_A-\mu_B=0\)</span>.</li>
+<li><strong>Two-sided alternative:</strong> <span class="math inline">\(H_1: \mu_A-\mu_B\ne0\)</span>.</li>
+</ul>
+<p>Welch’s estimated standard error is:</p>
+<p><span class="math display">\[
+SE = \sqrt{\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}}.
+\]</span></p>
+<p>The test statistic is:</p>
+<p><span class="math display">\[
+t = \frac{\bar{x}_A-\bar{x}_B}{SE}.
+\]</span></p>
+<p>The confidence interval is the estimated difference plus or minus a t critical value multiplied by this SE. Welch’s method uses approximate degrees of freedom that can be fractional.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Starter example
+Optional: Welch–Satterthwaite degrees of freedom
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Runnable scripts and synthetic inputs are provided. Expand this chapter with output, figures, authoritative references, and review before publication.</p>
+<p><span class="math display">\[
+\nu = \frac{(s_A^2/n_A+s_B^2/n_B)^2}
+{(s_A^2/n_A)^2/(n_A-1)+(s_B^2/n_B)^2/(n_B-1)}.
+\]</span></p>
+<p>This accounts for uncertainty in the two variance estimates. Unlike the pooled equal-variance test, the degrees of freedom need not equal <span class="math inline">\(n_A+n_B-2\)</span>.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>What is the mean difference in scores between independent groups B and A?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p>The outcome is numerical and the groups contain different participants. Welch’s t-test allows unequal population variances. It does not correct dependence, selection bias, or confounding.</p>
+<section id="check-your-data-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-data-and-assumptions">4. Check your data and assumptions</h2>
+<p>Before testing, verify:</p>
+<ul>
+<li>Each learner contributes one score and belongs to one group.</li>
+<li>Observations are independent within and between groups; classroom or household dependence is addressed.</li>
+<li>Scores have consistent units and a meaningful numerical scale.</li>
+<li>Missing scores, duplicate records, and exclusions have been investigated.</li>
+<li>Group distributions do not show severe skewness or influential extremes that undermine small-sample inference.</li>
+<li>Sampling and assignment support the population and interpretation of interest.</li>
+</ul>
+<p>Inspect individual scores and Q-Q plots within each group. The group SDs are approximately 6.97 and 13.96 points, so equal variability should not be assumed. Welch’s method addresses unequal variances, but does not correct dependence, selection bias, or confounding.</p>
+<section id="welch-versus-pooled-students-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="welch-versus-pooled-students-t-test">Welch versus pooled Student’s t-test</h3>
+<p>The pooled test assumes equal population variances and uses a pooled variance estimate. Welch’s test allows unequal variances. Do not automatically select between them using a preliminary variance-test p-value. Choose an approach based on the design and a justified analysis plan.</p>
+<p>A normality-test p-value alone should not decide whether to use a mean comparison or a rank-based method. They can address different inferential targets.</p>
 </section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p>The effect is the population mean of B minus the population mean of A. The two-sided null hypothesis is a zero mean difference.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p>Check the study design, group counts, missing data, and distributions. Inspect extreme observations. With small samples, strong skew or outliers can undermine the t approximation.</p>
-<p>The example file has one row per synthetic participant. Its independence is part of how the example was generated.</p>
 </section>
 <section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p>From the project root, choose either implementation:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> scripts/python/05-independent-t-test.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/05-independent-t-test.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Both use <code>data/example/independent-groups.csv</code>, calculate B minus A, and export separate TSV results under <code>results/tables/</code>.</p>
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the companion files into the repository root:</p>
+<ul>
+<li><a href="data/example/05-two-group-scores.csv">Synthetic input</a></li>
+<li><a href="scripts/R/05-independent-t-test.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/05-independent-t-test.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The displayed blocks below are plain, non-executable code. Quarto does not run them. The complete script checks the input and exports results and figures.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explicitly select each group to preserve the direction A minus B.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/05-two-group-scores.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> dat<span class="sc">$</span>score[dat<span class="sc">$</span>approach <span class="sc">==</span> <span class="st">"A"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> dat<span class="sc">$</span>score[dat<span class="sc">$</span>approach <span class="sc">==</span> <span class="st">"B"</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">t.test</span>(a, b, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The interval returned here is already for mean A minus mean B.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">difference =</span> <span class="fu">mean</span>(a) <span class="sc">-</span> <span class="fu">mean</span>(b),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower_95 =</span> fit<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_95 =</span> fit<span class="sc">$</span>conf.int[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Generated output</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/05-welch-t-test.csv</code></td>
+<td>Group summaries, difference, interval, and test result</td>
+</tr>
+<tr class="even">
+<td><code>results/figures/05-group-diagnostics.png</code></td>
+<td>Individual scores and group Q-Q plots</td>
+</tr>
+<tr class="odd">
+<td><code>results/figures/05-mean-difference.png</code></td>
+<td>Estimated difference with its 95% confidence interval</td>
+</tr>
+</tbody>
+</table>
+<p>Run the R script to generate these files; pre-generated R outputs are not included. The chapter renders without them because it does not embed ungenerated images.</p>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p>Read the mean difference and its 95% confidence interval together. The interval expresses uncertainty under the model and sampling assumptions. The p-value measures incompatibility with the zero-difference null under those assumptions; it does not measure practical importance.</p>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>Expected results, rounded:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Learners per group</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Mean A</td>
+<td style="text-align: right;">69.30 points</td>
+</tr>
+<tr class="odd">
+<td>Mean B</td>
+<td style="text-align: right;">74.10 points</td>
+</tr>
+<tr class="even">
+<td>SD A</td>
+<td style="text-align: right;">6.97 points</td>
+</tr>
+<tr class="odd">
+<td>SD B</td>
+<td style="text-align: right;">13.96 points</td>
+</tr>
+<tr class="even">
+<td>Mean difference, A minus B</td>
+<td style="text-align: right;">-4.80 points</td>
+</tr>
+<tr class="odd">
+<td>Standard error of difference</td>
+<td style="text-align: right;">3.488 points</td>
+</tr>
+<tr class="even">
+<td>95% CI for difference</td>
+<td style="text-align: right;">-11.95 to 2.35 points</td>
+</tr>
+<tr class="odd">
+<td>Welch t statistic</td>
+<td style="text-align: right;">-1.376</td>
+</tr>
+<tr class="even">
+<td>Approximate degrees of freedom</td>
+<td style="text-align: right;">27.91</td>
+</tr>
+<tr class="odd">
+<td>Two-sided p-value</td>
+<td style="text-align: right;">0.1798</td>
+</tr>
+</tbody>
+</table>
+<p>Check the arithmetic: <span class="math inline">\(69.30-74.10=-4.80\)</span>, and <span class="math inline">\(-4.80/3.488\approx-1.376\)</span>.</p>
+<p>The estimated mean for A is 4.80 points lower than for B. The interval includes zero and extends from an appreciably lower mean for A to a slightly higher mean. The result does not establish equality, equivalence, or absence of an important difference.</p>
+<p>The p-value is calculated under the equal-means null and the test’s other assumptions. It is not the probability that the two population means are equal.</p>
+<section id="read-the-generated-figures" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-generated-figures">Read the generated figures</h3>
+<p>In the diagnostic figure, inspect spread and unusual scores within each group. A straight Q-Q pattern does not establish independence.</p>
+<p>In the difference figure, the dot represents -4.80, the line represents the 95% interval, and the dashed zero reference marks equal population means. This interval describes uncertainty about a mean difference, not the range of differences between individual learners.</p>
+<p>Reversing the comparison to B minus A changes the signs: estimate +4.80, interval -2.35 to 11.95, and positive t statistic. The two-sided p-value stays the same.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p>Report sample sizes, group means, the B-minus-A difference, its confidence interval, Welch’s t statistic, degrees of freedom, and p-value. These synthetic scores illustrate a method and support no claim about a real intervention.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>I want to compare assessment scores from two independent groups, with 20 learners per group. Define the difference as A minus B. Mean scores are 69.30 and 74.10; SDs are approximately 6.97 and 13.96. Explain Welch’s t-test, identify missing design information, and distinguish a nonsignificant result from evidence of equivalence. Use the supplied CSV for exact calculations. Do not reverse the comparison or claim that an approach caused the difference.</p>
+</blockquote>
+<p>Check that the response uses <code>var.equal = FALSE</code>, preserves A minus B, reports a negative estimate, allows fractional degrees of freedom, and interprets the interval alongside the p-value.</p>
+<p>If it says “the approaches are equally effective,” ask what equivalence margin and study design support that conclusion. An ordinary test failing to reject equal means is insufficient.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In the synthetic example, mean scores were 69.30 points (SD 6.97, n=20) for A and 74.10 points (SD 13.96, n=20) for B. The estimated difference, A minus B, was -4.80 points (95% CI -11.95 to 2.35). A two-sided Welch t-test yielded <span class="math inline">\(t(27.91)=-1.38\)</span>, <span class="math inline">\(p=0.1798\)</span>. The interval includes zero and potentially important differences; these results do not establish equivalence. A causal interpretation would require appropriate assignment and other design conditions.</p>
+</blockquote>
+<p>An applied report should also describe sampling, missing-data handling, diagnostics, and any deviations from the planned analysis.</p>
 </section>
 <section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p>Do not use an independent-groups test for paired measurements. Do not select tests solely from a normality-test p-value. Rank tests answer a different question and are not automatic tests of medians.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Using a paired test because group sizes match</td>
+<td>Identify whether observations are genuinely linked</td>
+</tr>
+<tr class="even">
+<td>Ignoring clustering within classrooms</td>
+<td>Account for the correlated structure</td>
+</tr>
+<tr class="odd">
+<td>Changing the comparison direction midway</td>
+<td>State A minus B consistently in code and reporting</td>
+</tr>
+<tr class="even">
+<td>Assuming p &gt; 0.05 means equality</td>
+<td>Examine precision and important differences; use equivalence methods when appropriate</td>
+</tr>
+<tr class="odd">
+<td>Inferring causation from a group comparison alone</td>
+<td>Assess assignment, confounding, and the broader design</td>
+</tr>
+<tr class="even">
+<td>Searching for a test with a smaller p-value</td>
+<td>Preserve the inferential target and document justified changes</td>
+</tr>
+</tbody>
+</table>
+<p>Severe skewness, influential observations, or a different target quantity may motivate another approach. Mann–Whitney is a rank-based comparison and does not generally test arithmetic means or only medians. Transformations change the scale of inference. Regression may support adjustment for prespecified covariates, but adjustment alone does not establish causation. Review the relevant method’s assumptions before switching.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Add checked statistical and software references during chapter development.</p>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>An analyst reports a mean difference A minus B of -4.80 points, with a 95% interval from -11.95 to 2.35, then writes: “B is certainly better, but the test had no effect because p &gt; 0.05.”</p>
+<p>Which parts need correction?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>B has the higher sample mean, but uncertainty includes zero and a small difference in the opposite direction. The interval also includes potentially important differences favoring B. A large p-value does not establish no effect. “Better” additionally requires a meaningful outcome, practical context, and a design that supports the intended claim.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./06-paired-t-test.html">Paired t-Test</a> for measurements linked within the same units.</p>
 
 
 </section>

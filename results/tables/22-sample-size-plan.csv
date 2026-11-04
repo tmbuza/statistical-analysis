@@ -1,0 +1,2 @@
+"meaningful_difference","common_sd","target_power","alpha","expected_loss_fraction","continuous_n_per_group","analyzable_n_per_group","achieved_power","recruit_n_per_group","total_recruit"
+5,10,0.8,0.05,0.15,63.7656101707854,64,0.801459557922285,76,152

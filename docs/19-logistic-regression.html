@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">4. Check before running</a>
+  <ul class="collapse">
+  <li><a href="#separation-and-convergence" id="toc-separation-and-convergence" class="nav-link" data-scroll-target="#separation-and-convergence">Separation and convergence</a></li>
+  </ul></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#intercept-and-outcome-reversal" id="toc-intercept-and-outcome-reversal" class="nav-link" data-scroll-target="#intercept-and-outcome-reversal">Intercept and outcome reversal</a></li>
+  </ul></li>
+  <li><a href="#predicted-probabilities-and-uncertainty" id="toc-predicted-probabilities-and-uncertainty" class="nav-link" data-scroll-target="#predicted-probabilities-and-uncertainty">7. Predicted probabilities and uncertainty</a></li>
+  <li><a href="#adjustment-and-interpretation" id="toc-adjustment-and-interpretation" class="nav-link" data-scroll-target="#adjustment-and-interpretation">8. Adjustment and interpretation</a></li>
+  <li><a href="#model-checking-and-prediction-performance" id="toc-model-checking-and-prediction-performance" class="nav-link" data-scroll-target="#model-checking-and-prediction-performance">9. Model checking and prediction performance</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">10. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">11. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">12. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">13. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +432,338 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-019</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Model a binary outcome using log odds, interpret odds ratios and predicted probabilities, and assess uncertainty and model limitations</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>How is the probability of task completion associated with the number of practice sessions?</p>
+</blockquote>
+<p>The dataset contains 64 independent synthetic learners. The outcome is coded <strong>1 for completed</strong> and <strong>0 for not completed</strong>. Practice sessions range from one to eight.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sessions</th>
+<th style="text-align: right;">Learners</th>
+<th style="text-align: right;">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+<p>Unlike Chapter 18’s numerical score outcome, this outcome has only two values. Logistic regression keeps fitted probabilities between zero and one.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Use binary logistic regression to model the conditional probability of a defined event using numerical or categorical predictors. Each observation’s outcome and predictors must be correctly aligned.</p>
+<p>Independent Bernoulli observations are assumed in this example. Repeated outcomes, matched designs, clustered samples, and complex surveys need appropriate extensions or design-based methods. Counts, survival times, and unordered outcomes with several categories require other models.</p>
+<p>Define whether the goal is describing an association, estimating an adjusted relationship, or predicting outcomes for new individuals. These goals require different choices about design, covariates, and validation.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>If p is completion probability, its odds are <span class="math inline">\(p/(1-p)\)</span>. Logistic regression models log odds:</p>
+<p><span class="math display">\[
+\log\left(\frac{p}{1-p}\right)=\beta_0+\beta_1X.
+\]</span></p>
+<p>The probability follows from the inverse-logit transformation:</p>
+<p><span class="math display">\[
+p=\frac{1}{1+\exp[-(\beta_0+\beta_1X)]}.
+\]</span></p>
+<p>For one additional session, <span class="math inline">\(\exp(\beta_1)\)</span> is the modeled <strong>completion odds ratio</strong>, assuming a constant slope on the log-odds scale.</p>
+<ul>
+<li><strong>Slope null:</strong> <span class="math inline">\(\beta_1=0\)</span>, equivalent to an odds ratio of one.</li>
+<li><strong>Two-sided alternative:</strong> The slope differs from zero.</li>
+</ul>
+<p>The script uses maximum-likelihood estimation and conventional asymptotic Wald inference. These calculations can be unreliable with sparse information, separation, or model misspecification.</p>
+</section>
+<section id="check-before-running" class="level2">
+<h2 class="anchored" data-anchor-id="check-before-running">4. Check before running</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>What to establish</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Event coding</td>
+<td>Completed is explicitly numeric 1; not completed is 0</td>
+</tr>
+<tr class="even">
+<td>Independence</td>
+<td>One independent learner per row, with clustering addressed if present</td>
+</tr>
+<tr class="odd">
+<td>Missingness</td>
+<td>Missing outcomes and predictors are investigated</td>
+</tr>
+<tr class="even">
+<td>Mean structure</td>
+<td>Numerical predictor relationship is appropriate on the log-odds scale</td>
+</tr>
+<tr class="odd">
+<td>Information</td>
+<td>Enough events and non-events across predictor patterns for stable estimation</td>
+</tr>
+<tr class="even">
+<td>Separation</td>
+<td>Predictor patterns do not perfectly or nearly determine the outcome</td>
+</tr>
+<tr class="odd">
+<td>Influence and redundancy</td>
+<td>Investigate influential cases and collinearity in larger models</td>
+</tr>
+</tbody>
+</table>
+<p>Neither predictors nor binary outcomes need to be normally distributed. The linearity assumption concerns <strong>log odds</strong>, not a straight line in probability. Curves, transformations, or interactions may be needed for a suitable model.</p>
+<section id="separation-and-convergence" class="level3">
+<h3 class="anchored" data-anchor-id="separation-and-convergence">Separation and convergence</h3>
+<p>Complete or quasi-complete separation can drive ordinary maximum-likelihood coefficients toward infinity. Warning signs include huge coefficients or standard errors, fitted probabilities near zero or one, and convergence warnings. Successful convergence alone does not guarantee stable estimates.</p>
+<p>Do not ignore warnings or remove observations to manufacture convergence. Reconsider coding, information, and model complexity; suitable penalized or bias-reduced methods may be needed. No single events-per-variable rule guarantees an adequate model.</p>
+</section>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the supplied files into your repository root:</p>
+<ul>
+<li><a href="data/example/19-practice-completion.csv">Synthetic individual outcomes</a></li>
+<li><a href="scripts/R/19-logistic-regression.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/19-logistic-regression.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All chapter code blocks are non-executable displays. Run the standalone script for the actual analysis and exports.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model the probability of completed=1.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/19-practice-completion.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(completed <span class="sc">~</span> practice_sessions, <span class="at">data =</span> dat,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Exponentiate coefficients and explicitly selected Wald intervals:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">confint.default</span>(fit))  <span class="co"># Conventional asymptotic Wald intervals.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>confint.default()</code> is used deliberately. Other interval methods, including profile likelihood, can produce different limits and should be named accordingly.</p>
+<p>The script exports coefficient estimates, predicted probabilities, and observation diagnostics under <code>results/tables/</code>, plus <code>results/figures/19-probability-curve.png</code>. These outputs are generated when R runs; pre-generated R results are not included or needed to render the chapter.</p>
+<div id="fig-19-probability-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-19-probability-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/19-probability-curve.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-19-probability-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: Modeled completion probabilities with pointwise 95% Wald intervals transformed from the log-odds scale. Points show observed proportions at each session count; the shaded limits concern probabilities, not an individual binary outcome.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value, rounded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Learners</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr class="even">
+<td>Completed events</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td>Non-events</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr class="even">
+<td>Intercept</td>
+<td style="text-align: right;">-2.13662</td>
+</tr>
+<tr class="odd">
+<td>Session coefficient, log-odds scale</td>
+<td style="text-align: right;">0.407315</td>
+</tr>
+<tr class="even">
+<td>Odds ratio per additional session</td>
+<td style="text-align: right;">1.50278</td>
+</tr>
+<tr class="odd">
+<td>Wald 95% odds-ratio interval</td>
+<td style="text-align: right;">1.16251 to 1.94264</td>
+</tr>
+<tr class="even">
+<td>Two-sided Wald p-value for slope</td>
+<td style="text-align: right;">0.001874</td>
+</tr>
+<tr class="odd">
+<td>Fitted completion probability at four sessions</td>
+<td style="text-align: right;">0.37581</td>
+</tr>
+</tbody>
+</table>
+<p>Numerical optimization can change final digits slightly. Verify that <span class="math inline">\(\exp(0.407315)\approx1.50278\)</span>.</p>
+<p>Under this model, one additional session is associated with about <strong>50.3% higher completion odds</strong>. That is not 50.3 percentage points higher probability, and it is not necessarily a 50.3% higher probability.</p>
+<p>At four sessions:</p>
+<p><span class="math display">\[
+\eta=-2.13662+0.407315(4)\approx-0.50736,
+\]</span></p>
+<p>so <span class="math inline">\(p=1/(1+\exp[-\eta])\approx0.37581\)</span>.</p>
+<p>A constant odds ratio does not imply a constant probability difference. The probability change depends on the starting predictor value and any other covariates in the model.</p>
+<section id="intercept-and-outcome-reversal" class="level3">
+<h3 class="anchored" data-anchor-id="intercept-and-outcome-reversal">Intercept and outcome reversal</h3>
+<p>The intercept describes log odds at zero sessions, outside the observed range of one to eight. Interpret it cautiously. Recoding the event from completed to not completed reverses coefficient signs and reciprocates odds ratios. Confirm the modeled event before explaining results.</p>
+</section>
+</section>
+<section id="predicted-probabilities-and-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="predicted-probabilities-and-uncertainty">7. Predicted probabilities and uncertainty</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">practice_sessions =</span> <span class="dv">4</span>), <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script calculates approximate pointwise Wald intervals on the log-odds scale and transforms the limits back to probabilities. Transforming on that scale keeps limits between zero and one.</p>
+<p>The interval concerns uncertainty about the modeled conditional event probability. It is not an individual-outcome interval like the numerical prediction interval in linear regression: a new learner’s observed binary outcome is either zero or one.</p>
+<p>In the generated plot, the curve and shaded interval represent the model, while points show observed proportions among the eight learners at each session count. The shaded region is pointwise, not a simultaneous band.</p>
+</section>
+<section id="adjustment-and-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="adjustment-and-interpretation">8. Adjustment and interpretation</h2>
+<p>With additional prespecified predictors, the session odds ratio would be conditional on those variables under the specified model. For example, prior experience could be relevant if appropriately measured before practice.</p>
+<p>This dataset includes no adjustment variables. The runnable model is <strong>unadjusted</strong> and cannot support claims that it accounts for prior ability or motivation.</p>
+<p>Choose covariates using the question, timing, and causal reasoning. Do not add every available variable or select solely by p-values. Logistic odds ratios are noncollapsible: adjusted and unadjusted odds ratios can differ even without confounding. A changed odds ratio alone does not prove that a variable was a confounder.</p>
+</section>
+<section id="model-checking-and-prediction-performance" class="level2">
+<h2 class="anchored" data-anchor-id="model-checking-and-prediction-performance">9. Model checking and prediction performance</h2>
+<p>Inspect outcome counts across predictor values, plausible nonlinear patterns, residuals, leverage, and influence. Binary residuals do not behave like normal linear-regression residuals; do not require a normal residual Q-Q plot as a logistic assumption check.</p>
+<p>A converged model and a small slope p-value do not establish predictive quality. For prediction, assess calibration and discrimination using appropriate validation, while preventing information leakage. An AUC alone does not establish well-calibrated probabilities, and a 0.5 classification threshold is not universally appropriate.</p>
+<p>This teaching script fits the model and exports basic diagnostics. It does not perform external validation, a full calibration assessment, separation detection, or automated model selection.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">10. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Fit the supplied synthetic binary outcomes using completed=1 as the event and practice_sessions as the predictor. Report the log-odds slope, odds ratio per session, conventional Wald interval, and predicted probability at four sessions. Check coding, dependence, sparse information, separation, and logit linearity. State that the model is unadjusted. Distinguish higher odds from probability changes and distinguish probability uncertainty from an individual binary outcome.</p>
+</blockquote>
+<p>Verify n=64, 28 events, positive slope near 0.4073, odds ratio near 1.503, and probability near 0.3758 at four sessions. Correct any claim that the odds ratio gives an equal probability increase at every predictor value.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">11. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In 64 synthetic learners, including 28 completed outcomes, an unadjusted logistic model estimated higher completion odds with more practice sessions: odds ratio 1.50 per session (conventional Wald 95% CI 1.16 to 1.94; two-sided p=0.00187). The fitted completion probability at four sessions was approximately 37.6%. Interpretation assumes an appropriate logit relationship and independent outcomes. The association does not establish a causal practice effect, and predictive performance has not been validated.</p>
+</blockquote>
+<p>For applied reporting, add sampling, missingness, event coding, adjustment variables, functional forms, diagnostics, interval method, and relevant validation results.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">12. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reversing event coding without changing interpretation</td>
+<td>State which outcome is modeled</td>
+</tr>
+<tr class="even">
+<td>Calling an odds ratio a probability ratio</td>
+<td>Explain odds and report probabilities where useful</td>
+</tr>
+<tr class="odd">
+<td>Assuming a constant probability difference</td>
+<td>Calculate probabilities at relevant predictor values</td>
+</tr>
+<tr class="even">
+<td>Ignoring separation warnings</td>
+<td>Investigate and use an appropriate estimation strategy</td>
+</tr>
+<tr class="odd">
+<td>Requiring normal binary residuals</td>
+<td>Use diagnostics appropriate to a binomial model</td>
+</tr>
+<tr class="even">
+<td>Calling fitted probabilities validated predictions</td>
+<td>Evaluate performance with appropriate held-out information</td>
+</tr>
+</tbody>
+</table>
+<p>Use appropriate extensions for clustering or repeated binary outcomes, and alternative link functions or models when the target is a risk difference or ratio. Penalized or bias-reduced estimation may help with sparse data but changes the procedure and must be documented.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">13. Check your understanding</h2>
+<p>An AI report says: “The odds ratio is 1.50, so every extra session adds 50 percentage points to completion probability.”</p>
+<p>What should it say?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>The model estimates approximately 50% higher odds per session, not a fixed probability increase. Convert the linear predictor to probabilities at specified session values to explain probability differences. These remain associations unless the design and assumptions support a causal interpretation.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>How does a binary outcome relate to one or more predictors?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./20-resampling.html">Bootstrap and Permutation Methods</a> to explore uncertainty estimation and null testing through resampling.</p>
 
 
 </section>

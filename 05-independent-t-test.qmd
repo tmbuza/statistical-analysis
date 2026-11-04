@@ -1,54 +1,199 @@
 # Independent-Samples t-Test
 
-::: {.callout-note}
-## Starter example
-Runnable scripts and synthetic inputs are provided. Expand this chapter with output, figures, authoritative references, and review before publication.
+::: {.cdi-message}
+- **ID:** STATS-005
+- **Type:** Statistical method reference
+- **Audience:** Beginner to intermediate learners, researchers, and analysts
+- **Theme:** Compare two independent population means using Welch's t-test and explain the difference, uncertainty, and limitations
 :::
 
-## Your question
+## 1. Your question
 
-What is the mean difference in scores between independent groups B and A?
+> How much does the population mean assessment score differ between teaching approaches A and B?
 
-## When to use this method
+Our target is **mean A minus mean B**, in score points. A negative estimate means A has the lower mean; a positive estimate means A has the higher mean.
 
-The outcome is numerical and the groups contain different participants. Welch’s t-test allows unequal population variances. It does not correct dependence, selection bias, or confounding.
+This example uses 40 synthetic learners, with 20 complete scores per group. The scores reuse the observed values from Chapter 03 for a standalone illustration. Excluding that chapter's missing scores would require justification in an applied study.
 
-## What it estimates or tests
+## 2. When to use this method
 
-The effect is the population mean of B minus the population mean of A. The two-sided null hypothesis is a zero mean difference.
+Use an independent-samples t-test to compare the means of a numerical outcome in two independent groups.
 
-## Check before running
+Examples include yield from independently assigned field plots, expenditure among independent customers in two groups, and assessment scores from different learners.
 
-Check the study design, group counts, missing data, and distributions. Inspect extreme observations. With small samples, strong skew or outliers can undermine the t approximation.
+**Welch's t-test** estimates the difference without assuming equal population variances. It is a useful starting choice for independent mean comparisons. It still requires a suitable design and attention to the outcome distributions.
 
-The example file has one row per synthetic participant. Its independence is part of how the example was generated.
+| Design | Relevant approach |
+|---|---|
+| Different independent learners in A and B | Independent-samples t-test |
+| Same learners before and after training | [Paired t-test](06-paired-t-test.qmd) |
+| Learners grouped within classrooms | A method accounting for classroom clustering |
+| More than two independent groups | [One-way ANOVA methods](09-one-way-anova.qmd) |
+| Numerical outcome with important adjustment variables | [Linear regression](18-linear-regression.qmd), with appropriate design and diagnostics |
 
-## Run the analysis
+Equal group sizes do not make observations paired. Meaningful pairing must come from the design.
 
-From the project root, choose either implementation:
+## 3. What it estimates or tests
 
-```bash
-python3 scripts/python/05-independent-t-test.py
-```
+- **Target:** $\mu_A-\mu_B$, the population mean difference.
+- **Null hypothesis:** $H_0: \mu_A-\mu_B=0$.
+- **Two-sided alternative:** $H_1: \mu_A-\mu_B\ne0$.
+
+Welch's estimated standard error is:
+
+$$
+SE = \sqrt{\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}}.
+$$
+
+The test statistic is:
+
+$$
+t = \frac{\bar{x}_A-\bar{x}_B}{SE}.
+$$
+
+The confidence interval is the estimated difference plus or minus a t critical value multiplied by this SE. Welch's method uses approximate degrees of freedom that can be fractional.
+
+::: {.callout-note collapse="true"}
+## Optional: Welch–Satterthwaite degrees of freedom
+
+$$
+\nu = \frac{(s_A^2/n_A+s_B^2/n_B)^2}
+{(s_A^2/n_A)^2/(n_A-1)+(s_B^2/n_B)^2/(n_B-1)}.
+$$
+
+This accounts for uncertainty in the two variance estimates. Unlike the pooled equal-variance test, the degrees of freedom need not equal $n_A+n_B-2$.
+:::
+
+## 4. Check your data and assumptions
+
+Before testing, verify:
+
+- Each learner contributes one score and belongs to one group.
+- Observations are independent within and between groups; classroom or household dependence is addressed.
+- Scores have consistent units and a meaningful numerical scale.
+- Missing scores, duplicate records, and exclusions have been investigated.
+- Group distributions do not show severe skewness or influential extremes that undermine small-sample inference.
+- Sampling and assignment support the population and interpretation of interest.
+
+Inspect individual scores and Q-Q plots within each group. The group SDs are approximately 6.97 and 13.96 points, so equal variability should not be assumed. Welch's method addresses unequal variances, but does not correct dependence, selection bias, or confounding.
+
+### Welch versus pooled Student's t-test
+
+The pooled test assumes equal population variances and uses a pooled variance estimate. Welch's test allows unequal variances. Do not automatically select between them using a preliminary variance-test p-value. Choose an approach based on the design and a justified analysis plan.
+
+A normality-test p-value alone should not decide whether to use a mean comparison or a rank-based method. They can address different inferential targets.
+
+## 5. Run the analysis
+
+Copy the companion files into the repository root:
+
+- [Synthetic input](data/example/05-two-group-scores.csv)
+- [Complete base R script](scripts/R/05-independent-t-test.R)
 
 ```bash
 Rscript scripts/R/05-independent-t-test.R
 ```
 
-Both use `data/example/independent-groups.csv`, calculate B minus A, and export separate TSV results under `results/tables/`.
+The displayed blocks below are plain, non-executable code. Quarto does not run them. The complete script checks the input and exports results and figures.
 
-## Understand the output
+```r
+# Explicitly select each group to preserve the direction A minus B.
+dat <- read.csv("data/example/05-two-group-scores.csv",
+                stringsAsFactors = FALSE)
+a <- dat$score[dat$approach == "A"]
+b <- dat$score[dat$approach == "B"]
 
-Read the mean difference and its 95% confidence interval together. The interval expresses uncertainty under the model and sampling assumptions. The p-value measures incompatibility with the zero-difference null under those assumptions; it does not measure practical importance.
+fit <- t.test(a, b, alternative = "two.sided", var.equal = FALSE,
+              conf.level = 0.95)
+print(fit)
+```
 
-## Report the finding
+```r
+# The interval returned here is already for mean A minus mean B.
+c(difference = mean(a) - mean(b),
+  lower_95 = fit$conf.int[1],
+  upper_95 = fit$conf.int[2])
+```
 
-Report sample sizes, group means, the B-minus-A difference, its confidence interval, Welch’s t statistic, degrees of freedom, and p-value. These synthetic scores illustrate a method and support no claim about a real intervention.
+| Generated output | Purpose |
+|---|---|
+| `results/tables/05-welch-t-test.csv` | Group summaries, difference, interval, and test result |
+| `results/figures/05-group-diagnostics.png` | Individual scores and group Q-Q plots |
+| `results/figures/05-mean-difference.png` | Estimated difference with its 95% confidence interval |
 
-## Common mistakes and alternatives
+Run the R script to generate these files; pre-generated R outputs are not included. The chapter renders without them because it does not embed ungenerated images.
 
-Do not use an independent-groups test for paired measurements. Do not select tests solely from a normality-test p-value. Rank tests answer a different question and are not automatic tests of medians.
+## 6. Verify and explain the output
 
-## References
+Expected results, rounded:
 
-Add checked statistical and software references during chapter development.
+| Quantity | Value |
+|---|---:|
+| Learners per group | 20 |
+| Mean A | 69.30 points |
+| Mean B | 74.10 points |
+| SD A | 6.97 points |
+| SD B | 13.96 points |
+| Mean difference, A minus B | -4.80 points |
+| Standard error of difference | 3.488 points |
+| 95% CI for difference | -11.95 to 2.35 points |
+| Welch t statistic | -1.376 |
+| Approximate degrees of freedom | 27.91 |
+| Two-sided p-value | 0.1798 |
+
+Check the arithmetic: $69.30-74.10=-4.80$, and $-4.80/3.488\approx-1.376$.
+
+The estimated mean for A is 4.80 points lower than for B. The interval includes zero and extends from an appreciably lower mean for A to a slightly higher mean. The result does not establish equality, equivalence, or absence of an important difference.
+
+The p-value is calculated under the equal-means null and the test's other assumptions. It is not the probability that the two population means are equal.
+
+### Read the generated figures
+
+In the diagnostic figure, inspect spread and unusual scores within each group. A straight Q-Q pattern does not establish independence.
+
+In the difference figure, the dot represents -4.80, the line represents the 95% interval, and the dashed zero reference marks equal population means. This interval describes uncertainty about a mean difference, not the range of differences between individual learners.
+
+Reversing the comparison to B minus A changes the signs: estimate +4.80, interval -2.35 to 11.95, and positive t statistic. The two-sided p-value stays the same.
+
+## 7. Use AI and check its suggestions
+
+> I want to compare assessment scores from two independent groups, with 20 learners per group. Define the difference as A minus B. Mean scores are 69.30 and 74.10; SDs are approximately 6.97 and 13.96. Explain Welch's t-test, identify missing design information, and distinguish a nonsignificant result from evidence of equivalence. Use the supplied CSV for exact calculations. Do not reverse the comparison or claim that an approach caused the difference.
+
+Check that the response uses `var.equal = FALSE`, preserves A minus B, reports a negative estimate, allows fractional degrees of freedom, and interprets the interval alongside the p-value.
+
+If it says “the approaches are equally effective,” ask what equivalence margin and study design support that conclusion. An ordinary test failing to reject equal means is insufficient.
+
+## 8. Report your finding
+
+> In the synthetic example, mean scores were 69.30 points (SD 6.97, n=20) for A and 74.10 points (SD 13.96, n=20) for B. The estimated difference, A minus B, was -4.80 points (95% CI -11.95 to 2.35). A two-sided Welch t-test yielded $t(27.91)=-1.38$, $p=0.1798$. The interval includes zero and potentially important differences; these results do not establish equivalence. A causal interpretation would require appropriate assignment and other design conditions.
+
+An applied report should also describe sampling, missing-data handling, diagnostics, and any deviations from the planned analysis.
+
+## 9. Common mistakes and alternatives
+
+| Mistake | Better approach |
+|---|---|
+| Using a paired test because group sizes match | Identify whether observations are genuinely linked |
+| Ignoring clustering within classrooms | Account for the correlated structure |
+| Changing the comparison direction midway | State A minus B consistently in code and reporting |
+| Assuming p > 0.05 means equality | Examine precision and important differences; use equivalence methods when appropriate |
+| Inferring causation from a group comparison alone | Assess assignment, confounding, and the broader design |
+| Searching for a test with a smaller p-value | Preserve the inferential target and document justified changes |
+
+Severe skewness, influential observations, or a different target quantity may motivate another approach. Mann–Whitney is a rank-based comparison and does not generally test arithmetic means or only medians. Transformations change the scale of inference. Regression may support adjustment for prespecified covariates, but adjustment alone does not establish causation. Review the relevant method's assumptions before switching.
+
+## 10. Check your understanding
+
+An analyst reports a mean difference A minus B of -4.80 points, with a 95% interval from -11.95 to 2.35, then writes: “B is certainly better, but the test had no effect because p > 0.05.”
+
+Which parts need correction?
+
+::: {.callout-note collapse="true"}
+## Check your reasoning
+B has the higher sample mean, but uncertainty includes zero and a small difference in the opposite direction. The interval also includes potentially important differences favoring B. A large p-value does not establish no effect. “Better” additionally requires a meaningful outcome, practical context, and a design that supports the intended claim.
+:::
+
+## Next step
+
+Continue to [Paired t-Test](06-paired-t-test.qmd) for measurements linked within the same units.
+

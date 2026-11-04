@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a>
+  <ul class="collapse">
+  <li><a href="#exact-conditional-test" id="toc-exact-conditional-test" class="nav-link" data-scroll-target="#exact-conditional-test">Exact conditional test</a></li>
+  <li><a href="#approximate-mcnemar-test" id="toc-approximate-mcnemar-test" class="nav-link" data-scroll-target="#approximate-mcnemar-test">Approximate McNemar test</a></li>
+  </ul></li>
+  <li><a href="#check-the-pairs-and-input" id="toc-check-the-pairs-and-input" class="nav-link" data-scroll-target="#check-the-pairs-and-input">4. Check the pairs and input</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#do-not-confuse-the-binomial-estimate-with-the-marginal-change" id="toc-do-not-confuse-the-binomial-estimate-with-the-marginal-change" class="nav-link" data-scroll-target="#do-not-confuse-the-binomial-estimate-with-the-marginal-change">Do not confuse the binomial estimate with the marginal change</a></li>
+  <li><a href="#read-the-plot" id="toc-read-the-plot" class="nav-link" data-scroll-target="#read-the-plot">Read the plot</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +431,313 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-015</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Compare paired binary outcomes using discordant pairs and distinguish marginal change from association</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Does the population proportion able to complete a task differ before and after training?</p>
+</blockquote>
+<p>Sixty synthetic participants are assessed twice with the same binary outcome: <strong>Yes</strong> or <strong>No</strong>. Each participant supplies one complete pair. Rows refer to before and columns to after.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Before / After</th>
+<th style="text-align: right;">No</th>
+<th style="text-align: right;">Yes</th>
+<th style="text-align: right;">Before total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr class="even">
+<td>Yes</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td>After total</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">60</td>
+</tr>
+</tbody>
+</table>
+<p>The 18 No-to-Yes transitions are <strong>gains</strong> and the four Yes-to-No transitions are <strong>losses</strong>. These two off-diagonal cells are the discordant pairs.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>McNemar’s test compares the marginal probabilities of a binary outcome in paired measurements. Examples include before-and-after task completion or two binary diagnostic classifications on the same specimens.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Design or question</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Two paired binary outcomes</td>
+<td>McNemar’s test</td>
+</tr>
+<tr class="even">
+<td>Independent binary groups</td>
+<td><a href="./14-proportions.html">Tests for proportions</a> or <a href="./13-fisher-exact.html">Fisher’s exact test</a></td>
+</tr>
+<tr class="odd">
+<td>Paired categorical outcome with more than two categories</td>
+<td>A suitable marginal-homogeneity generalization</td>
+</tr>
+<tr class="even">
+<td>More than two repeated binary measurements</td>
+<td>Cochran’s Q under suitable conditions, or an appropriate repeated-outcome model</td>
+</tr>
+<tr class="odd">
+<td>Adjustment variables or clustering between participants</td>
+<td>A suitable paired or longitudinal binary-outcome model</td>
+</tr>
+</tbody>
+</table>
+<p>Do not apply an ordinary independence test to the before-by-after transition table when the question is marginal change. Independence of before and after is a different null from equality of their marginal Yes probabilities.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>Let <span class="math inline">\(p_{NY}\)</span> denote the population probability of No before and Yes after, and <span class="math inline">\(p_{YN}\)</span> the reverse.</p>
+<ul>
+<li><strong>Null:</strong> <span class="math inline">\(p_{NY}=p_{YN}\)</span>, equivalent to equal marginal Yes probabilities.</li>
+<li><strong>Two-sided alternative:</strong> The transition probabilities differ.</li>
+<li><strong>Effect estimate:</strong> The after-minus-before Yes proportion difference.</li>
+</ul>
+<p>For complete pairs:</p>
+<p><span class="math display">\[
+\widehat\Delta=\hat p_{\text{after}}-\hat p_{\text{before}}
+=\frac{\text{gains}-\text{losses}}{n}.
+\]</span></p>
+<p>The concordant pairs remain relevant to the marginal proportions and their denominator, but they do not distinguish gains from losses in the conditional test.</p>
+<section id="exact-conditional-test" class="level3">
+<h3 class="anchored" data-anchor-id="exact-conditional-test">Exact conditional test</h3>
+<p>Condition on the number of discordant pairs, <span class="math inline">\(m\)</span>. Under the null, gains follow a binomial distribution with <span class="math inline">\(m\)</span> trials and probability 0.5. We use a two-sided exact binomial test as the primary procedure.</p>
+</section>
+<section id="approximate-mcnemar-test" class="level3">
+<h3 class="anchored" data-anchor-id="approximate-mcnemar-test">Approximate McNemar test</h3>
+<p>With sufficient discordant information, the uncorrected statistic is:</p>
+<p><span class="math display">\[
+X^2=\frac{(\text{gains}-\text{losses})^2}{\text{gains}+\text{losses}},
+\]</span></p>
+<p>compared with a chi-square distribution with one degree of freedom. A continuity-corrected version reduces the numerator’s absolute difference by one before squaring in this example. Exact and approximate p-values need not match.</p>
+</section>
+</section>
+<section id="check-the-pairs-and-input" class="level2">
+<h2 class="anchored" data-anchor-id="check-the-pairs-and-input">4. Check the pairs and input</h2>
+<p>Verify matching identifiers in the underlying records, consistent outcome definitions, complete paired assessments, and independence between participants. Several participants from the same household or classroom may require additional dependence handling.</p>
+<p>The supplied CSV contains four aggregated transition counts. It cannot verify matching or reveal whether missing visits were excluded. An applied workflow should audit individual records before aggregation.</p>
+<p>Use actual counts, not percentages. Confirm row and column direction and ensure categories are identical at both occasions. Investigate incomplete pairs; simply dropping them can bias the comparison if missingness relates to outcome or change.</p>
+<p>The amount of discordant information matters more to the conditional test than the total sample alone. Here, 22 pairs are discordant. We use the exact conditional method without selecting a procedure according to which gives the smallest p-value.</p>
+<p>If there are <strong>no discordant pairs</strong>, there is no observed directional change to test conditionally. The supplied script stops for this case. Report the lack of discordance without claiming that population change is proven absent; estimation and uncertainty still require care.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the supplied files into the repository root:</p>
+<ul>
+<li><a href="data/example/15-paired-binary-counts.csv">Synthetic paired transition counts</a></li>
+<li><a href="scripts/R/15-mcnemar.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/15-mcnemar.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following plain blocks are non-executable. Run the standalone script to produce results and the transition plot.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rows are before; columns are after. Both use No, Yes order.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">4</span>, <span class="dv">18</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">before =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">after =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>)))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gains <span class="ot">&lt;-</span> tab[<span class="st">"No"</span>, <span class="st">"Yes"</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>losses <span class="ot">&lt;-</span> tab[<span class="st">"Yes"</span>, <span class="st">"No"</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Primary exact conditional test among discordant pairs.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>exact <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(gains, gains <span class="sc">+</span> losses, <span class="at">p =</span> <span class="fl">0.5</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(exact)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For the teaching comparison of approximations:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(tab, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(tab, <span class="at">correct =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The full script reads and validates the CSV, writes <code>results/tables/15-mcnemar.csv</code>, and saves <code>results/figures/15-paired-transitions.png</code>. Pre-generated R outputs are not included; generate the files before rendering this chapter.</p>
+<div id="fig-15-paired-transitions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-15-paired-transitions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/15-paired-transitions.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-15-paired-transitions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.1: Counts of the four paired binary transitions. The colored No-to-Yes and Yes-to-No bars are the discordant pairs used by the conditional McNemar procedure; unchanged participants still contribute to marginal proportions.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete pairs</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td>Yes before</td>
+<td style="text-align: right;">22/60 = 36.67%</td>
+</tr>
+<tr class="odd">
+<td>Yes after</td>
+<td style="text-align: right;">36/60 = 60.00%</td>
+</tr>
+<tr class="even">
+<td>Gains</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td>Losses</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Discordant pairs</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td>After-minus-before proportion difference</td>
+<td style="text-align: right;">14/60 = 23.33 percentage points</td>
+</tr>
+<tr class="even">
+<td>Exact conditional two-sided p-value</td>
+<td style="text-align: right;">0.00434351</td>
+</tr>
+<tr class="odd">
+<td>Uncorrected chi-square statistic</td>
+<td style="text-align: right;">8.9091</td>
+</tr>
+<tr class="even">
+<td>Uncorrected approximate p-value</td>
+<td style="text-align: right;">0.0028375</td>
+</tr>
+<tr class="odd">
+<td>Continuity-corrected statistic</td>
+<td style="text-align: right;">7.6818</td>
+</tr>
+<tr class="even">
+<td>Corrected approximate p-value</td>
+<td style="text-align: right;">0.0055780</td>
+</tr>
+</tbody>
+</table>
+<p>Check that gains plus losses equal 22 and that the net Yes count increases by <span class="math inline">\(18-4=14\)</span>. The conditional null expects 11 gains among the 22 discordant pairs, compared with 18 observed.</p>
+<p>The primary result provides evidence against equal marginal Yes probabilities under the paired-data assumptions. The sample direction favors higher completion after training. It does not establish that training caused the increase.</p>
+<section id="do-not-confuse-the-binomial-estimate-with-the-marginal-change" class="level3">
+<h3 class="anchored" data-anchor-id="do-not-confuse-the-binomial-estimate-with-the-marginal-change">Do not confuse the binomial estimate with the marginal change</h3>
+<p><code>binom.test()</code> prints an estimate of <span class="math inline">\(18/22\approx0.8182\)</span> and an interval for the conditional probability of a gain <strong>among discordant pairs</strong>. This is not the overall after completion proportion, nor an interval for the paired marginal difference of 0.2333.</p>
+<p>The script deliberately does not export that conditional interval as an interval for overall change. A paired risk-difference interval requires a method that uses the matched structure; subtracting separate independent-proportion interval limits is not a substitute. This introductory example reports the marginal difference as a point estimate and leaves its interval for a dedicated matched-proportion estimation extension.</p>
+</section>
+<section id="read-the-plot" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-plot">Read the plot</h3>
+<p>The transition figure shows four mutually exclusive participant groups. Compare the two colored discordant bars to understand the test’s directional evidence. The unchanged groups contribute to the total population represented, even though they do not enter the conditional binomial test.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Analyze these complete paired binary transitions: No-to-No 20, No-to-Yes 18, Yes-to-No 4, Yes-to-Yes 18. Use a two-sided exact conditional McNemar procedure through a binomial test on discordant pairs. Report before and after marginal Yes proportions and the after-minus-before difference. Distinguish the binomial estimate among discordants from the overall change. Do not use an independent two-proportion test or describe the change as caused by training.</p>
+</blockquote>
+<p>Verify N=60 pairs, m=22 discordants, 18 gains, four losses, exact p approximately 0.00434, and the marginal increase of 23.33 percentage points. If a response uses all 60 pairs as binomial trials with 18 successes for the conditional test, correct the denominator.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In 60 complete synthetic paired observations, task completion increased from 22/60 (36.7%) before to 36/60 (60.0%) after assessment, a descriptive increase of 23.3 percentage points. Eighteen participants changed from No to Yes and four from Yes to No.&nbsp;A two-sided exact conditional McNemar procedure gave p=0.00434. These results provide evidence of unequal marginal completion probabilities under the analysis assumptions. No interval for the paired marginal difference is supplied here, and the comparison does not establish a causal training effect.</p>
+</blockquote>
+<p>For an applied report, add recruitment, assessment timing, matching checks, incomplete-pair handling, and an appropriate interval for the target effect when available.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Comparing before and after as independent groups</td>
+<td>Preserve participant pairing</td>
+</tr>
+<tr class="even">
+<td>Testing independence in the transition table</td>
+<td>Test marginal homogeneity for the change question</td>
+</tr>
+<tr class="odd">
+<td>Using all pairs as conditional binomial trials</td>
+<td>Use gains plus losses</td>
+</tr>
+<tr class="even">
+<td>Calling 18/22 the overall completion proportion</td>
+<td>Explain the discordant-only denominator</td>
+</tr>
+<tr class="odd">
+<td>Calling the binomial interval an interval for marginal change</td>
+<td>Use a suitable paired difference interval</td>
+</tr>
+<tr class="even">
+<td>Ignoring missing second assessments</td>
+<td>Investigate missingness and report exclusions</td>
+</tr>
+</tbody>
+</table>
+<p>For sparse discordants, the exact conditional procedure avoids a large-sample approximation but can be conservative. Other procedures, including mid-p methods, have different coverage or error properties and must be labeled accordingly. More categories, occasions, covariates, or clustering require a suitable extension or model.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>An AI report says: “The binomial estimate was 81.8%, so completion after training was 81.8%.”</p>
+<p>What should it say instead?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Among the 22 participants whose response changed, 18 (81.8%) changed toward Yes. Overall after completion was 36/60, or 60%. Before completion was 22/60, and the marginal increase was 23.33 percentage points. These denominators answer different questions.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Do paired binary outcomes have different marginal proportions?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./16-pearson.html">Pearson Correlation</a> to examine linear association between two numerical variables.</p>
 
 
 </section>

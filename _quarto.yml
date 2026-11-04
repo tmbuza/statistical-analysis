@@ -12,6 +12,7 @@ book:
   author: "Teresia Mrema Buza | Complex Data Insights"
   site-url: https://statistical.complexdatainsights.com
   search: true
+  
   chapters:
     - index.qmd
     - part: "Getting started"

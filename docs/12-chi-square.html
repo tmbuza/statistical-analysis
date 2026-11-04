@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-tests" id="toc-what-it-tests" class="nav-link" data-scroll-target="#what-it-tests">3. What it tests</a></li>
+  <li><a href="#check-counts-categories-and-assumptions" id="toc-check-counts-categories-and-assumptions" class="nav-link" data-scroll-target="#check-counts-categories-and-assumptions">4. Check counts, categories, and assumptions</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#effect-size-cramérs-v" id="toc-effect-size-cramérs-v" class="nav-link" data-scroll-target="#effect-size-cramérs-v">Effect size: Cramér’s V</a></li>
+  <li><a href="#residuals-and-cell-contributions" id="toc-residuals-and-cell-contributions" class="nav-link" data-scroll-target="#residuals-and-cell-contributions">Residuals and cell contributions</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +427,301 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-012</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Assess association between categorical variables using counts, expected frequencies, and clearly defined proportions</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Is preferred learning format associated with experience level?</p>
+</blockquote>
+<p>In a synthetic survey, 120 independent participants each select one preferred format: video, reading, or practice. Experience is classified as beginner or intermediate.</p>
+<p>Each person contributes to exactly one cell of a two-by-three contingency table. The input file contains aggregated counts, not individual records.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Experience</th>
+<th style="text-align: right;">Video</th>
+<th style="text-align: right;">Reading</th>
+<th style="text-align: right;">Practice</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Beginner</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td>Intermediate</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">120</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>Pearson’s chi-square test of independence assesses association between two categorical variables using cell counts from independent units and an appropriate sampling design.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Association in an adequately populated contingency table</td>
+<td>Chi-square test of independence</td>
+</tr>
+<tr class="even">
+<td>Sparse table, particularly a small two-by-two table</td>
+<td><a href="./13-fisher-exact.html">Fisher’s exact test</a> or another suitable exact/simulation method</td>
+</tr>
+<tr class="odd">
+<td>Before-and-after binary responses from the same people</td>
+<td><a href="./15-mcnemar.html">McNemar’s test</a></td>
+</tr>
+<tr class="even">
+<td>Binary outcome with adjustment variables</td>
+<td><a href="./19-logistic-regression.html">Logistic regression</a></td>
+</tr>
+<tr class="odd">
+<td>Complex survey weights or clustered sampling</td>
+<td>A design-based method accounting for the survey structure</td>
+</tr>
+</tbody>
+</table>
+<p>The same Pearson statistic can test homogeneity of category proportions across independently sampled groups. Explain the actual sampling design; it determines which margins are fixed by design and how broadly the result can be generalized.</p>
+<p>Do not enter percentages as if they were counts, or ordinary survey weights as if they represented independent people. Multiple-response questions also require care because one person may otherwise be counted in several cells.</p>
+</section>
+<section id="what-it-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-tests">3. What it tests</h2>
+<ul>
+<li><strong>Null hypothesis:</strong> Experience and learning preference are independent in the population.</li>
+<li><strong>Alternative:</strong> The variables are associated.</li>
+</ul>
+<p>Under independence, each expected count is:</p>
+<p><span class="math display">\[
+E_{ij}=\frac{(\text{row total}_i)(\text{column total}_j)}{N}.
+\]</span></p>
+<p>Pearson’s statistic is:</p>
+<p><span class="math display">\[
+X^2=\sum_{i,j}\frac{(O_{ij}-E_{ij})^2}{E_{ij}},
+\]</span></p>
+<p>where <span class="math inline">\(O_{ij}\)</span> is the observed count. Under suitable conditions, the statistic has an approximate chi-square distribution with <span class="math inline">\((r-1)(c-1)\)</span> degrees of freedom.</p>
+<p>This is an overall association test. It does not directly identify causal effects or supply a separate adjusted test for every cell.</p>
+</section>
+<section id="check-counts-categories-and-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="check-counts-categories-and-assumptions">4. Check counts, categories, and assumptions</h2>
+<p>Verify that units are independent, categories are mutually exclusive and consistently coded, and counts are nonnegative integers. Investigate missing responses and exclusions. Confirm whether the table represents raw counts or weighted estimates.</p>
+<p>Inspect <strong>expected counts</strong>, not only observed counts, when assessing the approximation. A common diagnostic convention is that no expected count is below 1 and at least 80% are at least 5. This is a guideline rather than a universal guarantee; table structure and the sampling model matter.</p>
+<p>In this example, the smallest expected count is 15, so sparse expected cells are not a concern. Independence and sampling quality still require design evidence.</p>
+<p>A zero observed count is not automatically a problem if its expected count is adequate. A <strong>structural zero</strong>, representing an impossible category combination, changes the model and may invalidate the usual degrees-of-freedom calculation. Entirely empty rows or columns also need investigation.</p>
+<p>For a two-by-two table, some software applies Yates’s continuity correction by default. This example is two-by-three and explicitly sets <code>correct = FALSE</code> for a consistent uncorrected Pearson calculation.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy the supplied files into your repository root:</p>
+<ul>
+<li><a href="data/example/12-learning-preferences.csv">Synthetic aggregated counts</a></li>
+<li><a href="scripts/R/12-chi-square.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/12-chi-square.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The chapter’s code blocks are non-executable displays. Run the standalone script to calculate and export results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># count supplies the frequency for each category combination.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/12-learning-preferences.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>experience <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>experience,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Beginner"</span>, <span class="st">"Intermediate"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>preference <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>preference,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Video"</span>, <span class="st">"Reading"</span>, <span class="st">"Practice"</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(count <span class="sc">~</span> experience <span class="sc">+</span> preference, <span class="at">data =</span> dat)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tab, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inspect expected counts and proportions:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>expected</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tab, <span class="at">margin =</span> <span class="dv">1</span>)  <span class="co"># Proportions within each experience row.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>stdres                 <span class="co"># Standardized cell residuals.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script exports the overall result, expected counts, row proportions, standardized residuals, cell contributions, and <code>results/figures/12-preference-proportions.png</code>. These files are generated when R runs; pre-generated R outputs are not included or required for rendering.</p>
+<div id="fig-12-preference-proportions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-12-preference-proportions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/12-preference-proportions.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-12-preference-proportions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Preferred learning formats as proportions within each experience group. The denominator is the experience-group total; these descriptive bars are not individually adjusted cell-level significance tests.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>Expected counts under independence are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Experience</th>
+<th style="text-align: right;">Video</th>
+<th style="text-align: right;">Reading</th>
+<th style="text-align: right;">Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Beginner</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">15.0</td>
+</tr>
+<tr class="even">
+<td>Intermediate</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">15.0</td>
+</tr>
+</tbody>
+</table>
+<p>For beginner-video, the expected count is <span class="math inline">\(60\times45/120=22.5\)</span>. Its contribution to the statistic is <span class="math inline">\((30-22.5)^2/22.5=2.5\)</span>.</p>
+<p>The total across all six cells is <strong>8.8889</strong>. Degrees of freedom are <span class="math inline">\((2-1)(3-1)=2\)</span> and the approximate p-value is <strong>0.01174</strong>.</p>
+<p>The result provides evidence of an association under the test assumptions. Examine proportions to explain its pattern:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Experience</th>
+<th style="text-align: right;">Video</th>
+<th style="text-align: right;">Reading</th>
+<th style="text-align: right;">Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Beginner</td>
+<td style="text-align: right;">50.0%</td>
+<td style="text-align: right;">33.3%</td>
+<td style="text-align: right;">16.7%</td>
+</tr>
+<tr class="even">
+<td>Intermediate</td>
+<td style="text-align: right;">25.0%</td>
+<td style="text-align: right;">41.7%</td>
+<td style="text-align: right;">33.3%</td>
+</tr>
+</tbody>
+</table>
+<p>Video preference is 25 percentage points higher among beginners in the sample; practice preference is about 16.7 percentage points lower. These are descriptive comparisons, not individually multiplicity-adjusted inferential findings.</p>
+<section id="effect-size-cramérs-v" class="level3">
+<h3 class="anchored" data-anchor-id="effect-size-cramérs-v">Effect size: Cramér’s V</h3>
+<p><span class="math display">\[
+V=\sqrt{\frac{X^2}{N\min(r-1,c-1)}}\approx0.2722.
+\]</span></p>
+<p>Cramér’s V summarizes association magnitude on a nonnegative scale. It does not indicate direction or a percentage of explained variation. Interpretation depends on the table and subject context; avoid automatic small/medium/large labels. This example reports an uncorrected point estimate without an interval or small-sample bias adjustment.</p>
+</section>
+<section id="residuals-and-cell-contributions" class="level3">
+<h3 class="anchored" data-anchor-id="residuals-and-cell-contributions">Residuals and cell contributions</h3>
+<p>A positive standardized residual means a cell has more observations than expected under independence; a negative residual means fewer. Cell contributions show how much each cell adds to the overall statistic.</p>
+<p>Residuals are useful diagnostic descriptions, but they are correlated. Searching all cells for large residuals and calling them independently significant requires an appropriate follow-up strategy and multiplicity handling. The script exports residuals without declaring cell-specific significance.</p>
+<p>The generated bar chart displays proportions within each experience group, not percentages of the whole sample. State the denominator when explaining a percentage.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Use the supplied aggregated counts to assess association between experience and preferred learning format. Construct a two-by-three table using the count column as frequencies, calculate expected counts and the uncorrected Pearson statistic, and check the approximation. Report row proportions and Cramér’s V. Distinguish an overall association from individual cell significance and causation. Ask about independent participants, missing responses, and survey weights.</p>
+</blockquote>
+<p>Check that the response uses N=120 rather than six independent observations, obtains df=2, and reports expected counts 22.5, 22.5, and 15 in each row. If it counts one CSV row as one participant, correct the input interpretation first.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In the synthetic survey of 120 independent participants, preferred learning format was associated with experience level, Pearson X²(2)=8.89, approximate p=0.01174; Cramér’s V=0.272. Video was selected by 50% of beginners and 25% of intermediate participants; practice was selected by 16.7% and 33.3%, respectively. All expected counts were at least 15. The descriptive pattern does not establish that experience causes preference or identify separately adjusted cell-level differences.</p>
+</blockquote>
+<p>For an applied report, describe recruitment, missing responses, category definitions, sampling weights, and any planned follow-up comparisons.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Testing percentages as raw counts</td>
+<td>Use the original counts and sample denominators</td>
+</tr>
+<tr class="even">
+<td>Ignoring the input frequency column</td>
+<td>Build a weighted frequency table using counts</td>
+</tr>
+<tr class="odd">
+<td>Checking only observed counts for sparsity</td>
+<td>Inspect expected counts under the null</td>
+</tr>
+<tr class="even">
+<td>Treating repeated responses as independent</td>
+<td>Use a paired, clustered, or repeated-outcome method</td>
+</tr>
+<tr class="odd">
+<td>Declaring each unusual cell significant</td>
+<td>Plan cell or group comparisons with appropriate adjustment</td>
+</tr>
+<tr class="even">
+<td>Reporting association as causation</td>
+<td>Assess design, confounding, and alternative explanations</td>
+</tr>
+</tbody>
+</table>
+<p>For sparse independent tables, consider Fisher’s exact test or a suitable Monte Carlo calculation with its conditioning assumptions, seed, and simulation precision recorded. Do not merge categories solely to obtain significance or satisfy a rule; any combination needs a substantive justification. For confounding or several predictors, consider an appropriate categorical-outcome model.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>A table shows counts of the same learners’ preferred formats before and after a course. An AI tool recommends an ordinary independence test because every expected count exceeds five.</p>
+<p>What remains wrong?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>The observations are paired within learners. Adequate expected counts do not establish independence. Use a method designed for paired categorical responses; McNemar’s test applies to a paired binary outcome, while more than two categories require a suitable generalization or model.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Are two categorical variables associated?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./13-fisher-exact.html">Fisher’s Exact Test</a> for independent contingency tables where an exact conditional approach is useful.</p>
 
 
 </section>
@@ -820,7 +1138,7 @@ Chapter status
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./13-fisher-exact.html" class="pagination-link" aria-label="Fisher’s Exact Test">
+      <a href="./13-fisher-exact.html" class="pagination-link" aria-label="Fisher's Exact Test">
         <span class="nav-page-text"><span class="chapter-title">Fisher’s Exact Test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-these-methods" id="toc-when-to-use-these-methods" class="nav-link" data-scroll-target="#when-to-use-these-methods">2. When to use these methods</a></li>
+  <li><a href="#what-repeated-measures-anova-tests" id="toc-what-repeated-measures-anova-tests" class="nav-link" data-scroll-target="#what-repeated-measures-anova-tests">3. What repeated-measures ANOVA tests</a>
+  <ul class="collapse">
+  <li><a href="#sphericity" id="toc-sphericity" class="nav-link" data-scroll-target="#sphericity">Sphericity</a></li>
+  </ul></li>
+  <li><a href="#what-friedman-tests" id="toc-what-friedman-tests" class="nav-link" data-scroll-target="#what-friedman-tests">4. What Friedman tests</a></li>
+  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">5. Check before running</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">6. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">7. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#verify-the-friedman-ranks" id="toc-verify-the-friedman-ranks" class="nav-link" data-scroll-target="#verify-the-friedman-ranks">Verify the Friedman ranks</a></li>
+  <li><a href="#read-the-trajectories" id="toc-read-the-trajectories" class="nav-link" data-scroll-target="#read-the-trajectories">Read the trajectories</a></li>
+  </ul></li>
+  <li><a href="#follow-up-using-the-chosen-target" id="toc-follow-up-using-the-chosen-target" class="nav-link" data-scroll-target="#follow-up-using-the-chosen-target">8. Follow up using the chosen target</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">10. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">11. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">12. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +432,342 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-011</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Analyze several measurements from the same units while respecting dependence, covariance assumptions, and the distinction between means and ranks</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Do population mean assessment scores differ across baseline, week 4, and week 8 for the same learners?</p>
+</blockquote>
+<p>Twelve synthetic learners contribute three scores each. There are <strong>12 independent learners and 36 dependent measurements</strong>, not 36 independent learners. Each row of the input contains one learner’s three matched scores.</p>
+<p>Repeated-measures ANOVA addresses condition means. The Friedman test provides a separate rank-based analysis within learners. They answer different questions; this chapter uses Greenhouse–Geisser-corrected repeated-measures ANOVA as the primary mean-based analysis and Friedman as a teaching comparison.</p>
+</section>
+<section id="when-to-use-these-methods" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-these-methods">2. When to use these methods</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Two matched numerical measurements</td>
+<td><a href="./06-paired-t-test.html">Paired t-test</a></td>
+</tr>
+<tr class="even">
+<td>Several numerical measurements, complete balanced one-factor design</td>
+<td>Repeated-measures ANOVA with appropriate covariance handling</td>
+</tr>
+<tr class="odd">
+<td>Complete blocks with one ordered or numerical outcome per condition</td>
+<td>Friedman test under suitable block and null assumptions</td>
+</tr>
+<tr class="even">
+<td>Missing visits, irregular timing, covariates, or complex dependence</td>
+<td>An appropriate mixed model, marginal model, or other longitudinal approach</td>
+</tr>
+<tr class="odd">
+<td>Different independent units in every group</td>
+<td><a href="./09-one-way-anova.html">One-way ANOVA</a> or <a href="./10-kruskal-wallis.html">Kruskal–Wallis</a>, as appropriate</td>
+</tr>
+</tbody>
+</table>
+<p>A block is a unit, such as a learner, that supplies an observation under every condition. The basic examples here require complete blocks and one observation per learner-condition combination.</p>
+</section>
+<section id="what-repeated-measures-anova-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-repeated-measures-anova-tests">3. What repeated-measures ANOVA tests</h2>
+<p>For three assessment occasions:</p>
+<ul>
+<li><strong>Null:</strong> The three population condition means are equal.</li>
+<li><strong>Alternative:</strong> At least one condition mean differs.</li>
+</ul>
+<p>The analysis separates stable differences between learners from condition variation and within-learner error. The overall test does not identify specific differing occasions.</p>
+<section id="sphericity" class="level3">
+<h3 class="anchored" data-anchor-id="sphericity">Sphericity</h3>
+<p>For the usual univariate repeated-measures F test with more than two conditions, <strong>sphericity</strong> requires equal variances of all pairwise difference scores. It is not the same as equal raw score variances at each occasion.</p>
+<p>When sphericity fails, the uncorrected F test can have an inflated Type I error rate. Greenhouse–Geisser correction multiplies both degrees of freedom by an estimated epsilon while leaving the F statistic unchanged. The p-value is then recalculated with the corrected degrees of freedom.</p>
+<p>The script reports both uncorrected and corrected results and treats the corrected result as primary. It does not implement Mauchly’s test or use a preliminary sphericity-test p-value to select the reported result. Correction does not repair independence violations, outliers, biased sampling, or an unsuitable mean model.</p>
+</section>
+</section>
+<section id="what-friedman-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-friedman-tests">4. What Friedman tests</h2>
+<p>Friedman ranks the conditions <strong>within each learner</strong>, then compares condition rank sums across learners. Its usual null calibration assumes that within-block condition labels are exchangeable under the null, with independent blocks. A randomized block design can justify exchangeability; in observational repeated-time data, the null assumptions require care.</p>
+<p>The test detects systematic condition differences in within-block ranks. It does not directly test population mean equality and is not automatically a test of equal marginal medians. A location interpretation needs additional model conditions.</p>
+<p>Ties within a learner receive average ranks, and the statistic is tie-corrected. Base R’s conventional p-value uses a chi-square approximation with k minus 1 degrees of freedom. With few blocks or many ties, consider whether a suitable exact or restricted permutation calculation is needed.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+A rank test still needs the correct design
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Friedman does not remove dependence between learners, account for arbitrary serial covariance, or make time points exchangeable by itself. It also does not establish a causal effect of training.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>How do outcomes differ across repeated measurements?</p>
-</section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
 </section>
 <section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
+<h2 class="anchored" data-anchor-id="check-before-running">5. Check before running</h2>
+<ul>
+<li>Verify unique learner IDs and correct matching across occasions.</li>
+<li>Confirm that learners are independent of one another or model higher-level clustering.</li>
+<li>Check complete visits, consistent units, timing, and measurement procedures.</li>
+<li>Inspect individual trajectories and pairwise difference distributions.</li>
+<li>For mean-based inference, assess influential observations and the distribution of within-person contrasts; multivariate normal errors are a standard sufficient normality condition for classical inference.</li>
+<li>Evaluate covariance assumptions, including sphericity for the uncorrected univariate test.</li>
+<li>For Friedman, verify complete blocks, meaningful ordering, ties, and an appropriate null exchangeability argument.</li>
+</ul>
+<p>Missing visits require an explicit strategy. Removing every learner with any missing visit can alter the population represented and introduce bias. The supplied script stops for missing values instead of silently excluding learners. A mixed model may use incomplete records under specified assumptions, but is not automatically immune to missing-data bias.</p>
 </section>
 <section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<h2 class="anchored" data-anchor-id="run-the-analysis">6. Run the analysis</h2>
+<p>Copy the companion folders into the repository root:</p>
+<ul>
+<li><a href="data/example/11-repeated-scores.csv">Synthetic repeated scores</a></li>
+<li><a href="scripts/R/11-repeated-measures.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/11-repeated-measures.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All blocks shown here are non-executable display code. The complete script performs checks, reshapes the data, computes the correction, and exports results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long data need a learner identifier and one condition value per row.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> condition <span class="sc">+</span> <span class="fu">Error</span>(learner_id<span class="sc">/</span>condition), <span class="at">data =</span> long)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>aov()</code> summary above is the <strong>uncorrected</strong> balanced-design analysis. Use the script’s separate <code>p_GG</code>, <code>df1_GG</code>, and <code>df2_GG</code> fields for the primary corrected result. Do not describe the printed <code>aov()</code> p-value as corrected.</p>
+<p>For Friedman, the matrix rows are learners and columns are assessment occasions:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conditions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"baseline"</span>, <span class="st">"week4"</span>, <span class="st">"week8"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dat[conditions])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Generated output</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/11-repeated-anova.csv</code></td>
+<td>F statistic, uncorrected results, epsilon, and corrected results</td>
+</tr>
+<tr class="even">
+<td><code>results/tables/11-friedman.csv</code></td>
+<td>Rank statistic, approximate p-value, and Kendall’s W</td>
+</tr>
+<tr class="odd">
+<td><code>results/tables/11-condition-summaries.csv</code></td>
+<td>Means, SDs, and mean within-learner ranks</td>
+</tr>
+<tr class="even">
+<td><code>results/tables/11-paired-t-holm.csv</code></td>
+<td>Prespecified paired mean comparisons with Holm-adjusted p-values</td>
+</tr>
+<tr class="odd">
+<td><code>results/figures/11-trajectories.png</code></td>
+<td>Individual trajectories and condition means</td>
+</tr>
+</tbody>
+</table>
+<p>Run the R script to generate these files. Pre-generated R outputs are not included or needed to render the chapter.</p>
+<div id="fig-11-trajectories" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-11-trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/11-trajectories.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-11-trajectories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Repeated assessment scores for the same learners. Each gray line tracks one learner, while the highlighted line connects occasion means. An increasing mean does not imply every learner increased at every visit.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">7. Verify and explain the output</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Occasion</th>
+<th style="text-align: right;">Learners</th>
+<th style="text-align: right;">Sample mean score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Baseline</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">63.50</td>
+</tr>
+<tr class="even">
+<td>Week 4</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">66.50</td>
+</tr>
+<tr class="odd">
+<td>Week 8</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">69.50</td>
+</tr>
+</tbody>
+</table>
+<p>The descriptive mean changes are +3 points for week 4 minus baseline, +6 for week 8 minus baseline, and +3 for week 8 minus week 4.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Analysis</th>
+<th>Expected result, rounded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Uncorrected repeated-measures ANOVA</td>
+<td>F(2, 22)=31.8214, p=0.0000003214</td>
+</tr>
+<tr class="even">
+<td>Greenhouse–Geisser epsilon</td>
+<td>0.859885</td>
+</tr>
+<tr class="odd">
+<td>Corrected degrees of freedom</td>
+<td>1.71977 and 18.91747</td>
+</tr>
+<tr class="even">
+<td>Primary corrected p-value</td>
+<td>0.000001782</td>
+</tr>
+<tr class="odd">
+<td>Friedman chi-square statistic</td>
+<td>15.1667, df=2</td>
+</tr>
+<tr class="even">
+<td>Friedman approximate p-value</td>
+<td>0.0005089</td>
+</tr>
+<tr class="odd">
+<td>Kendall’s W</td>
+<td>0.63194</td>
+</tr>
+</tbody>
+</table>
+<p>For the balanced ANOVA, the condition sum of squares is 216 and the within-person error sum of squares is approximately 74.6667:</p>
+<p><span class="math display">\[
+F=\frac{216/2}{74.6667/22}\approx31.8214.
+\]</span></p>
+<p>Both overall procedures provide evidence against their respective nulls under their assumptions. Agreement does not mean they estimate the same quantity or validate the design.</p>
+<section id="verify-the-friedman-ranks" class="level3">
+<h3 class="anchored" data-anchor-id="verify-the-friedman-ranks">Verify the Friedman ranks</h3>
+<p>For learner L01, the scores are 60, 64, and 68, so the within-learner ranks are 1, 2, and 3. Rank separately within every learner; do not pool all 36 scores before ranking.</p>
+<p>Kendall’s W is calculated here as the tie-corrected Friedman statistic divided by <span class="math inline">\(n(k-1)\)</span>:</p>
+<p><span class="math display">\[
+W=\frac{15.1667}{12(3-1)}\approx0.63194.
+\]</span></p>
+<p>It summarizes consistency in condition rankings across blocks. It is not a percentage improvement in scores or a causal effect estimate. No interval for W is provided in this introductory example.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+<section id="read-the-trajectories" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-trajectories">Read the trajectories</h3>
+<p>Each gray line follows the same learner through three occasions; the highlighted line connects sample means. Check heterogeneous changes, unusual learners, and measurement patterns. An increasing average does not imply every learner increased at every visit.</p>
+</section>
+</section>
+<section id="follow-up-using-the-chosen-target" class="level2">
+<h2 class="anchored" data-anchor-id="follow-up-using-the-chosen-target">8. Follow up using the chosen target</h2>
+<p>For the primary mean-based analysis, the script runs all three <strong>paired t-tests</strong>, preserving learner matching, and Holm-adjusts their p-values as one family. Its pairwise 95% intervals are unadjusted, not simultaneous intervals. Pairwise tests require suitable difference distributions; sphericity is not needed for an individual two-occasion paired test.</p>
+<p>For a Friedman analysis, a suitable within-block rank-based follow-up can be considered. Paired signed-rank comparisons with multiplicity adjustment are one option only when their difference-scale and symmetry conditions are defensible; they are not automatically justified by Friedman. The supplied script does not implement rank-based follow-up.</p>
+<p>Specify comparison families before inspecting favorable results. An overall result does not imply all occasion pairs differ.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Analyze the supplied 12 learners measured at three occasions. Preserve IDs and within-learner matching. Explain repeated-measures ANOVA, sphericity, and Greenhouse–Geisser correction. Separate the corrected mean-based result from a Friedman teaching comparison using within-learner ranks and an approximate chi-square p-value. For mean follow-up, use three paired t-tests with Holm adjustment and label their intervals as unadjusted. Do not treat 36 rows as independent learners or interpret time changes as proof of training effects.</p>
+</blockquote>
+<p>Check the unit count, occasion order, corrected degrees of freedom, correct error term, Friedman ranking direction, and adjustment family. If the response analyzes the occasions as independent groups, correct the design before using its output.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">10. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In the synthetic example, 12 learners had mean scores of 63.5, 66.5, and 69.5 points at baseline, week 4, and week 8. A repeated-measures ANOVA with Greenhouse–Geisser correction provided evidence of unequal population occasion means, F(1.72, 18.92)=31.82, p=0.000001782, epsilon=0.860. Prespecified paired comparisons should be reported with Holm-adjusted p-values and clearly labeled interval coverage. These time-associated differences do not establish that training caused the changes.</p>
+</blockquote>
+<p>If reporting Friedman instead, state the rank-based target and result: chi-square(2)=15.17, approximate p=0.0005089, W=0.632. Do not report whichever analysis has the smaller p-value as an unplanned choice.</p>
 </section>
 <section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">11. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating repeated scores as independent units</td>
+<td>Preserve IDs and within-unit dependence</td>
+</tr>
+<tr class="even">
+<td>Using equal raw variances as proof of sphericity</td>
+<td>Consider variances of within-person contrasts</td>
+</tr>
+<tr class="odd">
+<td>Calling the <code>aov()</code> output GG-corrected</td>
+<td>Use the separately calculated corrected result</td>
+</tr>
+<tr class="even">
+<td>Ranking all scores together for Friedman</td>
+<td>Rank conditions within each block</td>
+</tr>
+<tr class="odd">
+<td>Ignoring missing visits</td>
+<td>Investigate missingness and choose an appropriate strategy</td>
+</tr>
+<tr class="even">
+<td>Treating time change as a causal intervention effect</td>
+<td>Consider controls, secular trends, practice effects, and design</td>
+</tr>
+</tbody>
+</table>
+<p>Mixed models, marginal models, or suitable multivariate approaches may be preferable for more complex covariance structures, irregular occasions, covariates, or incomplete data. Their assumptions and inferential targets must be explained separately.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">12. Check your understanding</h2>
+<p>An AI response applies Welch’s independent-groups ANOVA to the three occasions because their variances differ.</p>
+<p>Why does that fail to address the main design issue?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Welch’s independent-groups method allows unequal group variances but still assumes independence across groups. The same learners contribute at all occasions. Use a method that models or conditions on this within-person relationship; unequal variances do not erase pairing.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./12-chi-square.html">Chi-Square Test of Independence</a> to examine association between categorical variables measured on independent units.</p>
 
 
 </section>

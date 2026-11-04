@@ -1,34 +1,114 @@
-# Welcome {.unnumbered}
+# Preface {.unnumbered}
 
-::: {.callout-note}
-## Scaffold edition
-The chapter structure is ready. Method chapters are outlines awaiting worked examples and statistical review.
+::: {.cdi-message}
+- **ID:** STATS-000
+- **Type:** Reference guide
+- **Audience:** Beginner to intermediate learners, researchers, and analysts
+- **Theme:** Use statistical reasoning, reproducible tools, and AI assistance to produce findings you can explain and defend
 :::
 
-Use this free CDI reference to move from a question to an analysis you can explain and defend.
+Statistical analysis helps us learn from data while recognizing uncertainty. Choosing a test is one part of that work. We also need a clear question, suitable data, an understanding of the study design, and an honest explanation of what the findings support.
 
-- Start with [Questions and methods](01-questions-and-methods.qmd).
-- Review [Statistical inference](02-statistical-inference.qmd).
-- Try the runnable [two-group example](05-independent-t-test.qmd).
-- Apply your learning in the [Statistical Inference Practical](https://complexdatainsights.com/practical-guides/statistical-inference-practical/).
+This free guide from **Complex Data Insights (CDI)** helps you move from a dataset to an output you understand and can defend.
 
-**Your question → Your inputs → Run the analysis → Check evidence → Explain with limitations.**
+## What this guide helps you do
 
-Examples will use R and Python as appropriate. Bash scripts handle setup and workflow checks.
+- Match your question and study design to an appropriate statistical method.
+- Check data quality and assumptions before interpreting results.
+- Run reproducible analyses using R or Python.
+- Explain estimates, effect sizes, confidence intervals, and p-values.
+- Evaluate AI suggestions and report findings with limitations.
 
+Examples will draw on education, agriculture, business, and biology. Synthetic datasets will support learning without implying real-world evidence.
 
-This guide is a reference: read the foundations once, then open the chapter that matches your question and design.
+## Who this guide is for
 
-## How each chapter works
+Use this guide if you are learning statistical analysis, refreshing a method, or preparing to explain an analysis in a report, research project, or workplace discussion.
 
-Question, suitable use, target estimate or hypothesis, assumptions, runnable analysis, output interpretation, reporting, and alternatives.
+Basic familiarity with tables, variables, and simple summaries will help. You do not need to read every chapter or master both R and Python before starting.
 
-## Current status
+## How to use the guide
 
-This is a scaffold, not a finished statistical textbook. Chapter 05 includes a runnable starter example. Other chapters contain explicit development prompts.
+The title and cover appear on the opening page. This Preface introduces the approach; the following chapters develop the statistical reasoning and methods.
 
-## Tools
+| What you need | Where to start |
+|---|---|
+| Help choosing a method | [From Questions to Statistical Methods](01-questions-and-methods.qmd) |
+| Help understanding uncertainty and test results | [Understanding Statistical Inference](02-statistical-inference.qmd) |
+| Help checking your inputs | [Checking Data and Assumptions](03-data-and-assumptions.qmd) |
+| A comparison of two independent means | [Independent-Samples t-Test](05-independent-t-test.qmd) |
+| Practice applying your learning | [Statistical Inference Practical](https://complexdatainsights.com/practical-guides/statistical-inference-practical/) |
 
-Use R or Python for analysis and Bash for setup and checks. Run commands from the repository root. Rendering does not run the external analysis scripts; run them separately when developing examples.
+Read the introductory chapters first if these ideas are new to you. Later, use the guide as a reference and open the method chapter that fits your question. Check its conditions before applying its code to your own data.
 
-See `README.md` for setup. The examples use synthetic data and do not establish real-world effects.
+## The CDI approach
+
+**Your question → Your inputs → Ask AI → Work through → Check evidence → Answer with limitations.**
+
+1. **Your question:** State what you want to learn and why it matters.
+2. **Your inputs:** Identify the outcome, comparison, independent units, and study design.
+3. **Ask AI:** Share the relevant context and request an explanation, possible approach, or help with code. Ask it to identify missing information.
+4. **Work through:** Run the analysis and inspect the data, code, and outputs.
+5. **Check evidence:** Verify calculations, assumptions, documentation, and whether the interpretation matches the result.
+6. **Answer with limitations:** Explain the finding in context, including uncertainty and what the design cannot establish.
+
+You can follow the same workflow without an AI tool by using the explanations, scripts, and references directly.
+
+## Use AI. Check the evidence.
+
+AI can help explain a method, draft code, troubleshoot an error, or improve the wording of a result. Its suggestions still require review. A confident explanation may overlook paired observations, missing data, confounding, or an unsuitable model.
+
+Start with your own question. Give AI enough context to assess the design, then check its response against your data and the relevant method chapter.
+
+For example:
+
+> I want to compare assessment scores between two groups of learners. Help me identify the outcome, independent unit, and target estimate. Ask whether the observations are independent, paired, or clustered before suggesting a method. Explain what information is missing and what I should verify. Do not invent results.
+
+Keep a record of consequential AI suggestions and the decisions you made after checking them. Use synthetic data or appropriately de-identified summaries when seeking help, and follow the applicable permissions for confidential data.
+
+**You remain responsible for the analysis and the claims you make from it.**
+
+## How method chapters work
+
+Each method chapter will follow a consistent structure:
+
+1. **Your question:** A concrete example and intended estimate or comparison.
+2. **When to use this method:** Suitable outcomes and study designs.
+3. **What it estimates or tests:** The target quantity and hypotheses.
+4. **Check your data and assumptions:** Relevant checks, plots, and potential problems.
+5. **Run the analysis:** Commented code with example data.
+6. **Verify and explain the output:** Estimates, uncertainty, test results, and an AI suggestion to assess where useful.
+7. **Report your finding:** A short example with limitations.
+8. **Common mistakes and alternatives:** Problems to recognize and reasons to consider another approach.
+
+Short AI prompts and verification checks will appear where they support the task. Optional technical detail may appear in collapsible sections. Click a section heading to expand it.
+
+## Code, data, and plots
+
+The project keeps scripts in `scripts/R/`, `scripts/python/`, and `scripts/bash/`. R and Python support statistical analysis and plotting; Bash supports setup and workflow checks. A chapter may use whichever language best suits the example, without duplicating every analysis in all three languages.
+
+Run commands from the repository root unless a chapter states otherwise. See `README.md` for environment setup. Rendering the book does not run external analysis scripts automatically; run the linked scripts as instructed.
+
+Worked examples will connect the question, input data, script, and output. Code and results will be presented separately so you can inspect both. Expand **Show code** blocks to view folded code.
+
+We will use plots when they help you inspect distributions, compare groups, assess relationships, or understand uncertainty. Each figure should state what it shows and explain what you should look for. A plot supports statistical reasoning; it does not establish causation by itself.
+
+## What makes a finding defensible?
+
+Before sharing an analysis, ask:
+
+- Does the method address my original question and study design?
+- Can I trace the result to the data and code that produced it?
+- Have I checked relevant assumptions and explained important limitations?
+- Have I reported the size and uncertainty of the result, rather than only a p-value?
+- Could another person reproduce the analysis from the supplied materials?
+
+A small p-value does not establish a large or useful effect. A large p-value does not establish that no effect exists. Interpretation requires the estimate, uncertainty, context, and design.
+
+## Guide status
+
+This guide is being developed chapter by chapter. Chapter 01 provides the method-selection foundation, and Chapter 05 currently contains a runnable starter example. Remaining scaffold chapters require worked examples and review. Check the status of a chapter before relying on it for an applied analysis.
+
+## Start here
+
+Continue to [From Questions to Statistical Methods](01-questions-and-methods.qmd). Begin with a question you want to answer and a brief description of your data.

@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +301,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +317,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#describe-your-inputs" id="toc-describe-your-inputs" class="nav-link" data-scroll-target="#describe-your-inputs">2. Describe your inputs</a>
+  <ul class="collapse">
+  <li><a href="#recognize-the-outcome-type" id="toc-recognize-the-outcome-type" class="nav-link" data-scroll-target="#recognize-the-outcome-type">Recognize the outcome type</a></li>
+  </ul></li>
+  <li><a href="#check-the-study-design" id="toc-check-the-study-design" class="nav-link" data-scroll-target="#check-the-study-design">3. Check the study design</a>
+  <ul class="collapse">
+  <li><a href="#independent-groups" id="toc-independent-groups" class="nav-link" data-scroll-target="#independent-groups">Independent groups</a></li>
+  <li><a href="#paired-measurements" id="toc-paired-measurements" class="nav-link" data-scroll-target="#paired-measurements">Paired measurements</a></li>
+  <li><a href="#repeated-or-clustered-observations" id="toc-repeated-or-clustered-observations" class="nav-link" data-scroll-target="#repeated-or-clustered-observations">Repeated or clustered observations</a></li>
+  </ul></li>
+  <li><a href="#choose-a-starting-method" id="toc-choose-a-starting-method" class="nav-link" data-scroll-target="#choose-a-starting-method">4. Choose a starting method</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">5. Use AI and check its suggestions</a>
+  <ul class="collapse">
+  <li><a href="#example-prompt" id="toc-example-prompt" class="nav-link" data-scroll-target="#example-prompt">Example prompt</a></li>
+  <li><a href="#check-the-response" id="toc-check-the-response" class="nav-link" data-scroll-target="#check-the-response">Check the response</a></li>
+  </ul></li>
+  <li><a href="#write-your-analysis-plan" id="toc-write-your-analysis-plan" class="nav-link" data-scroll-target="#write-your-analysis-plan">6. Write your analysis plan</a></li>
+  <li><a href="#verify-and-explain" id="toc-verify-and-explain" class="nav-link" data-scroll-target="#verify-and-explain">7. Verify and explain</a>
+  <ul class="collapse">
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it">Try it</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">8. Common mistakes</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +372,359 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-001</li>
+<li><strong>Type:</strong> Reference guide</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Match your question, outcome, and study design to an appropriate method, and evaluate AI-assisted suggestions</li>
+</ul>
+</div>
+<p>A statistical analysis begins with a question. Before choosing a test or asking AI for code, describe what you want to learn, what you measured, and how the observations were collected.</p>
+<p>By the end of this chapter, you should be able to write an analysis question, identify your outcome and unit of observation, recognize paired data, and justify a starting method.</p>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<p>Suppose a training program offers two teaching approaches. You want to know:</p>
+<blockquote class="blockquote">
+<p>How much does the mean assessment score differ between learners assigned to Approach A and learners assigned to Approach B?</p>
+</blockquote>
+<p>This question identifies the outcome (assessment score), comparison (A versus B), and target estimate (the difference in population mean scores).</p>
+<p>A useful question states:</p>
+<blockquote class="blockquote">
+<p>Among <strong>[population]</strong>, how does <strong>[outcome]</strong> differ or relate to <strong>[group or predictor]</strong>, over <strong>[time period, if relevant]</strong>?</p>
+</blockquote>
+<p>Avoid starting with “Which test gives a significant result?” Choose the question and analysis before inspecting which method produces the smallest p-value.</p>
+</section>
+<section id="describe-your-inputs" class="level2">
+<h2 class="anchored" data-anchor-id="describe-your-inputs">2. Describe your inputs</h2>
+<p>Record these details before selecting a method.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Detail</th>
+<th>Training example</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population of interest</td>
+<td>Learners eligible for the program</td>
+<td>Defines whom the question concerns</td>
+</tr>
+<tr class="even">
+<td>Outcome</td>
+<td>Assessment score, from 0 to 100</td>
+<td>A numerical outcome suggests different methods from a binary outcome</td>
+</tr>
+<tr class="odd">
+<td>Group or predictor</td>
+<td>Teaching approach A or B</td>
+<td>Defines the comparison</td>
+</tr>
+<tr class="even">
+<td>Unit of observation</td>
+<td>One learner</td>
+<td>Identifies what each row represents</td>
+</tr>
+<tr class="odd">
+<td>Independent unit</td>
+<td>One learner, if learners are assigned and assessed independently</td>
+<td>Determines the information available for inference</td>
+</tr>
+<tr class="even">
+<td>Design</td>
+<td>Different learners in each approach</td>
+<td>Distinguishes independent from paired measurements</td>
+</tr>
+<tr class="odd">
+<td>Target estimate</td>
+<td>Mean score for A minus mean score for B</td>
+<td>Establishes the direction and units of the result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Outcome</strong> means the variable you want to explain or compare. A <strong>predictor</strong> is a variable used to describe or model variation in that outcome. Calling something a predictor does not establish that it causes the outcome.</p>
+<section id="recognize-the-outcome-type" class="level3">
+<h3 class="anchored" data-anchor-id="recognize-the-outcome-type">Recognize the outcome type</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Outcome type</th>
+<th>Examples</th>
+<th>Starting point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numerical</td>
+<td>Height, sales value, assessment score</td>
+<td>Differences in means, numerical relationships, or other distribution summaries</td>
+</tr>
+<tr class="even">
+<td>Binary</td>
+<td>Passed/failed, purchased/did not purchase</td>
+<td>Proportions, risk differences, or binary outcome models</td>
+</tr>
+<tr class="odd">
+<td>Categorical with several levels</td>
+<td>Transport mode, employment category</td>
+<td>Category frequencies and associations</td>
+</tr>
+<tr class="even">
+<td>Ordered categories</td>
+<td>Low/medium/high satisfaction</td>
+<td>Methods that respect ordering; scores need a justification</td>
+</tr>
+<tr class="odd">
+<td>Counts or time to an event</td>
+<td>Number of visits, time until equipment failure</td>
+<td>Dedicated count or survival methods, beyond this guide’s introductory coverage</td>
+</tr>
+</tbody>
+</table>
+<p>A number used as a label, such as a district code, remains categorical. Its numerical appearance does not make an average meaningful.</p>
+</section>
+</section>
+<section id="check-the-study-design" class="level2">
+<h2 class="anchored" data-anchor-id="check-the-study-design">3. Check the study design</h2>
+<section id="independent-groups" class="level3">
+<h3 class="anchored" data-anchor-id="independent-groups">Independent groups</h3>
+<p>Different people, plots, or other units belong to each group. In the training example, each learner contributes one score and belongs to one approach.</p>
+</section>
+<section id="paired-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="paired-measurements">Paired measurements</h3>
+<p>The same person is measured before and after training, or observations are explicitly matched. Analyze the within-pair differences for a paired mean comparison.</p>
+<p>Two columns with the same number of rows are not automatically paired. Each pair must have a meaningful link.</p>
+</section>
+<section id="repeated-or-clustered-observations" class="level3">
+<h3 class="anchored" data-anchor-id="repeated-or-clustered-observations">Repeated or clustered observations</h3>
+<p>Examples include weekly scores from each learner, learners within classrooms, and several leaves measured from each plant. Measurements from the same learner, classroom, or plant may be correlated.</p>
+<p>Do not treat every measurement as an independent replicate. A simple two-group test may be unsuitable; the analysis may require aggregation justified by the question, or a model that accounts for clustering or repeated measurements.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Independence comes from the design
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>A histogram or normality test cannot establish independence. Check how participants were sampled, assigned, measured, and grouped.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Identify the outcome, study design, and quantity you want to estimate.</p>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
 </section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
+<section id="choose-a-starting-method" class="level2">
+<h2 class="anchored" data-anchor-id="choose-a-starting-method">4. Choose a starting method</h2>
+<p>Use this table to locate a relevant chapter. It is a navigation aid; suitability still depends on the design, target estimate, and assumptions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Your question</th>
+<th>Data and design</th>
+<th>Starting chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Does a population mean differ from a reference value?</td>
+<td>One numerical outcome, independent units</td>
+<td><a href="./04-one-sample-t-test.html">One-sample t-test</a></td>
+</tr>
+<tr class="even">
+<td>How do two population means differ?</td>
+<td>Numerical outcome, two independent groups</td>
+<td><a href="./05-independent-t-test.html">Independent-samples t-test, including Welch’s test</a></td>
+</tr>
+<tr class="odd">
+<td>What is the mean within-pair change?</td>
+<td>Numerical outcome, paired observations</td>
+<td><a href="./06-paired-t-test.html">Paired t-test</a></td>
+</tr>
+<tr class="even">
+<td>How do two independent distributions compare using ranks?</td>
+<td>Numerical or ordered outcome</td>
+<td><a href="./07-mann-whitney.html">Mann–Whitney U test</a></td>
+</tr>
+<tr class="odd">
+<td>Are paired differences centered around zero under a symmetric difference distribution?</td>
+<td>Paired numerical measurements</td>
+<td><a href="./08-wilcoxon-signed-rank.html">Wilcoxon signed-rank test</a></td>
+</tr>
+<tr class="even">
+<td>Do several population means differ?</td>
+<td>Numerical outcome, independent groups</td>
+<td><a href="./09-one-way-anova.html">One-way ANOVA and Welch’s ANOVA</a></td>
+</tr>
+<tr class="odd">
+<td>Do several independent distributions differ using ranks?</td>
+<td>Numerical or ordered outcome</td>
+<td><a href="./10-kruskal-wallis.html">Kruskal–Wallis test</a></td>
+</tr>
+<tr class="even">
+<td>Do measurements differ across repeated conditions?</td>
+<td>Repeated measurements on the same units</td>
+<td><a href="./11-repeated-measures.html">Repeated-measures methods</a></td>
+</tr>
+<tr class="odd">
+<td>Are two categorical variables associated?</td>
+<td>Counts in a contingency table, independent units</td>
+<td><a href="./12-chi-square.html">Chi-square</a> or <a href="./13-fisher-exact.html">Fisher’s exact test</a></td>
+</tr>
+<tr class="even">
+<td>How does a proportion compare with a reference or another group?</td>
+<td>Binary outcome, independent units</td>
+<td><a href="./14-proportions.html">Tests for proportions</a></td>
+</tr>
+<tr class="odd">
+<td>Does a binary outcome change within pairs?</td>
+<td>Paired binary measurements</td>
+<td><a href="./15-mcnemar.html">McNemar’s test</a></td>
+</tr>
+<tr class="even">
+<td>How strong is a linear association?</td>
+<td>Two numerical variables</td>
+<td><a href="./16-pearson.html">Pearson correlation</a></td>
+</tr>
+<tr class="odd">
+<td>How strong is a monotonic association using ranks?</td>
+<td>Two numerical or ordered variables</td>
+<td><a href="./17-spearman.html">Spearman correlation</a></td>
+</tr>
+<tr class="even">
+<td>How does a numerical outcome relate to one or more predictors?</td>
+<td>Numerical outcome, appropriate model structure</td>
+<td><a href="./18-linear-regression.html">Linear regression</a></td>
+</tr>
+<tr class="odd">
+<td>How does a binary outcome relate to predictors?</td>
+<td>Binary outcome, appropriate model structure</td>
+<td><a href="./19-logistic-regression.html">Logistic regression</a></td>
+</tr>
+</tbody>
+</table>
+<p>Rank-based tests are not automatic substitutes for every failed assumption. Mann–Whitney and Kruskal–Wallis do not generally test only medians. Their interpretation depends on the distributions and assumptions discussed in their chapters.</p>
+<p>For the independent training groups, Welch’s t-test is a reasonable starting point <strong>if the goal is a difference in means and the data support that analysis</strong>. Before running it, inspect the group sizes, missing scores, distributions, and influential observations.</p>
 </section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">5. Use AI and check its suggestions</h2>
+<p>Write your own question and input summary first. Then ask AI to explain a possible method and identify missing information.</p>
+<section id="example-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="example-prompt">Example prompt</h3>
+<blockquote class="blockquote">
+<p>I am comparing assessment scores between two teaching approaches. Each learner belongs to one approach and contributes one score from 0 to 100. My target estimate is the population mean score for A minus that for B. Explain whether Welch’s t-test is suitable. Ask about sampling, assignment, clustering, sample sizes, missing values, and unusual observations before recommending an analysis. State the assumptions, alternatives, and limits of the interpretation. Do not invent results.</p>
+</blockquote>
+<p>Use synthetic examples or appropriately de-identified summaries when discussing data with an AI tool. Do not include identifying or confidential records without authorization.</p>
 </section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<section id="check-the-response" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-response">Check the response</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>AI suggestion</th>
+<th>Your check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Use a paired t-test.”</td>
+<td>Are these the same learners measured twice or genuinely matched pairs?</td>
+</tr>
+<tr class="even">
+<td>“Use a t-test because the outcome is numerical.”</td>
+<td>Does the design support independent units, and is a mean difference the intended estimate?</td>
+</tr>
+<tr class="odd">
+<td>“The sample is large, so assumptions do not matter.”</td>
+<td>Are there clusters, influential observations, or sampling problems that sample size cannot fix?</td>
+</tr>
+<tr class="even">
+<td>“A significant difference proves the teaching approach works.”</td>
+<td>Does the design support a causal interpretation? Could selection or confounding explain the association?</td>
+</tr>
+<tr class="odd">
+<td>“Use Mann–Whitney to test the medians.”</td>
+<td>What assumptions would allow a location or median interpretation?</td>
+</tr>
+</tbody>
+</table>
+<p>AI can help draft code, explain output, and suggest checks. Run and inspect the code yourself. Verify documentation for unfamiliar functions and keep a record of consequential analysis decisions.</p>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+<section id="write-your-analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-analysis-plan">6. Write your analysis plan</h2>
+<p>For the training example, a short plan could read:</p>
+<blockquote class="blockquote">
+<p>We will compare assessment scores between Approach A and Approach B using the difference in means, defined as A minus B. Each learner contributes one observation. We will examine group sizes, missing scores, score distributions, and unusual observations before analysis. If an independent mean comparison is appropriate, we will use Welch’s t-test and report the estimated mean difference, its 95% confidence interval, and the two-sided p-value. Interpretation will account for how learners were recruited and assigned to approaches.</p>
+</blockquote>
+<p>Specify any adjustment variables, subgroup analyses, and multiple comparisons before examining their results. If the plan changes, record the reason and distinguish planned from exploratory work.</p>
 </section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<section id="verify-and-explain" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain">7. Verify and explain</h2>
+<p>Before proceeding, answer these questions in your own words:</p>
+<ol type="1">
+<li>What is my outcome, and what type of variable is it?</li>
+<li>What does one row represent? What is the independent unit?</li>
+<li>Are observations independent, paired, repeated, or clustered?</li>
+<li>What quantity do I want to estimate, including its direction and units?</li>
+<li>Why does my proposed method fit that question and design?</li>
+<li>What could limit the interpretation, even if the p-value is small?</li>
+</ol>
+<section id="try-it" class="level3">
+<h3 class="anchored" data-anchor-id="try-it">Try it</h3>
+<p>A farm records crop yield from 12 plots before and after a soil treatment. Each plot has a unique identifier and contributes both measurements.</p>
+<ul>
+<li>Is this an independent or paired comparison?</li>
+<li>What quantity would you estimate?</li>
+<li>What limits a claim that the treatment caused any observed change?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The measurements are paired by plot. A useful target is the mean within-plot yield change, defined as after minus before and expressed in the yield units. A paired t-test may be appropriate if the plot differences meet its conditions and plots provide independent replication. Without an appropriate comparison group or design, weather, season, and other changes could explain the observed difference. Pairing alone does not establish causation.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+</section>
+<section id="common-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes">8. Common mistakes</h2>
+<ul>
+<li>Selecting a test solely from the outcome type while ignoring the design.</li>
+<li>Treating multiple measurements from one unit as independent replicates.</li>
+<li>Choosing a method because it produces a smaller p-value.</li>
+<li>Interpreting a small p-value as a large or practically important effect.</li>
+<li>Accepting an AI explanation without checking the inputs, assumptions, and actual output.</li>
+</ul>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./02-statistical-inference.html">Understanding Statistical Inference</a> to distinguish estimates, uncertainty, hypotheses, p-values, and effect sizes. Then use <a href="./03-data-and-assumptions.html">Checking Data and Assumptions</a> before running a method chapter.</p>
 
 
 </section>
@@ -815,8 +1136,8 @@ Chapter status
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-preface.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="./00-preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

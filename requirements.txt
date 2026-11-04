@@ -1,2 +1,7 @@
+# Third-party dependencies for the guide's Python scripts.
+# Install inside the project .venv:
+# python -m pip install -r requirements.txt
+# Python 3.11+ recommended. These ranges are not an exact environment lock.
 numpy>=1.26,<3
 scipy>=1.11,<2
+matplotlib>=3.7,<4

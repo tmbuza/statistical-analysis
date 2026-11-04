@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">2. When to use this method</a></li>
+  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">3. What it estimates or tests</a></li>
+  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">4. Check before running</a>
+  <ul class="collapse">
+  <li><a href="#zeros-and-tied-absolute-differences" id="toc-zeros-and-tied-absolute-differences" class="nav-link" data-scroll-target="#zeros-and-tied-absolute-differences">Zeros and tied absolute differences</a></li>
+  </ul></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">5. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">6. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#check-the-pseudomedian" id="toc-check-the-pseudomedian" class="nav-link" data-scroll-target="#check-the-pseudomedian">Check the pseudomedian</a></li>
+  <li><a href="#read-the-diagnostic-figure" id="toc-read-the-diagnostic-figure" class="nav-link" data-scroll-target="#read-the-diagnostic-figure">Read the diagnostic figure</a></li>
+  </ul></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</a></li>
+  <li><a href="#report-your-finding" id="toc-report-your-finding" class="nav-link" data-scroll-target="#report-your-finding">8. Report your finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">9. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">10. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +430,380 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-008</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Analyze paired numerical differences using signed ranks, check symmetry, and interpret the result with appropriate limitations</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>Are paired assessment-score changes centered around zero under a suitable symmetric location model?</p>
+</blockquote>
+<p>Ten synthetic learners have before and after scores. Define change as <strong>after minus before</strong>. Positive values indicate higher scores after training.</p>
+<p>This new dataset illustrates a small exact signed-rank calculation. It is separate from Chapter 06’s paired t-test example; do not compare their p-values as if they came from the same observations.</p>
+</section>
+<section id="when-to-use-this-method" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-use-this-method">2. When to use this method</h2>
+<p>The Wilcoxon signed-rank test uses the signs and ranks of the absolute paired differences. It can support inference about a symmetric location of paired numerical differences without requiring a normal distribution.</p>
+<p>The differences and their absolute magnitudes must be meaningful. Arbitrary numerical codes for ordered categories may not provide a defensible scale for this calculation.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question or design</th>
+<th>Consider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location of paired numerical differences, with plausible symmetry</td>
+<td>Signed-rank test</td>
+</tr>
+<tr class="even">
+<td>Population mean paired difference</td>
+<td><a href="./06-paired-t-test.html">Paired t-test</a>, when suitable</td>
+</tr>
+<tr class="odd">
+<td>Direction of paired differences without a symmetry assumption</td>
+<td>A suitable sign test</td>
+</tr>
+<tr class="even">
+<td>Independent groups</td>
+<td><a href="./07-mann-whitney.html">Mann–Whitney U test</a>, with its own target and assumptions</td>
+</tr>
+</tbody>
+</table>
+<p>Do not automatically substitute signed ranks for a paired t-test after a normality test rejects. First consider the target quantity, symmetry, and design.</p>
+</section>
+<section id="what-it-estimates-or-tests" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">3. What it estimates or tests</h2>
+<p>For the standard signed-rank test, the null model assumes independent differences from a continuous distribution symmetric about zero. The two-sided test assesses departures from that zero center within an appropriate symmetric location framework.</p>
+<p>Symmetry means the distribution has a similar shape on either side of its center. A symmetric distribution need not be normal.</p>
+<p>A related location estimate is the <strong>pseudomedian</strong>, estimated by the median of the Walsh averages:</p>
+<p><span class="math display">\[
+\frac{d_i+d_j}{2}, \qquad i\leq j.
+\]</span></p>
+<p>Under symmetry, the population pseudomedian equals the distribution’s center and median. In general, it need not equal the population median, and its sample estimate need not equal the sample median of changes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+State the assumptions with the interpretation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>The signed-rank test is not generally a test of only “median change equals zero” for arbitrary asymmetric distributions. It also does not directly test the arithmetic mean change. If symmetry is implausible, reconsider the inferential target and method.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>Is the distribution of paired differences centered at zero, under symmetry?</p>
-</section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
 </section>
 <section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
+<h2 class="anchored" data-anchor-id="check-before-running">4. Check before running</h2>
+<ul>
+<li>Verify each pair using a unique identifier.</li>
+<li>Confirm that different pairs supply independent information.</li>
+<li>Investigate missing measurements and report incomplete pairs.</li>
+<li>Inspect the differences for skewness, asymmetry, and unusual values.</li>
+<li>Count zero differences and repeated absolute differences.</li>
+<li>Check that subtraction and magnitude comparisons are meaningful on the outcome scale.</li>
+</ul>
+<p>A small sample provides limited evidence about symmetry. Subject knowledge and the measurement process matter alongside plots. A plot cannot establish independence or rule out missing-data bias.</p>
+<section id="zeros-and-tied-absolute-differences" class="level3">
+<h3 class="anchored" data-anchor-id="zeros-and-tied-absolute-differences">Zeros and tied absolute differences</h3>
+<p>Zero differences have no positive or negative sign. In the usual Wilcoxon convention, zero differences are omitted before ranking; other conventions, such as Pratt’s, handle them differently.</p>
+<p>Tied absolute differences receive average ranks. Their presence changes the null distribution and p-value calculation. Software may use an approximation or a supported conditional/permutation method. Document the software, zero convention, ties, and exact or approximate calculation.</p>
+<p>This example has no zeros or tied absolute differences. The supplied script stops if these occur, preserving this specific exact teaching calculation. That guard does not imply such data are unanalyzable.</p>
+</section>
 </section>
 <section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
+<h2 class="anchored" data-anchor-id="run-the-analysis">5. Run the analysis</h2>
+<p>Copy these companion files into the repository root:</p>
+<ul>
+<li><a href="data/example/08-paired-scores.csv">Synthetic paired scores</a></li>
+<li><a href="scripts/R/08-wilcoxon-signed-rank.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/08-wilcoxon-signed-rank.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following plain code blocks display the analysis. Quarto does not execute them; run the standalone script.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairing is preserved within each learner's row.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/example/08-paired-scores.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>change <span class="ot">&lt;-</span> dat<span class="sc">$</span>after <span class="sc">-</span> dat<span class="sc">$</span>before</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(dat<span class="sc">$</span>after, dat<span class="sc">$</span>before, <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">exact =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">correct =</span> <span class="cn">FALSE</span>, <span class="at">conf.int =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Verify the signed ranks:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>absolute_rank <span class="ot">&lt;-</span> <span class="fu">rank</span>(<span class="fu">abs</span>(dat<span class="sc">$</span>change))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>v_positive <span class="ot">&lt;-</span> <span class="fu">sum</span>(absolute_rank[dat<span class="sc">$</span>change <span class="sc">&gt;</span> <span class="dv">0</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>v_negative <span class="ot">&lt;-</span> <span class="fu">sum</span>(absolute_rank[dat<span class="sc">$</span>change <span class="sc">&lt;</span> <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Generated output</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>results/tables/08-signed-rank.csv</code></td>
+<td>Rank sums, descriptive location estimates, effect estimate, and p-value</td>
+</tr>
+<tr class="even">
+<td><code>results/tables/08-signed-ranks.csv</code></td>
+<td>Each pair, change, and absolute rank</td>
+</tr>
+<tr class="odd">
+<td><code>results/figures/08-change-diagnostics.png</code></td>
+<td>Individual changes and a visual symmetry comparison</td>
+</tr>
+</tbody>
+</table>
+<p>These outputs are created by the R script and are not supplied as pre-generated R results. Generate the files before rendering the figure references below.</p>
+<div id="fig-08-change-diagnostics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-08-change-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/08-change-diagnostics.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-08-change-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Within-learner changes and a visual symmetry check using median-centered changes and their reflection. Similar curves support approximate symmetry visually but do not establish it in this small sample.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">6. Verify and explain the output</h2>
+<p>The observed changes are:</p>
+<p><strong>-3, -1, 2, 4, 5, 6, 7, 8, 9, 10 points.</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Change</th>
+<th style="text-align: right;">Absolute change</th>
+<th style="text-align: right;">Rank of absolute change</th>
+<th>Sign</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td>Negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td>Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td>Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td>Positive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td>Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td>Positive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td>Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td>Positive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+<td>Positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td>Positive</td>
+</tr>
+</tbody>
+</table>
+<p>The negative rank sum is <span class="math inline">\(3+1=4\)</span>. All ranks sum to <span class="math inline">\(10(11)/2=55\)</span>, so the positive rank sum is <span class="math inline">\(55-4=51\)</span>.</p>
+<p>Base R reports the <strong>positive rank sum V=51</strong>. Some other implementations report the smaller signed-rank sum, which is 4 for this two-sided example. Different statistic labels do not necessarily indicate different tests.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete pairs and nonzero differences</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td>Positive differences</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Negative differences</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td>Positive rank sum</td>
+<td style="text-align: right;">51</td>
+</tr>
+<tr class="odd">
+<td>Negative rank sum</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td>Exact two-sided p-value</td>
+<td style="text-align: right;">0.013671875</td>
+</tr>
+<tr class="odd">
+<td>Sample median change</td>
+<td style="text-align: right;">5.5 points</td>
+</tr>
+<tr class="even">
+<td>Estimated pseudomedian</td>
+<td style="text-align: right;">5.0 points</td>
+</tr>
+<tr class="odd">
+<td>Matched rank-biserial effect, positive-change convention</td>
+<td style="text-align: right;">47/55 = 0.8545</td>
+</tr>
+</tbody>
+</table>
+<p>Under the continuous symmetric zero-centered null, each of the <span class="math inline">\(2^{10}=1024\)</span> sign allocations has equal probability conditional on the magnitudes. Seven allocations produce a positive rank sum at most 4; the mirrored upper tail gives an exact two-sided probability of <span class="math inline">\(14/1024=0.013671875\)</span>.</p>
+<p>This provides evidence against the zero-centered symmetric null, with signed ranks favoring positive changes. It does not establish that every learner improved or that training caused the changes. A location interpretation remains conditional on plausible symmetry.</p>
+<section id="check-the-pseudomedian" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-pseudomedian">Check the pseudomedian</h3>
+<p>There are <span class="math inline">\(10(11)/2=55\)</span> Walsh averages. Their median is 5.0 points, while the ordinary sample median of changes is 5.5 points. These are different calculations. The script reports both without providing a location confidence interval in this introductory example.</p>
+<p>The matched rank-biserial estimate is:</p>
+<p><span class="math display">\[
+r_{rb}=\frac{V_+-V_-}{V_++V_-}=\frac{51-4}{55}\approx0.8545.
+\]</span></p>
+<p>This measures the balance of positive versus negative rank mass under the stated convention. It is not the proportion of learners improving or a percentage increase in scores. It is a point estimate; uncertainty is not quantified here.</p>
 </section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
+<section id="read-the-diagnostic-figure" class="level3">
+<h3 class="anchored" data-anchor-id="read-the-diagnostic-figure">Read the diagnostic figure</h3>
+<p>The first panel shows individual changes relative to zero. The second compares the empirical distributions of median-centered changes and their reflection. Similar curves are consistent with approximate symmetry around the sample median, but do not prove it. Sampling variability and the small number of pairs limit this visual assessment.</p>
+</section>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">7. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Analyze the supplied ten paired synthetic scores using a two-sided Wilcoxon signed-rank test. Define change as after minus before. Check pairing, zeros, tied absolute differences, and the symmetry assumption. Explain why base R reports V=51 while another implementation may report 4. Distinguish the median change, pseudomedian, mean change, and matched rank-biserial estimate. Do not interpret the p-value as proof of a causal training effect.</p>
+</blockquote>
+<p>Verify the changes and ranks yourself. Check that the response reports ten nonzero pairs, positive rank sum 51, negative rank sum 4, and the exact p-value approximately 0.01367.</p>
+<p>If it calls this an assumption-free median test, ask it to state the symmetry and measurement conditions needed for that interpretation.</p>
+</section>
+<section id="report-your-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-your-finding">8. Report your finding</h2>
+<blockquote class="blockquote">
+<p>In ten synthetic paired observations, eight changes were positive and two were negative. The sample median change was 5.5 points and the estimated pseudomedian was 5.0 points. A two-sided exact Wilcoxon signed-rank test gave a positive rank sum of V=51 and p=0.01367. Under a plausible symmetric difference model, the result supports a positive location shift from zero. The small sample limits assessment of symmetry, and the before-and-after comparison does not establish causation.</p>
+</blockquote>
+<p>For an applied report, add recruitment, timing, missing-pair handling, diagnostic findings, zeros, ties, and the p-value calculation method.</p>
 </section>
 <section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">9. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treating different groups as paired</td>
+<td>Verify the design and matching identifiers</td>
+</tr>
+<tr class="even">
+<td>Ranking the raw before and after scores</td>
+<td>Rank absolute within-pair differences</td>
+</tr>
+<tr class="odd">
+<td>Ignoring symmetry because the method is nonparametric</td>
+<td>Inspect and justify the difference model</td>
+</tr>
+<tr class="even">
+<td>Calling V the smaller rank sum in every program</td>
+<td>Check the software’s convention</td>
+</tr>
+<tr class="odd">
+<td>Reporting the pseudomedian as the arithmetic mean</td>
+<td>Name the estimate actually calculated</td>
+</tr>
+<tr class="even">
+<td>Ignoring ties or zero-handling warnings</td>
+<td>Choose and document an appropriate procedure</td>
+</tr>
+</tbody>
+</table>
+<p>For an arithmetic mean target, consider the paired t-test when appropriate. A sign test can assess positive versus negative differences without relying on their magnitudes or symmetry; ties and the exact target still need explicit handling. More complex repeated or clustered observations may require a model that reflects their dependence.</p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">10. Check your understanding</h2>
+<p>A report says: “The rank-biserial effect was 0.8545, so 85.45% of learners improved.”</p>
+<p>What is wrong?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The effect is a standardized balance of positive and negative rank sums. It is not a proportion of learners. In this example, eight of ten learners, or 80%, had positive changes. Neither number is a causal improvement estimate.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./09-one-way-anova.html">One-Way ANOVA</a> for comparisons of more than two independent population means.</p>
 
 
 </section>

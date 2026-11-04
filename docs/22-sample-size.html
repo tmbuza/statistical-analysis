@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#define-the-planning-inputs" id="toc-define-the-planning-inputs" class="nav-link" data-scroll-target="#define-the-planning-inputs">2. Define the planning inputs</a></li>
+  <li><a href="#what-power-means" id="toc-what-power-means" class="nav-link" data-scroll-target="#what-power-means">3. What power means</a></li>
+  <li><a href="#run-the-planning-calculation" id="toc-run-the-planning-calculation" class="nav-link" data-scroll-target="#run-the-planning-calculation">4. Run the planning calculation</a></li>
+  <li><a href="#verify-and-explain-the-result" id="toc-verify-and-explain-the-result" class="nav-link" data-scroll-target="#verify-and-explain-the-result">5. Verify and explain the result</a>
+  <ul class="collapse">
+  <li><a href="#allow-for-expected-losses" id="toc-allow-for-expected-losses" class="nav-link" data-scroll-target="#allow-for-expected-losses">Allow for expected losses</a></li>
+  </ul></li>
+  <li><a href="#examine-sensitivity" id="toc-examine-sensitivity" class="nav-link" data-scroll-target="#examine-sensitivity">6. Examine sensitivity</a></li>
+  <li><a href="#precision-can-be-the-primary-goal" id="toc-precision-can-be-the-primary-goal" class="nav-link" data-scroll-target="#precision-can-be-the-primary-goal">7. Precision can be the primary goal</a></li>
+  <li><a href="#match-the-sample-size-to-the-independent-unit" id="toc-match-the-sample-size-to-the-independent-unit" class="nav-link" data-scroll-target="#match-the-sample-size-to-the-independent-unit">8. Match the sample size to the independent unit</a></li>
+  <li><a href="#avoid-retrospective-observed-power" id="toc-avoid-retrospective-observed-power" class="nav-link" data-scroll-target="#avoid-retrospective-observed-power">9. Avoid retrospective observed power</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">10. Use AI and check its suggestions</a></li>
+  <li><a href="#report-the-plan" id="toc-report-the-plan" class="nav-link" data-scroll-target="#report-the-plan">11. Report the plan</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">12. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +428,232 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-022</li>
+<li><strong>Type:</strong> Study planning reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Plan independent information around meaningful differences, uncertainty, and explicit design assumptions</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>How many learners should we plan for to detect a meaningful difference between two independent population mean scores?</p>
+</blockquote>
+<p>Before collecting data, specify the target difference, variability, design, testing procedure, and acceptable uncertainty. A software-generated sample size is only as defensible as those inputs.</p>
+<p>This teaching example plans a two-sided, equal-allocation two-sample t-test with a common population SD. It is not a universal sample-size recommendation for educational studies.</p>
+</section>
+<section id="define-the-planning-inputs" class="level2">
+<h2 class="anchored" data-anchor-id="define-the-planning-inputs">2. Define the planning inputs</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th style="text-align: right;">Illustrative choice</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outcome</td>
+<td style="text-align: right;">Assessment score</td>
+<td>Defines units and measurement</td>
+</tr>
+<tr class="even">
+<td>Meaningful mean difference</td>
+<td style="text-align: right;">5 points</td>
+<td>Difference the study should be able to detect</td>
+</tr>
+<tr class="odd">
+<td>Assumed common SD</td>
+<td style="text-align: right;">10 points</td>
+<td>Determines noise relative to the target difference</td>
+</tr>
+<tr class="even">
+<td>Significance level</td>
+<td style="text-align: right;">0.05</td>
+<td>Type I error threshold for the planned test</td>
+</tr>
+<tr class="odd">
+<td>Target power</td>
+<td style="text-align: right;">80%</td>
+<td>Rejection probability at the specified alternative</td>
+</tr>
+<tr class="even">
+<td>Alternative</td>
+<td style="text-align: right;">Two-sided</td>
+<td>Allows differences in either direction</td>
+</tr>
+<tr class="odd">
+<td>Allocation</td>
+<td style="text-align: right;">Equal groups</td>
+<td>Same planned analyzable count in each arm</td>
+</tr>
+<tr class="even">
+<td>Expected loss fraction</td>
+<td style="text-align: right;">15%</td>
+<td>Illustrative recruitment allowance</td>
+</tr>
+</tbody>
+</table>
+<p>Five points and SD ten are hypothetical assumptions, not estimates established by this guide. Use subject knowledge, prior evidence, and justified sensitivity ranges for an applied plan. A pilot SD can be highly uncertain.</p>
+</section>
+<section id="what-power-means" class="level2">
+<h2 class="anchored" data-anchor-id="what-power-means">3. What power means</h2>
+<p>Power is the probability of rejecting the null hypothesis <strong>if the specified alternative and model assumptions hold</strong>. It depends on the true effect, variability, sample size, test, and design.</p>
+<p>An 80% target does not mean an 80% probability that the alternative is true, that this particular study will succeed, or that a significant finding will be correct. It describes repeated-sampling performance at a chosen alternative.</p>
+<p>With the same design and variability, more independent observations usually increase power. Smaller target differences, greater variability, stricter alpha levels, and higher desired power generally require larger samples.</p>
+</section>
+<section id="run-the-planning-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-planning-calculation">4. Run the planning calculation</h2>
+<p>Copy the companion files into the repository root:</p>
+<ul>
+<li><a href="data/example/22-planning-assumptions.csv">Illustrative planning assumptions</a></li>
+<li><a href="scripts/R/22-sample-size.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/22-sample-size.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All chapter code blocks are non-executable. Run the standalone script separately.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">power.t.test</span>(<span class="at">delta =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">type =</span> <span class="st">"two.sample"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">strict =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(plan<span class="sc">$</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For <code>type = "two.sample"</code>, n is <strong>per group</strong>, not the combined total. The function uses a common-variance t-test planning model. It does not directly calculate Welch power for arbitrary unequal variances or unequal allocation. Align the planning method with the intended analysis; use an appropriate extension or simulation when needed.</p>
+<p><code>strict = TRUE</code> includes rejection in both tails for the two-sided test. The script uses that setting consistently for planning and power verification.</p>
+<div id="fig-22-power-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-22-power-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/22-power-curve.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-22-power-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.1: Power versus analyzable independent participants per group under the specified five-point difference, SD ten, two-sided alpha 0.05, and equal-allocation t-test model. Reference lines mark target power and the rounded required sample size.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-result" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-result">5. Verify and explain the result</h2>
+<p>The calculation requires approximately 63.77 analyzable learners per group, rounded up to <strong>64 per group</strong>, or 128 total, under the stated assumptions. The script recalculates power at the rounded integer sample size.</p>
+<p>A rough large-sample check is:</p>
+<p><span class="math display">\[
+n\approx\frac{2\sigma^2(z_{1-\alpha/2}+z_{1-\beta})^2}{\Delta^2}.
+\]</span></p>
+<p>Substituting SD ten, difference five, alpha 0.05, and power 0.80 gives about 62.8 per group. The t-based result is slightly larger because it accounts for estimation of variance through the t distribution.</p>
+<section id="allow-for-expected-losses" class="level3">
+<h3 class="anchored" data-anchor-id="allow-for-expected-losses">Allow for expected losses</h3>
+<p>An illustrative allowance is:</p>
+<p><span class="math display">\[
+n_{\text{recruit}}=\left\lceil\frac{n_{\text{analyzable}}}{1-L}\right\rceil.
+\]</span></p>
+<p>At 15% expected loss, <span class="math inline">\(\lceil64/0.85\rceil=76\)</span> per group, or <strong>152 recruits</strong> total.</p>
+<p>This is an expected retention allowance, not a guarantee of 64 analyzable learners. It does not correct bias from informative dropout. Recruitment feasibility, differential losses, and missing-data handling need separate consideration.</p>
+</section>
+</section>
+<section id="examine-sensitivity" class="level2">
+<h2 class="anchored" data-anchor-id="examine-sensitivity">6. Examine sensitivity</h2>
+<p>The script recalculates required analyzable counts for assumed SDs of eight, ten, and twelve points. Inspect the exported sensitivity table instead of reporting a single count as certain.</p>
+<p>Also consider plausible differences, target power levels, allocation ratios, and outcome quality. Do not choose an implausibly large effect or low variability merely to make the required sample affordable.</p>
+<p>The power-curve figure shows power against analyzable participants per group for the fixed five-point, SD-ten model. It is conditional on those assumptions. It is not a probability forecast for an individual study.</p>
+<p>The script generates <code>22-sample-size-plan.csv</code>, <code>22-sd-sensitivity.csv</code>, and <code>22-power-curve.csv</code> under <code>results/tables/</code>, plus <code>results/figures/22-power-curve.png</code>. Pre-generated R outputs are not included; generate the files before rendering this chapter.</p>
+</section>
+<section id="precision-can-be-the-primary-goal" class="level2">
+<h2 class="anchored" data-anchor-id="precision-can-be-the-primary-goal">7. Precision can be the primary goal</h2>
+<p>Some studies primarily estimate a quantity rather than test a null. Plan around an acceptable confidence-interval width when that better matches the goal.</p>
+<p>For an independent mean with a known planning SD, a rough normal-approximation count for desired half-width h is:</p>
+<p><span class="math display">\[
+n\approx\left(\frac{z_{0.975}\sigma}{h}\right)^2.
+\]</span></p>
+<p>This is a one-mean formula, not a two-group formula. Unknown variance, small samples, and complex designs need appropriate refinements. For proportions, planning precision depends on the anticipated proportion and interval method.</p>
+<p>Avoid treating failure to reject as evidence of equivalence. Equivalence or noninferiority questions require a justified margin and a matching design and analysis.</p>
+</section>
+<section id="match-the-sample-size-to-the-independent-unit" class="level2">
+<h2 class="anchored" data-anchor-id="match-the-sample-size-to-the-independent-unit">8. Match the sample size to the independent unit</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design feature</th>
+<th>Planning consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Learners within classrooms</td>
+<td>Account for clustering and the number of classrooms</td>
+</tr>
+<tr class="even">
+<td>Paired measurements</td>
+<td>Plan using variability of within-pair differences or an appropriate paired model</td>
+</tr>
+<tr class="odd">
+<td>Repeated visits</td>
+<td>Account for covariance, timing, and attrition</td>
+</tr>
+<tr class="even">
+<td>Several primary comparisons</td>
+<td>Reflect the planned multiplicity strategy</td>
+</tr>
+<tr class="odd">
+<td>Sparse binary outcomes</td>
+<td>Ensure adequate event and non-event information for the intended model</td>
+</tr>
+</tbody>
+</table>
+<p>For equal-sized clusters, the familiar approximation <span class="math inline">\(1+(m-1)ICC\)</span> describes a design effect under a simple exchangeable correlation model. It is only a starting approximation; unequal cluster sizes, few clusters, allocation level, and degrees of freedom can materially change requirements.</p>
+<p>Taking repeated measurements from the same participants does not produce the same information as recruiting that many independent participants. More rows cannot substitute automatically for more independent units.</p>
+</section>
+<section id="avoid-retrospective-observed-power" class="level2">
+<h2 class="anchored" data-anchor-id="avoid-retrospective-observed-power">9. Avoid retrospective observed power</h2>
+<p>Do not calculate post-hoc power using the observed effect and interpret low power as an explanation of a nonsignificant p-value. For a fixed test and sample, observed-effect power often repackages the p-value and adds little useful information.</p>
+<p>After analysis, emphasize the effect estimate and confidence interval. For a future study, use defensible external assumptions and sensitivity analyses. If a sample size is fixed by feasibility, report detectable effects or precision under several scenarios rather than claiming the sample is adequate without a target.</p>
+<p>Repeatedly collecting data and stopping when p &lt; 0.05 also changes error rates. Sequential designs need prespecified monitoring and appropriate inferential procedures.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">10. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Plan an equal-allocation independent two-sample mean comparison with a meaningful difference of five score points, common SD ten, two-sided alpha 0.05, and target power 0.80. Use the stated common-variance t-test model and explain that n is per group. Round up, check achieved power, and calculate an illustrative 15% loss allowance. State that these are hypothetical assumptions, ask about clustering and missingness, and distinguish this model from unequal-variance Welch planning.</p>
+</blockquote>
+<p>Verify units, independent unit, per-group versus total counts, rounding direction, loss denominator, and analysis compatibility. Ask for sensitivity calculations rather than a single unexplained number.</p>
+</section>
+<section id="report-the-plan" class="level2">
+<h2 class="anchored" data-anchor-id="report-the-plan">11. Report the plan</h2>
+<blockquote class="blockquote">
+<p>Under an equal-allocation independent two-sample t-test planning model, detecting a five-point mean difference with common SD ten, two-sided alpha 0.05, and 80% power required 64 analyzable learners per group. An illustrative 15% loss allowance increased recruitment to 76 per group, or 152 total. These hypothetical inputs require substantive justification and sensitivity assessment before applied use; clustering and informative dropout are not addressed by this calculation.</p>
+</blockquote>
+<p>An applied plan should identify evidence for every important input, the planned analysis, allocation, multiplicity handling, sensitivity range, feasibility, and reproducible software settings.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">12. Check your understanding</h2>
+<p>An AI response says: “We need 64 learners total because <code>power.t.test()</code> returned n near 64.”</p>
+<p>What should change?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>For this two-sample calculation, n is per group. Round up to 64 analyzable learners in each group, giving 128 total before the illustrative loss allowance. Confirm the function’s model and the independent unit before using the count.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>What sample size supports meaningful precision or power?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./23-reporting.html">Reporting Statistical Findings</a> to connect estimates, uncertainty, methods, and limitations in a clear report.</p>
 
 
 </section>

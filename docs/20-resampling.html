@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="assets/css/cdi.css">
 </head>
@@ -126,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,7 +365,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendices and References</span></a>
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
   </div>
 </li>
       </ul>
@@ -316,15 +381,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">Your question</a></li>
-  <li><a href="#when-to-use-this-method" id="toc-when-to-use-this-method" class="nav-link" data-scroll-target="#when-to-use-this-method">When to use this method</a></li>
-  <li><a href="#what-it-estimates-or-tests" id="toc-what-it-estimates-or-tests" class="nav-link" data-scroll-target="#what-it-estimates-or-tests">What it estimates or tests</a></li>
-  <li><a href="#check-before-running" id="toc-check-before-running" class="nav-link" data-scroll-target="#check-before-running">Check before running</a></li>
-  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">Run the analysis</a></li>
-  <li><a href="#understand-the-output" id="toc-understand-the-output" class="nav-link" data-scroll-target="#understand-the-output">Understand the output</a></li>
-  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">Report the finding</a></li>
-  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">Common mistakes and alternatives</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#two-procedures-different-purposes" id="toc-two-procedures-different-purposes" class="nav-link" data-scroll-target="#two-procedures-different-purposes">2. Two procedures, different purposes</a></li>
+  <li><a href="#bootstrap-uncertainty" id="toc-bootstrap-uncertainty" class="nav-link" data-scroll-target="#bootstrap-uncertainty">3. Bootstrap uncertainty</a></li>
+  <li><a href="#permutation-null-and-exchangeability" id="toc-permutation-null-and-exchangeability" class="nav-link" data-scroll-target="#permutation-null-and-exchangeability">4. Permutation null and exchangeability</a></li>
+  <li><a href="#match-resampling-to-the-design" id="toc-match-resampling-to-the-design" class="nav-link" data-scroll-target="#match-resampling-to-the-design">5. Match resampling to the design</a></li>
+  <li><a href="#run-the-analysis" id="toc-run-the-analysis" class="nav-link" data-scroll-target="#run-the-analysis">6. Run the analysis</a></li>
+  <li><a href="#verify-and-explain-the-output" id="toc-verify-and-explain-the-output" class="nav-link" data-scroll-target="#verify-and-explain-the-output">7. Verify and explain the output</a>
+  <ul class="collapse">
+  <li><a href="#monte-carlo-permutation-comparison" id="toc-monte-carlo-permutation-comparison" class="nav-link" data-scroll-target="#monte-carlo-permutation-comparison">Monte Carlo permutation comparison</a></li>
+  </ul></li>
+  <li><a href="#read-the-two-distributions" id="toc-read-the-two-distributions" class="nav-link" data-scroll-target="#read-the-two-distributions">8. Read the two distributions</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</a></li>
+  <li><a href="#report-the-finding" id="toc-report-the-finding" class="nav-link" data-scroll-target="#report-the-finding">10. Report the finding</a></li>
+  <li><a href="#common-mistakes-and-alternatives" id="toc-common-mistakes-and-alternatives" class="nav-link" data-scroll-target="#common-mistakes-and-alternatives">11. Common mistakes and alternatives</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">12. Check your understanding</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
   </ul>
 </nav>
     </div>
@@ -356,54 +428,310 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-020</li>
+<li><strong>Type:</strong> Statistical method reference</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Use resampling to estimate uncertainty or construct a null reference distribution while preserving the study design</li>
+</ul>
+</div>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<blockquote class="blockquote">
+<p>What is the mean outcome difference between independent groups A and B, and how uncertain is it?</p>
+</blockquote>
+<p>A second question asks whether the observed difference is unusual under a null model that permits group labels to be exchanged.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Synthetic outcomes</th>
+<th style="text-align: right;">Mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>4, 5, 6, 7, 8, 9</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>7, 8, 9, 10, 11, 12</td>
+<td style="text-align: right;">9.5</td>
+</tr>
+</tbody>
+</table>
+<p>The observed difference, <strong>A minus B</strong>, is -3 outcome units. Each group contains six independent participants. This deliberately small dataset allows complete permutation enumeration, but also makes bootstrap inference fragile.</p>
+</section>
+<section id="two-procedures-different-purposes" class="level2">
+<h2 class="anchored" data-anchor-id="two-procedures-different-purposes">2. Two procedures, different purposes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>What changes?</th>
+<th>Main purpose in this chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bootstrap</td>
+<td>Sample observations with replacement within each original group</td>
+<td>Approximate sampling uncertainty of the mean difference</td>
+</tr>
+<tr class="even">
+<td>Permutation</td>
+<td>Reallocate labels without replacement, preserving group sizes</td>
+<td>Construct a null reference distribution</td>
+</tr>
+</tbody>
+</table>
+<p>A bootstrap distribution is usually centered near the observed estimate. A null permutation distribution is centered near the null value for this symmetric allocation design. Do not interpret one as the other.</p>
+<p>Neither method creates new independent information or repairs a biased sample. More resamples reduce simulation error, not the uncertainty caused by limited original data.</p>
+</section>
+<section id="bootstrap-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrap-uncertainty">3. Bootstrap uncertainty</h2>
+<p>For each bootstrap replicate:</p>
+<ol type="1">
+<li>Sample six A observations with replacement from A.</li>
+<li>Independently sample six B observations with replacement from B.</li>
+<li>Calculate the resampled mean A minus resampled mean B.</li>
+</ol>
+<p>Repeat 19,999 times. The SD of those differences estimates the estimator’s SE. A <strong>percentile interval</strong> uses the 2.5th and 97.5th percentiles of the bootstrap estimates.</p>
+<p>This is an approximate procedure, not an exact 95% guarantee. Small samples, bias, skewness, heavy tails, nonsmooth statistics, and boundary estimates can impair coverage. BCa, basic, and bootstrap-t intervals use different constructions and assumptions; do not call them interchangeable.</p>
+<p>Resampling within groups preserves the two-group sampling structure without assuming their distributions are equal. Pooling before bootstrapping would change the procedure and its target uncertainty.</p>
+</section>
+<section id="permutation-null-and-exchangeability" class="level2">
+<h2 class="anchored" data-anchor-id="permutation-null-and-exchangeability">4. Permutation null and exchangeability</h2>
+<p>The simple label-permutation procedure pools all 12 outcomes, selects six participant indices for A, and assigns the remaining six to B. There are:</p>
+<p><span class="math display">\[
+\binom{12}{6}=924
+\]</span></p>
+<p>possible allocations. Recalculate the difference for each allocation.</p>
+<p>Under independent sampling from identical group distributions, labels are exchangeable under the null. Under an appropriate completely randomized assignment, the same allocation logic can provide a randomization test of a sharp no-effect null. State which justification applies to the actual study.</p>
+<p><strong>Equality of means alone does not generally justify unstudentized label permutation when distributions differ</strong>, such as unequal variances. A suitably studentized procedure can have useful asymptotic properties under weaker nulls, but is a different method and is not implemented here.</p>
+<p>This example uses the absolute mean difference as its two-sided extremeness rule. All allocations with an absolute difference at least 3 count as extreme.</p>
+</section>
+<section id="match-resampling-to-the-design" class="level2">
+<h2 class="anchored" data-anchor-id="match-resampling-to-the-design">5. Match resampling to the design</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data structure</th>
+<th>Design-aware consideration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent two-group observations</td>
+<td>Bootstrap within groups; justify null label exchangeability</td>
+</tr>
+<tr class="even">
+<td>Paired outcomes</td>
+<td>Bootstrap complete pairs; do not independently resample the two paired columns</td>
+</tr>
+<tr class="odd">
+<td>Clustered participants</td>
+<td>Resample independent clusters with an appropriate cluster-bootstrap procedure</td>
+</tr>
+<tr class="even">
+<td>Serial observations</td>
+<td>Consider a suitable block bootstrap or time-series model</td>
+</tr>
+<tr class="odd">
+<td>Restricted randomized assignment</td>
+<td>Permute only assignments allowed by the design</td>
+</tr>
+</tbody>
+</table>
+<p>Swapping labels within pairs or flipping difference signs requires its own null and symmetry or randomization justification. It is not an automatic paired-data solution.</p>
+</section>
+<section id="run-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-analysis">6. Run the analysis</h2>
+<p>Copy the supplied files into the repository root:</p>
+<ul>
+<li><a href="data/example/20-two-group-values.csv">Synthetic outcomes</a></li>
+<li><a href="scripts/R/20-resampling.R">Complete base R script</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/20-resampling.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All chapter code blocks are non-executable displays. The standalone script performs the calculations and saves outputs.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Independently resample within each group.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">202620</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>bootstrap <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">19999</span>, {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">sample</span>(a, <span class="fu">length</span>(a), <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">-</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="fu">sample</span>(b, <span class="fu">length</span>(b), <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(bootstrap, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">type =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>a</code> and <code>b</code> are the vectors read and checked by the full script. The script explicitly sets the R random-number generator configuration and records session information.</p>
+<p>For complete enumeration:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">c</span>(a, b)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>allocations <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">seq_along</span>(pooled), <span class="fu">length</span>(a))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>permuted <span class="ot">&lt;-</span> <span class="fu">apply</span>(allocations, <span class="dv">2</span>, <span class="cf">function</span>(index) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(pooled[index]) <span class="sc">-</span> <span class="fu">mean</span>(pooled[<span class="sc">-</span>index])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>observed <span class="ot">&lt;-</span> <span class="fu">mean</span>(a) <span class="sc">-</span> <span class="fu">mean</span>(b)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p_exact <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(permuted) <span class="sc">&gt;=</span> <span class="fu">abs</span>(observed) <span class="sc">-</span> <span class="fl">1e-12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Participant indices remain distinguishable even when observed values are tied. Do not remove duplicate numerical values from the pooled vector. The small tolerance guards against numerical rounding at the comparison boundary.</p>
+<p>The script exports a summary, bootstrap draws, all exact permutation differences, and session information under <code>results/tables/</code>, plus <code>results/figures/20-resampling-distributions.png</code>. Outputs are generated by R, separately from book rendering.</p>
+<div id="fig-20-resampling-distributions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-20-resampling-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="results/figures/20-resampling-distributions.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-20-resampling-distributions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Separate bootstrap and permutation distributions for the A-minus-B mean difference. Bootstrap limits describe approximate sampling uncertainty; the permutation panel shows a null reference with extreme regions beyond the observed absolute difference.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="verify-and-explain-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain-the-output">7. Verify and explain the output</h2>
+<p>The deterministic permutation checks are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Expected value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Participants</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>Participants per group</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td>Mean A minus B</td>
+<td style="text-align: right;">-3</td>
+</tr>
+<tr class="even">
+<td>Distinguishable label allocations</td>
+<td style="text-align: right;">924</td>
+</tr>
+<tr class="odd">
+<td>Allocations with absolute difference at least 3</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="even">
+<td>Exact two-sided permutation p-value</td>
+<td style="text-align: right;">32/924 = 0.0346320</td>
+</tr>
+</tbody>
+</table>
+<p>Because every allocation is enumerated, the p-value is the extreme-allocation count divided by 924. No simulation correction is needed for this enumeration.</p>
+<p>The script’s bootstrap interval and SE are simulation outputs. Run R to obtain and report their actual values, seed, replicate count, and interval method. Do not copy a result from a different language and assume its random draws match R’s sequence.</p>
+<p>For a rough analytic check, the usual independent-sample SE calculated from the two sample variances is approximately 1.080 outcome units. Bootstrap SEs need not equal that number exactly: the nonparametric bootstrap samples from empirical distributions and has its own finite-sample behavior.</p>
+<section id="monte-carlo-permutation-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-permutation-comparison">Monte Carlo permutation comparison</h3>
+<p>The script also draws 19,999 random label allocations with replacement across replicates and uses:</p>
+<p><span class="math display">\[
+\hat p_{MC}=\frac{b+1}{B+1},
+\]</span></p>
+<p>where b is the number of sampled statistics at least as extreme as observed and B is the number sampled. This standard plus-one construction avoids a zero p-value and supports valid randomized-test calibration under the appropriate exchangeability setup. It is not the formula for the fully enumerated calculation above.</p>
+<p>The sampled estimate should be close to 0.03463, with simulation variation. The script reports the rough Monte Carlo SE <span class="math inline">\(\sqrt{\hat p_{MC}(1-\hat p_{MC})/B}\)</span>. This measures numerical simulation uncertainty, not uncertainty in the population effect.</p>
+</section>
+</section>
+<section id="read-the-two-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="read-the-two-distributions">8. Read the two distributions</h2>
+<p>In the bootstrap panel, the solid line marks the observed estimate and dashed lines mark the percentile interval limits. The distribution reflects repeated empirical sampling within the observed groups.</p>
+<p>In the permutation panel, the null distribution is centered around zero. Dashed lines at -3 and +3 mark the two-sided extreme region. The p-value is determined by allocations in both tails, including equally extreme values.</p>
+<p>A percentile interval is not obtained by reading the tails of this null permutation histogram. Nor should the fraction of ordinary bootstrap draws on either side of zero be automatically described as a valid null-test p-value.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">9. Use AI and check its suggestions</h2>
+<blockquote class="blockquote">
+<p>Use the supplied independent synthetic groups to estimate the A-minus-B mean difference. Bootstrap separately within groups for a percentile interval, and separately enumerate all 924 label allocations for an absolute-difference permutation test. Explain the exchangeability null, the difference between mean equality and distribution equality, and why resamples are not new participants. Preserve tied values as distinct observations. Report R’s actual bootstrap outputs rather than inventing them.</p>
+</blockquote>
+<p>Verify the observed difference -3, the 32 extreme allocations, the exact p-value, and separation of the two distributions. Ask which design justifies permutation if that explanation is missing.</p>
+</section>
+<section id="report-the-finding" class="level2">
+<h2 class="anchored" data-anchor-id="report-the-finding">10. Report the finding</h2>
+<p>For the deterministic test:</p>
+<blockquote class="blockquote">
+<p>In the synthetic example, the mean difference A minus B was -3 outcome units, with six independent observations per group. An absolute-difference permutation test enumerating all 924 label allocations yielded p=0.03463, with 32 allocations at least as extreme as observed. This calculation assumes exchangeable labels under the stated null; it does not test only mean equality under arbitrary unequal group distributions or establish causation.</p>
+</blockquote>
+<p>After running R, add the actual percentile interval and bootstrap SE with the replicate count, seed, and small-sample limitations. Report Monte Carlo uncertainty if using the sampled permutation result instead of enumeration.</p>
+</section>
+<section id="common-mistakes-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">11. Common mistakes and alternatives</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mistake</th>
+<th>Better approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pooling groups for an ordinary two-group bootstrap interval</td>
+<td>Resample independently within each group</td>
+</tr>
+<tr class="even">
+<td>Resampling paired columns independently</td>
+<td>Preserve complete pairs</td>
+</tr>
+<tr class="odd">
+<td>Permuting labels without a null justification</td>
+<td>State exchangeability or the assignment mechanism</td>
+</tr>
+<tr class="even">
+<td>Treating resamples as added participants</td>
+<td>Keep the original sample size central</td>
+</tr>
+<tr class="odd">
+<td>Reporting zero Monte Carlo p-value</td>
+<td>Use the appropriate randomized-test calculation</td>
+</tr>
+<tr class="even">
+<td>Treating more replicates as a cure for bias or dependence</td>
+<td>Address the study design and estimator</td>
+</tr>
+</tbody>
+</table>
+<p>Use analytic methods when they suit the target and design. Consider alternative bootstrap intervals or studentized test statistics when justified, while documenting their implementation. Complex sampling requires more than changing a random seed or increasing the resample count.</p>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">12. Check your understanding</h2>
+<p>An AI tool pools A and B, resamples the pooled values, and calls the resulting difference interval an ordinary within-group bootstrap interval.</p>
+<p>Why is this a different procedure?</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Chapter status
+Check your reasoning
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Outline only. Worked examples, references, and review are still required.</p>
+<p>Pooling replaces the separate empirical group distributions with a common one. It removes the observed group distinction from the resampling mechanism. An ordinary two-group bootstrap for the difference samples within each group; a pooled null-based procedure serves a different purpose and needs its own justification.</p>
 </div>
 </div>
-<section id="your-question" class="level2">
-<h2 class="anchored" data-anchor-id="your-question">Your question</h2>
-<p>How can resampling quantify uncertainty or test a hypothesis?</p>
+</div>
 </section>
-<section id="when-to-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-this-method">When to use this method</h2>
-<p><em>To develop:</em> Describe the outcome, sampling unit, and eligible study designs.</p>
-</section>
-<section id="what-it-estimates-or-tests" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-estimates-or-tests">What it estimates or tests</h2>
-<p><em>To develop:</em> Define the target quantity and null and alternative hypotheses where relevant.</p>
-</section>
-<section id="check-before-running" class="level2">
-<h2 class="anchored" data-anchor-id="check-before-running">Check before running</h2>
-<p><em>To develop:</em> Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.</p>
-</section>
-<section id="run-the-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="run-the-analysis">Run the analysis</h2>
-<p><em>To develop:</em> Add a reproducible example linked to a chapter script and input dataset.</p>
-</section>
-<section id="understand-the-output" class="level2">
-<h2 class="anchored" data-anchor-id="understand-the-output">Understand the output</h2>
-<p><em>To develop:</em> Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.</p>
-</section>
-<section id="report-the-finding" class="level2">
-<h2 class="anchored" data-anchor-id="report-the-finding">Report the finding</h2>
-<p><em>To develop:</em> Write an answer tied to the original question, with units and limitations.</p>
-</section>
-<section id="common-mistakes-and-alternatives" class="level2">
-<h2 class="anchored" data-anchor-id="common-mistakes-and-alternatives">Common mistakes and alternatives</h2>
-<p><em>To develop:</em> Explain when the method does not answer the question and identify suitable alternatives.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p><em>To develop:</em> Add authoritative method and software references when developing this chapter.</p>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./21-multiple-testing.html">Multiple Testing and Follow-Up Comparisons</a> to define comparison families and address multiplicity.</p>
 
 
 </section>

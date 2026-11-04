@@ -1,43 +1,181 @@
-# Appendices and References
+# Appendices and References {.unnumbered}
 
-::: {.callout-note}
-## Chapter status
-Outline only. Worked examples, references, and review are still required.
+::: {.cdi-message}
+- **ID:** STATS-099
+- **Type:** Quick reference and supporting documentation
+- **Audience:** Beginner to intermediate learners, researchers, and analysts
+- **Theme:** Locate suitable methods, clarify terminology, and trace calculations to scripts and authoritative documentation
 :::
 
-## Your question
+Use these appendices alongside the method chapters. A lookup table helps you navigate; it does not replace checking the question, design, assumptions, and target estimate.
 
-Method chooser, glossary, reproducibility, and references.
+## Appendix A: Method chooser
 
-## When to use this method
+| Question | Design and target | Chapter |
+|---|---|---|
+| Compare a mean with a fixed reference | Independent numerical observations; population mean | [04 One-sample t-test](04-one-sample-t-test.qmd) |
+| Compare two means | Independent groups; population mean difference | [05 Welch's t-test](05-independent-t-test.qmd) |
+| Estimate mean within-pair change | Matched numerical measurements | [06 Paired t-test](06-paired-t-test.qmd) |
+| Compare independent outcomes using ranks | Two independent groups; distributional/rank-based question | [07 Mann–Whitney](07-mann-whitney.qmd) |
+| Assess a paired location shift | Numerical differences with suitable symmetry | [08 Signed-rank test](08-wilcoxon-signed-rank.qmd) |
+| Compare several means | Independent groups; classical or Welch assumptions | [09 One-way ANOVA](09-one-way-anova.qmd) |
+| Compare several groups using ranks | Independent groups; common-distribution null | [10 Kruskal–Wallis](10-kruskal-wallis.qmd) |
+| Compare several repeated conditions | Independent units, dependent measurements within units | [11 Repeated-measures methods](11-repeated-measures.qmd) |
+| Assess categorical association | Independent contingency-table counts | [12 Chi-square](12-chi-square.qmd) |
+| Analyze a small independent contingency table | Exact conditional association question | [13 Fisher's exact test](13-fisher-exact.qmd) |
+| Compare proportions | One reference or two independent binary groups | [14 Proportion methods](14-proportions.qmd) |
+| Compare paired binary proportions | Matched binary measurements | [15 McNemar](15-mcnemar.qmd) |
+| Measure linear association | Two numerical variables on independent units | [16 Pearson correlation](16-pearson.qmd) |
+| Measure monotonic rank association | Meaningfully ordered variables | [17 Spearman correlation](17-spearman.qmd) |
+| Model a numerical conditional mean | Suitable numerical outcome model | [18 Linear regression](18-linear-regression.qmd) |
+| Model a binary event probability | Suitable binary outcome model | [19 Logistic regression](19-logistic-regression.qmd) |
 
-*To develop:* Describe the outcome, sampling unit, and eligible study designs.
+For uncertainty resampling and null distributions, see [20 Resampling](20-resampling.qmd). For joint error control, see [21 Multiple testing](21-multiple-testing.qmd). For study planning, see [22 Sample size](22-sample-size.qmd). For writing findings, see [23 Reporting](23-reporting.qmd).
 
-## What it estimates or tests
+Methods for complex surveys, survival outcomes, counts, equivalence, multilevel designs, and causal inference require additional treatment beyond this introductory guide.
 
-*To develop:* Define the target quantity and null and alternative hypotheses where relevant.
+## Appendix B: Design reminders
 
-## Check before running
+| Term | Practical meaning |
+|---|---|
+| Independent unit | A participant, plot, cluster, or other unit supplying independent information |
+| Paired measurements | Two observations linked by the same unit or justified matching |
+| Repeated measurements | Several observations from the same unit |
+| Clustered observations | Units sharing a higher-level grouping that may induce dependence |
+| Random sampling | A sampling mechanism supporting inference to a specified population |
+| Random assignment | An allocation mechanism supporting a treatment comparison under additional conditions |
 
-*To develop:* Explain design assumptions and show relevant data checks. Independence comes from the design, not a normality test.
+Random assignment and random sampling serve different purposes. Neither can be inferred from the appearance of the data table. Unique identifiers do not prove independence.
 
-## Run the analysis
+## Appendix C: Glossary
 
-*To develop:* Add a reproducible example linked to a chapter script and input dataset.
+| Term | Meaning |
+|---|---|
+| Parameter | A quantity defined for a population or statistical model |
+| Estimator | A rule for estimating a parameter from data |
+| Estimate | The value obtained by applying that rule |
+| Standard deviation | Variation among observations |
+| Standard error | Sampling variability of an estimator under the specified design and model |
+| Confidence interval | An interval procedure with a stated long-run coverage property under assumptions |
+| Prediction interval | An interval for a new observation under a specified prediction model |
+| P-value | Probability under the null and other test assumptions of a statistic at least as extreme as observed, under the stated extremeness rule |
+| Effect size | Magnitude of a difference or relationship, in original or standardized units |
+| Odds | Event probability divided by one minus that probability |
+| Percentage-point difference | Absolute difference between percentages |
+| Confounding | Distortion of an intended relationship by other variables in the causal structure |
+| Exchangeability | Invariance of a joint distribution to specified relabelings under the relevant model or design |
+| Sphericity | Equal variances of pairwise contrasts for the repeated conditions in the standard setting |
+| FWER | Probability of at least one false rejection within a family |
+| FDR | Expected false-discovery proportion, defined as zero when there are no rejections |
+| Power | Probability of rejecting the null at a specified alternative under a design and test |
+| Sensitivity analysis | Examination of how conclusions change under justified alternative assumptions or decisions |
 
-## Understand the output
+## Appendix D: Interpretation checks
 
-*To develop:* Explain the estimate, uncertainty, effect size, and test result without treating a p-value as the probability that the null is true.
+| If you are about to write… | Check first |
+|---|---|
+| “No effect” | Does the interval rule out effects that matter, or is the estimate imprecise? |
+| “Equivalent” | Was a justified equivalence margin and matching procedure used? |
+| “Caused” | Does the design and causal argument support that claim? |
+| “Median test” | Do the rank method and distributional conditions support a median interpretation? |
+| “Exact” | Was the null distribution enumerated or calculated exactly, or only approximated/simulated? |
+| “95% CI” | Which construction, parameter, and adjustment status? |
+| “Higher by 20%” | Relative percent change or percentage points? |
+| “Adjusted” | Covariate adjustment, multiplicity adjustment, or another specific operation? |
+| “Verified by AI” | What reproducible checks were actually performed? |
 
-## Report the finding
+Statistical significance does not measure effect magnitude or practical importance. The American Statistical Association's 2016 statement also emphasizes transparent reporting and interpretation beyond threshold decisions; see the source below.
 
-*To develop:* Write an answer tied to the original question, with units and limitations.
+## Appendix E: Script and execution index
 
-## Common mistakes and alternatives
+Run scripts from the repository root. Chapter code uses plain language fences such as `r`, `python`, and `bash`, with no executable chunk braces. Rendering does not run the analysis scripts.
 
-*To develop:* Explain when the method does not answer the question and identify suitable alternatives.
+| Chapter | Script path |
+|---|---|
+| 02 | `scripts/R/02-statistical-inference.R` |
+| 03 | `scripts/python/03-check-data.py` |
+| 04 | `scripts/R/04-one-sample-t-test.R` |
+| 05 | `scripts/R/05-independent-t-test.R` |
+| 06 | `scripts/R/06-paired-t-test.R` |
+| 07 | `scripts/R/07-mann-whitney.R` |
+| 08 | `scripts/R/08-wilcoxon-signed-rank.R` |
+| 09 | `scripts/R/09-one-way-anova.R` |
+| 10 | `scripts/R/10-kruskal-wallis.R` |
+| 11 | `scripts/R/11-repeated-measures.R` |
+| 12 | `scripts/R/12-chi-square.R` |
+| 13 | `scripts/R/13-fisher-exact.R` |
+| 14 | `scripts/R/14-proportions.R` |
+| 15 | `scripts/R/15-mcnemar.R` |
+| 16 | `scripts/R/16-pearson.R` |
+| 17 | `scripts/R/17-spearman.R` |
+| 18 | `scripts/R/18-linear-regression.R` |
+| 19 | `scripts/R/19-logistic-regression.R` |
+| 20 | `scripts/R/20-resampling.R` |
+| 21 | `scripts/R/21-multiple-testing.R` |
+| 22 | `scripts/R/22-sample-size.R` |
+| 23 | `scripts/R/23-reporting.R` |
 
-## References
+The index refers to the developed chapter packages. Copy their companion folders into the book repository before running commands. Earlier scaffold scripts may have different filenames; use each developed chapter's linked script.
 
-*To develop:* Add authoritative method and software references when developing this chapter.
+```bash
+Rscript scripts/R/05-independent-t-test.R
+python scripts/python/03-check-data.py
+```
 
+The developed R examples use base R. The Python diagnostic example uses NumPy, SciPy, and Matplotlib. Keep a project-specific environment and record actual installed versions. Do not substitute a language's simulated outputs for another language's random sequence.
+
+The Chapter 03 Python script regenerates its fixed teaching input. Most other scripts read supplied data and overwrite only their chapter-specific outputs. Review the script before adapting it to your own files.
+
+## Appendix F: Reproducibility record
+
+Keep the following with a completed analysis:
+
+- Original inputs, data dictionary, provenance, and authorized access information.
+- Cleaning rules, exclusions, missingness decisions, and input checks.
+- The question, target estimate, analysis plan, and later changes.
+- Scripts, software versions, package environment, and random seeds where relevant.
+- Exported numeric results and figures used in the report.
+- AI prompts or suggestions that materially affected decisions, plus human checks.
+
+In R, inspect documentation and record the environment locally:
+
+```r
+help("t.test", package = "stats")
+help("wilcox.test", package = "stats")
+sessionInfo()
+citation()
+```
+
+These are displayed commands for you to run, not executable book chunks. Prefer your installed-version help when checking actual behavior; online documentation may describe a different R release.
+
+## Appendix G: Documentation and references
+
+### R method documentation
+
+The [R stats documentation index](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html) provides function help and references. The online development manual can change; verify behavior against the installed R version used for an analysis.
+
+Use its entries for the functions below, or call `help()` locally:
+
+| Topic | Functions to look up |
+|---|---|
+| Mean comparisons | `t.test`, `oneway.test`, `aov`, `TukeyHSD` |
+| Rank methods | `wilcox.test`, `kruskal.test`, `friedman.test` |
+| Categorical data | `chisq.test`, `fisher.test`, `binom.test`, `prop.test`, `mcnemar.test` |
+| Association and regression | `cor.test`, `lm`, `glm`, `predict.lm`, `predict.glm`, `confint` |
+| Multiplicity and planning | `p.adjust`, `power.t.test` |
+
+Function documentation is an implementation reference, not a replacement for study-design reasoning. Read its details, assumptions, warning behavior, and cited methodological sources before extending an example.
+
+### Statistical interpretation
+
+American Statistical Association (2016). [Statement announcement and six principles on statistical significance and p-values](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf). This official document links to the published statement by Wasserstein and Lazar, *The ASA Statement on p-Values: Context, Process, and Purpose*, DOI: 10.1080/00031305.2016.1154108.
+
+Use the statement for interpretation principles and the method-specific documentation for computational details. Verify any additional article, quotation, or AI-suggested citation before including it in a report.
+
+## Appendix H: Guide validation status
+
+The developed chapters provide synthetic examples, scripts, and interpretation checks. Numerical examples were checked with independent Python calculations where reported during development. Such checks do not constitute execution of the R scripts.
+
+**R execution, generated R figures, and complete Quarto rendering still require validation in the target environment.** Some chapters intentionally omit particular effect intervals or advanced procedures and state those limits explicitly. Simulation outputs in Chapter 20 must be obtained from the supplied R script before being reported as R results.
+
+Before publishing the guide, run the scripts, inspect output tables and figures, render the assembled book, and resolve any broken links or discrepancies. Ensure the title page, Preface status, and method chapters describe the same release state.

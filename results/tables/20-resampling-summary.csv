@@ -1,0 +1,2 @@
+"mean_A","mean_B","difference_A_minus_B","bootstrap_replicates","bootstrap_SE","percentile_lower","percentile_upper","exact_allocations","exact_extreme","exact_permutation_p","monte_carlo_p_plus_one","monte_carlo_SE_approx"
+6.5,9.5,-3,19999,0.985628681845978,-5,-1,924,32,0.0346320346320346,0.03385,0.0012787848292547
