@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendices and References – Statistical Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./23-reporting.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9b98f18118eee809be1c051eb5cc78e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html">Appendices and References</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-questions-and-methods.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">From Questions to Statistical Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-statistical-inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Understanding Statistical Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-and-assumptions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Checking Data and Assumptions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Comparing numerical outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-one-sample-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One-Sample t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-independent-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Independent-Samples t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-paired-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Paired t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-mann-whitney.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mann–Whitney U Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-wilcoxon-signed-rank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Wilcoxon Signed-Rank Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-one-way-anova.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One-Way ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-kruskal-wallis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kruskal–Wallis Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-repeated-measures.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repeated-Measures ANOVA and Friedman Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyzing categorical outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-chi-square.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chi-Square Test of Independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-fisher-exact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fisher’s Exact Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-proportions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tests for Proportions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-mcnemar.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">McNemar’s Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Examining relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-pearson.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pearson Correlation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-spearman.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Spearman Correlation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-linear-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-logistic-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Logistic Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Strengthening conclusions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-resampling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bootstrap and Permutation Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-multiple-testing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multiple Testing and Follow-Up Comparisons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sample Size and Power</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-reporting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reporting Statistical Findings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Appendices and References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#appendix-a-method-chooser" id="toc-appendix-a-method-chooser" class="nav-link active" data-scroll-target="#appendix-a-method-chooser">Appendix A: Method chooser</a></li>
+  <li><a href="#appendix-b-design-reminders" id="toc-appendix-b-design-reminders" class="nav-link" data-scroll-target="#appendix-b-design-reminders">Appendix B: Design reminders</a></li>
+  <li><a href="#appendix-c-glossary" id="toc-appendix-c-glossary" class="nav-link" data-scroll-target="#appendix-c-glossary">Appendix C: Glossary</a></li>
+  <li><a href="#appendix-d-interpretation-checks" id="toc-appendix-d-interpretation-checks" class="nav-link" data-scroll-target="#appendix-d-interpretation-checks">Appendix D: Interpretation checks</a></li>
+  <li><a href="#appendix-e-script-and-execution-index" id="toc-appendix-e-script-and-execution-index" class="nav-link" data-scroll-target="#appendix-e-script-and-execution-index">Appendix E: Script and execution index</a></li>
+  <li><a href="#appendix-f-reproducibility-record" id="toc-appendix-f-reproducibility-record" class="nav-link" data-scroll-target="#appendix-f-reproducibility-record">Appendix F: Reproducibility record</a></li>
+  <li><a href="#appendix-g-documentation-and-references" id="toc-appendix-g-documentation-and-references" class="nav-link" data-scroll-target="#appendix-g-documentation-and-references">Appendix G: Documentation and references</a>
+  <ul class="collapse">
+  <li><a href="#r-method-documentation" id="toc-r-method-documentation" class="nav-link" data-scroll-target="#r-method-documentation">R method documentation</a></li>
+  <li><a href="#statistical-interpretation" id="toc-statistical-interpretation" class="nav-link" data-scroll-target="#statistical-interpretation">Statistical interpretation</a></li>
+  </ul></li>
+  <li><a href="#appendix-h-guide-validation-status" id="toc-appendix-h-guide-validation-status" class="nav-link" data-scroll-target="#appendix-h-guide-validation-status">Appendix H: Guide validation status</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./99-appendices.html">Reference</a></li><li class="breadcrumb-item"><a href="./99-appendices.html">Appendices and References</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendices and References</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Nov 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-099</li>
+<li><strong>Type:</strong> Quick reference and supporting documentation</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Locate suitable methods, clarify terminology, and trace calculations to scripts and authoritative documentation</li>
+</ul>
+</div>
+<p>Use these appendices alongside the method chapters. A lookup table helps you navigate; it does not replace checking the question, design, assumptions, and target estimate.</p>
+<section id="appendix-a-method-chooser" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a-method-chooser">Appendix A: Method chooser</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Design and target</th>
+<th>Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compare a mean with a fixed reference</td>
+<td>Independent numerical observations; population mean</td>
+<td><a href="./04-one-sample-t-test.html">04 One-sample t-test</a></td>
+</tr>
+<tr class="even">
+<td>Compare two means</td>
+<td>Independent groups; population mean difference</td>
+<td><a href="./05-independent-t-test.html">05 Welch’s t-test</a></td>
+</tr>
+<tr class="odd">
+<td>Estimate mean within-pair change</td>
+<td>Matched numerical measurements</td>
+<td><a href="./06-paired-t-test.html">06 Paired t-test</a></td>
+</tr>
+<tr class="even">
+<td>Compare independent outcomes using ranks</td>
+<td>Two independent groups; distributional/rank-based question</td>
+<td><a href="./07-mann-whitney.html">07 Mann–Whitney</a></td>
+</tr>
+<tr class="odd">
+<td>Assess a paired location shift</td>
+<td>Numerical differences with suitable symmetry</td>
+<td><a href="./08-wilcoxon-signed-rank.html">08 Signed-rank test</a></td>
+</tr>
+<tr class="even">
+<td>Compare several means</td>
+<td>Independent groups; classical or Welch assumptions</td>
+<td><a href="./09-one-way-anova.html">09 One-way ANOVA</a></td>
+</tr>
+<tr class="odd">
+<td>Compare several groups using ranks</td>
+<td>Independent groups; common-distribution null</td>
+<td><a href="./10-kruskal-wallis.html">10 Kruskal–Wallis</a></td>
+</tr>
+<tr class="even">
+<td>Compare several repeated conditions</td>
+<td>Independent units, dependent measurements within units</td>
+<td><a href="./11-repeated-measures.html">11 Repeated-measures methods</a></td>
+</tr>
+<tr class="odd">
+<td>Assess categorical association</td>
+<td>Independent contingency-table counts</td>
+<td><a href="./12-chi-square.html">12 Chi-square</a></td>
+</tr>
+<tr class="even">
+<td>Analyze a small independent contingency table</td>
+<td>Exact conditional association question</td>
+<td><a href="./13-fisher-exact.html">13 Fisher’s exact test</a></td>
+</tr>
+<tr class="odd">
+<td>Compare proportions</td>
+<td>One reference or two independent binary groups</td>
+<td><a href="./14-proportions.html">14 Proportion methods</a></td>
+</tr>
+<tr class="even">
+<td>Compare paired binary proportions</td>
+<td>Matched binary measurements</td>
+<td><a href="./15-mcnemar.html">15 McNemar</a></td>
+</tr>
+<tr class="odd">
+<td>Measure linear association</td>
+<td>Two numerical variables on independent units</td>
+<td><a href="./16-pearson.html">16 Pearson correlation</a></td>
+</tr>
+<tr class="even">
+<td>Measure monotonic rank association</td>
+<td>Meaningfully ordered variables</td>
+<td><a href="./17-spearman.html">17 Spearman correlation</a></td>
+</tr>
+<tr class="odd">
+<td>Model a numerical conditional mean</td>
+<td>Suitable numerical outcome model</td>
+<td><a href="./18-linear-regression.html">18 Linear regression</a></td>
+</tr>
+<tr class="even">
+<td>Model a binary event probability</td>
+<td>Suitable binary outcome model</td>
+<td><a href="./19-logistic-regression.html">19 Logistic regression</a></td>
+</tr>
+</tbody>
+</table>
+<p>For uncertainty resampling and null distributions, see <a href="./20-resampling.html">20 Resampling</a>. For joint error control, see <a href="./21-multiple-testing.html">21 Multiple testing</a>. For study planning, see <a href="./22-sample-size.html">22 Sample size</a>. For writing findings, see <a href="./23-reporting.html">23 Reporting</a>.</p>
+<p>Methods for complex surveys, survival outcomes, counts, equivalence, multilevel designs, and causal inference require additional treatment beyond this introductory guide.</p>
+</section>
+<section id="appendix-b-design-reminders" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-b-design-reminders">Appendix B: Design reminders</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Practical meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independent unit</td>
+<td>A participant, plot, cluster, or other unit supplying independent information</td>
+</tr>
+<tr class="even">
+<td>Paired measurements</td>
+<td>Two observations linked by the same unit or justified matching</td>
+</tr>
+<tr class="odd">
+<td>Repeated measurements</td>
+<td>Several observations from the same unit</td>
+</tr>
+<tr class="even">
+<td>Clustered observations</td>
+<td>Units sharing a higher-level grouping that may induce dependence</td>
+</tr>
+<tr class="odd">
+<td>Random sampling</td>
+<td>A sampling mechanism supporting inference to a specified population</td>
+</tr>
+<tr class="even">
+<td>Random assignment</td>
+<td>An allocation mechanism supporting a treatment comparison under additional conditions</td>
+</tr>
+</tbody>
+</table>
+<p>Random assignment and random sampling serve different purposes. Neither can be inferred from the appearance of the data table. Unique identifiers do not prove independence.</p>
+</section>
+<section id="appendix-c-glossary" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-c-glossary">Appendix C: Glossary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parameter</td>
+<td>A quantity defined for a population or statistical model</td>
+</tr>
+<tr class="even">
+<td>Estimator</td>
+<td>A rule for estimating a parameter from data</td>
+</tr>
+<tr class="odd">
+<td>Estimate</td>
+<td>The value obtained by applying that rule</td>
+</tr>
+<tr class="even">
+<td>Standard deviation</td>
+<td>Variation among observations</td>
+</tr>
+<tr class="odd">
+<td>Standard error</td>
+<td>Sampling variability of an estimator under the specified design and model</td>
+</tr>
+<tr class="even">
+<td>Confidence interval</td>
+<td>An interval procedure with a stated long-run coverage property under assumptions</td>
+</tr>
+<tr class="odd">
+<td>Prediction interval</td>
+<td>An interval for a new observation under a specified prediction model</td>
+</tr>
+<tr class="even">
+<td>P-value</td>
+<td>Probability under the null and other test assumptions of a statistic at least as extreme as observed, under the stated extremeness rule</td>
+</tr>
+<tr class="odd">
+<td>Effect size</td>
+<td>Magnitude of a difference or relationship, in original or standardized units</td>
+</tr>
+<tr class="even">
+<td>Odds</td>
+<td>Event probability divided by one minus that probability</td>
+</tr>
+<tr class="odd">
+<td>Percentage-point difference</td>
+<td>Absolute difference between percentages</td>
+</tr>
+<tr class="even">
+<td>Confounding</td>
+<td>Distortion of an intended relationship by other variables in the causal structure</td>
+</tr>
+<tr class="odd">
+<td>Exchangeability</td>
+<td>Invariance of a joint distribution to specified relabelings under the relevant model or design</td>
+</tr>
+<tr class="even">
+<td>Sphericity</td>
+<td>Equal variances of pairwise contrasts for the repeated conditions in the standard setting</td>
+</tr>
+<tr class="odd">
+<td>FWER</td>
+<td>Probability of at least one false rejection within a family</td>
+</tr>
+<tr class="even">
+<td>FDR</td>
+<td>Expected false-discovery proportion, defined as zero when there are no rejections</td>
+</tr>
+<tr class="odd">
+<td>Power</td>
+<td>Probability of rejecting the null at a specified alternative under a design and test</td>
+</tr>
+<tr class="even">
+<td>Sensitivity analysis</td>
+<td>Examination of how conclusions change under justified alternative assumptions or decisions</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="appendix-d-interpretation-checks" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-d-interpretation-checks">Appendix D: Interpretation checks</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>If you are about to write…</th>
+<th>Check first</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“No effect”</td>
+<td>Does the interval rule out effects that matter, or is the estimate imprecise?</td>
+</tr>
+<tr class="even">
+<td>“Equivalent”</td>
+<td>Was a justified equivalence margin and matching procedure used?</td>
+</tr>
+<tr class="odd">
+<td>“Caused”</td>
+<td>Does the design and causal argument support that claim?</td>
+</tr>
+<tr class="even">
+<td>“Median test”</td>
+<td>Do the rank method and distributional conditions support a median interpretation?</td>
+</tr>
+<tr class="odd">
+<td>“Exact”</td>
+<td>Was the null distribution enumerated or calculated exactly, or only approximated/simulated?</td>
+</tr>
+<tr class="even">
+<td>“95% CI”</td>
+<td>Which construction, parameter, and adjustment status?</td>
+</tr>
+<tr class="odd">
+<td>“Higher by 20%”</td>
+<td>Relative percent change or percentage points?</td>
+</tr>
+<tr class="even">
+<td>“Adjusted”</td>
+<td>Covariate adjustment, multiplicity adjustment, or another specific operation?</td>
+</tr>
+<tr class="odd">
+<td>“Verified by AI”</td>
+<td>What reproducible checks were actually performed?</td>
+</tr>
+</tbody>
+</table>
+<p>Statistical significance does not measure effect magnitude or practical importance. The American Statistical Association’s 2016 statement also emphasizes transparent reporting and interpretation beyond threshold decisions; see the source below.</p>
+</section>
+<section id="appendix-e-script-and-execution-index" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-e-script-and-execution-index">Appendix E: Script and execution index</h2>
+<p>Run scripts from the repository root. Chapter code uses plain language fences such as <code>r</code>, <code>python</code>, and <code>bash</code>, with no executable chunk braces. Rendering does not run the analysis scripts.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Chapter</th>
+<th>Script path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>02</td>
+<td><code>scripts/R/02-statistical-inference.R</code></td>
+</tr>
+<tr class="even">
+<td>03</td>
+<td><code>scripts/python/03-check-data.py</code></td>
+</tr>
+<tr class="odd">
+<td>04</td>
+<td><code>scripts/R/04-one-sample-t-test.R</code></td>
+</tr>
+<tr class="even">
+<td>05</td>
+<td><code>scripts/R/05-independent-t-test.R</code></td>
+</tr>
+<tr class="odd">
+<td>06</td>
+<td><code>scripts/R/06-paired-t-test.R</code></td>
+</tr>
+<tr class="even">
+<td>07</td>
+<td><code>scripts/R/07-mann-whitney.R</code></td>
+</tr>
+<tr class="odd">
+<td>08</td>
+<td><code>scripts/R/08-wilcoxon-signed-rank.R</code></td>
+</tr>
+<tr class="even">
+<td>09</td>
+<td><code>scripts/R/09-one-way-anova.R</code></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td><code>scripts/R/10-kruskal-wallis.R</code></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td><code>scripts/R/11-repeated-measures.R</code></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td><code>scripts/R/12-chi-square.R</code></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td><code>scripts/R/13-fisher-exact.R</code></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td><code>scripts/R/14-proportions.R</code></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td><code>scripts/R/15-mcnemar.R</code></td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td><code>scripts/R/16-pearson.R</code></td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td><code>scripts/R/17-spearman.R</code></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td><code>scripts/R/18-linear-regression.R</code></td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td><code>scripts/R/19-logistic-regression.R</code></td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td><code>scripts/R/20-resampling.R</code></td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td><code>scripts/R/21-multiple-testing.R</code></td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td><code>scripts/R/22-sample-size.R</code></td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td><code>scripts/R/23-reporting.R</code></td>
+</tr>
+</tbody>
+</table>
+<p>The index refers to the developed chapter packages. Copy their companion folders into the book repository before running commands. Earlier scaffold scripts may have different filenames; use each developed chapter’s linked script.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/R/05-independent-t-test.R</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/python/03-check-data.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The developed R examples use base R. The Python diagnostic example uses NumPy, SciPy, and Matplotlib. Keep a project-specific environment and record actual installed versions. Do not substitute a language’s simulated outputs for another language’s random sequence.</p>
+<p>The Chapter 03 Python script regenerates its fixed teaching input. Most other scripts read supplied data and overwrite only their chapter-specific outputs. Review the script before adapting it to your own files.</p>
+</section>
+<section id="appendix-f-reproducibility-record" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-f-reproducibility-record">Appendix F: Reproducibility record</h2>
+<p>Keep the following with a completed analysis:</p>
+<ul>
+<li>Original inputs, data dictionary, provenance, and authorized access information.</li>
+<li>Cleaning rules, exclusions, missingness decisions, and input checks.</li>
+<li>The question, target estimate, analysis plan, and later changes.</li>
+<li>Scripts, software versions, package environment, and random seeds where relevant.</li>
+<li>Exported numeric results and figures used in the report.</li>
+<li>AI prompts or suggestions that materially affected decisions, plus human checks.</li>
+</ul>
+<p>In R, inspect documentation and record the environment locally:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"t.test"</span>, <span class="at">package =</span> <span class="st">"stats"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"wilcox.test"</span>, <span class="at">package =</span> <span class="st">"stats"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These are displayed commands for you to run, not executable book chunks. Prefer your installed-version help when checking actual behavior; online documentation may describe a different R release.</p>
+</section>
+<section id="appendix-g-documentation-and-references" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-g-documentation-and-references">Appendix G: Documentation and references</h2>
+<section id="r-method-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="r-method-documentation">R method documentation</h3>
+<p>The <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">R stats documentation index</a> provides function help and references. The online development manual can change; verify behavior against the installed R version used for an analysis.</p>
+<p>Use its entries for the functions below, or call <code>help()</code> locally:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Functions to look up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean comparisons</td>
+<td><code>t.test</code>, <code>oneway.test</code>, <code>aov</code>, <code>TukeyHSD</code></td>
+</tr>
+<tr class="even">
+<td>Rank methods</td>
+<td><code>wilcox.test</code>, <code>kruskal.test</code>, <code>friedman.test</code></td>
+</tr>
+<tr class="odd">
+<td>Categorical data</td>
+<td><code>chisq.test</code>, <code>fisher.test</code>, <code>binom.test</code>, <code>prop.test</code>, <code>mcnemar.test</code></td>
+</tr>
+<tr class="even">
+<td>Association and regression</td>
+<td><code>cor.test</code>, <code>lm</code>, <code>glm</code>, <code>predict.lm</code>, <code>predict.glm</code>, <code>confint</code></td>
+</tr>
+<tr class="odd">
+<td>Multiplicity and planning</td>
+<td><code>p.adjust</code>, <code>power.t.test</code></td>
+</tr>
+</tbody>
+</table>
+<p>Function documentation is an implementation reference, not a replacement for study-design reasoning. Read its details, assumptions, warning behavior, and cited methodological sources before extending an example.</p>
+</section>
+<section id="statistical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-interpretation">Statistical interpretation</h3>
+<p>American Statistical Association (2016). <a href="https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf">Statement announcement and six principles on statistical significance and p-values</a>. This official document links to the published statement by Wasserstein and Lazar, <em>The ASA Statement on p-Values: Context, Process, and Purpose</em>, DOI: 10.1080/00031305.2016.1154108.</p>
+<p>Use the statement for interpretation principles and the method-specific documentation for computational details. Verify any additional article, quotation, or AI-suggested citation before including it in a report.</p>
+</section>
+</section>
+<section id="appendix-h-guide-validation-status" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-h-guide-validation-status">Appendix H: Guide validation status</h2>
+<p>The developed chapters provide synthetic examples, scripts, and interpretation checks. Numerical examples were checked with independent Python calculations where reported during development. Such checks do not constitute execution of the R scripts.</p>
+<p><strong>R execution, generated R figures, and complete Quarto rendering still require validation in the target environment.</strong> Some chapters intentionally omit particular effect intervals or advanced procedures and state those limits explicitly. Simulation outputs in Chapter 20 must be obtained from the supplied R script before being reported as R results.</p>
+<p>Before publishing the guide, run the scripts, inspect output tables and figures, render the assembled book, and resolve any broken links or discrepancies. Ensure the title page, Preface status, and method chapters describe the same release state.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/statistical\.complexdatainsights\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./23-reporting.html" class="pagination-link" aria-label="Reporting Statistical Findings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reporting Statistical Findings</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

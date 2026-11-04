@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>From Questions to Statistical Methods – Statistical Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-statistical-inference.html" rel="next">
+<link href="./00-preface.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9b98f18118eee809be1c051eb5cc78e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Getting started</a></li><li class="breadcrumb-item"><a href="./01-questions-and-methods.html"><span class="chapter-title">From Questions to Statistical Methods</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-questions-and-methods.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">From Questions to Statistical Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-statistical-inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Understanding Statistical Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-data-and-assumptions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Checking Data and Assumptions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Comparing numerical outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-one-sample-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One-Sample t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-independent-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Independent-Samples t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-paired-t-test.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Paired t-Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-mann-whitney.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mann–Whitney U Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-wilcoxon-signed-rank.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Wilcoxon Signed-Rank Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-one-way-anova.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">One-Way ANOVA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-kruskal-wallis.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kruskal–Wallis Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-repeated-measures.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repeated-Measures ANOVA and Friedman Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyzing categorical outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-chi-square.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chi-Square Test of Independence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-fisher-exact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fisher’s Exact Test</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-proportions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Tests for Proportions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-mcnemar.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">McNemar’s Test</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Examining relationships</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-pearson.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pearson Correlation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-spearman.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Spearman Correlation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-linear-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-logistic-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Logistic Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Strengthening conclusions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-resampling.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Bootstrap and Permutation Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-multiple-testing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multiple Testing and Follow-Up Comparisons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-sample-size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sample Size and Power</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-reporting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reporting Statistical Findings</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Reference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-appendices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendices and References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#your-question" id="toc-your-question" class="nav-link active" data-scroll-target="#your-question">1. Your question</a></li>
+  <li><a href="#describe-your-inputs" id="toc-describe-your-inputs" class="nav-link" data-scroll-target="#describe-your-inputs">2. Describe your inputs</a>
+  <ul class="collapse">
+  <li><a href="#recognize-the-outcome-type" id="toc-recognize-the-outcome-type" class="nav-link" data-scroll-target="#recognize-the-outcome-type">Recognize the outcome type</a></li>
+  </ul></li>
+  <li><a href="#check-the-study-design" id="toc-check-the-study-design" class="nav-link" data-scroll-target="#check-the-study-design">3. Check the study design</a>
+  <ul class="collapse">
+  <li><a href="#independent-groups" id="toc-independent-groups" class="nav-link" data-scroll-target="#independent-groups">Independent groups</a></li>
+  <li><a href="#paired-measurements" id="toc-paired-measurements" class="nav-link" data-scroll-target="#paired-measurements">Paired measurements</a></li>
+  <li><a href="#repeated-or-clustered-observations" id="toc-repeated-or-clustered-observations" class="nav-link" data-scroll-target="#repeated-or-clustered-observations">Repeated or clustered observations</a></li>
+  </ul></li>
+  <li><a href="#choose-a-starting-method" id="toc-choose-a-starting-method" class="nav-link" data-scroll-target="#choose-a-starting-method">4. Choose a starting method</a></li>
+  <li><a href="#use-ai-and-check-its-suggestions" id="toc-use-ai-and-check-its-suggestions" class="nav-link" data-scroll-target="#use-ai-and-check-its-suggestions">5. Use AI and check its suggestions</a>
+  <ul class="collapse">
+  <li><a href="#example-prompt" id="toc-example-prompt" class="nav-link" data-scroll-target="#example-prompt">Example prompt</a></li>
+  <li><a href="#check-the-response" id="toc-check-the-response" class="nav-link" data-scroll-target="#check-the-response">Check the response</a></li>
+  </ul></li>
+  <li><a href="#write-your-analysis-plan" id="toc-write-your-analysis-plan" class="nav-link" data-scroll-target="#write-your-analysis-plan">6. Write your analysis plan</a></li>
+  <li><a href="#verify-and-explain" id="toc-verify-and-explain" class="nav-link" data-scroll-target="#verify-and-explain">7. Verify and explain</a>
+  <ul class="collapse">
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it">Try it</a></li>
+  </ul></li>
+  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes">8. Common mistakes</a></li>
+  <li><a href="#next-step" id="toc-next-step" class="nav-link" data-scroll-target="#next-step">Next step</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface.html">Getting started</a></li><li class="breadcrumb-item"><a href="./01-questions-and-methods.html"><span class="chapter-title">From Questions to Statistical Methods</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">From Questions to Statistical Methods</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Nov 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> STATS-001</li>
+<li><strong>Type:</strong> Reference guide</li>
+<li><strong>Audience:</strong> Beginner to intermediate learners, researchers, and analysts</li>
+<li><strong>Theme:</strong> Match your question, outcome, and study design to an appropriate method, and evaluate AI-assisted suggestions</li>
+</ul>
+</div>
+<p>A statistical analysis begins with a question. Before choosing a test or asking AI for code, describe what you want to learn, what you measured, and how the observations were collected.</p>
+<p>By the end of this chapter, you should be able to write an analysis question, identify your outcome and unit of observation, recognize paired data, and justify a starting method.</p>
+<section id="your-question" class="level2">
+<h2 class="anchored" data-anchor-id="your-question">1. Your question</h2>
+<p>Suppose a training program offers two teaching approaches. You want to know:</p>
+<blockquote class="blockquote">
+<p>How much does the mean assessment score differ between learners assigned to Approach A and learners assigned to Approach B?</p>
+</blockquote>
+<p>This question identifies the outcome (assessment score), comparison (A versus B), and target estimate (the difference in population mean scores).</p>
+<p>A useful question states:</p>
+<blockquote class="blockquote">
+<p>Among <strong>[population]</strong>, how does <strong>[outcome]</strong> differ or relate to <strong>[group or predictor]</strong>, over <strong>[time period, if relevant]</strong>?</p>
+</blockquote>
+<p>Avoid starting with “Which test gives a significant result?” Choose the question and analysis before inspecting which method produces the smallest p-value.</p>
+</section>
+<section id="describe-your-inputs" class="level2">
+<h2 class="anchored" data-anchor-id="describe-your-inputs">2. Describe your inputs</h2>
+<p>Record these details before selecting a method.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Detail</th>
+<th>Training example</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population of interest</td>
+<td>Learners eligible for the program</td>
+<td>Defines whom the question concerns</td>
+</tr>
+<tr class="even">
+<td>Outcome</td>
+<td>Assessment score, from 0 to 100</td>
+<td>A numerical outcome suggests different methods from a binary outcome</td>
+</tr>
+<tr class="odd">
+<td>Group or predictor</td>
+<td>Teaching approach A or B</td>
+<td>Defines the comparison</td>
+</tr>
+<tr class="even">
+<td>Unit of observation</td>
+<td>One learner</td>
+<td>Identifies what each row represents</td>
+</tr>
+<tr class="odd">
+<td>Independent unit</td>
+<td>One learner, if learners are assigned and assessed independently</td>
+<td>Determines the information available for inference</td>
+</tr>
+<tr class="even">
+<td>Design</td>
+<td>Different learners in each approach</td>
+<td>Distinguishes independent from paired measurements</td>
+</tr>
+<tr class="odd">
+<td>Target estimate</td>
+<td>Mean score for A minus mean score for B</td>
+<td>Establishes the direction and units of the result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Outcome</strong> means the variable you want to explain or compare. A <strong>predictor</strong> is a variable used to describe or model variation in that outcome. Calling something a predictor does not establish that it causes the outcome.</p>
+<section id="recognize-the-outcome-type" class="level3">
+<h3 class="anchored" data-anchor-id="recognize-the-outcome-type">Recognize the outcome type</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Outcome type</th>
+<th>Examples</th>
+<th>Starting point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numerical</td>
+<td>Height, sales value, assessment score</td>
+<td>Differences in means, numerical relationships, or other distribution summaries</td>
+</tr>
+<tr class="even">
+<td>Binary</td>
+<td>Passed/failed, purchased/did not purchase</td>
+<td>Proportions, risk differences, or binary outcome models</td>
+</tr>
+<tr class="odd">
+<td>Categorical with several levels</td>
+<td>Transport mode, employment category</td>
+<td>Category frequencies and associations</td>
+</tr>
+<tr class="even">
+<td>Ordered categories</td>
+<td>Low/medium/high satisfaction</td>
+<td>Methods that respect ordering; scores need a justification</td>
+</tr>
+<tr class="odd">
+<td>Counts or time to an event</td>
+<td>Number of visits, time until equipment failure</td>
+<td>Dedicated count or survival methods, beyond this guide’s introductory coverage</td>
+</tr>
+</tbody>
+</table>
+<p>A number used as a label, such as a district code, remains categorical. Its numerical appearance does not make an average meaningful.</p>
+</section>
+</section>
+<section id="check-the-study-design" class="level2">
+<h2 class="anchored" data-anchor-id="check-the-study-design">3. Check the study design</h2>
+<section id="independent-groups" class="level3">
+<h3 class="anchored" data-anchor-id="independent-groups">Independent groups</h3>
+<p>Different people, plots, or other units belong to each group. In the training example, each learner contributes one score and belongs to one approach.</p>
+</section>
+<section id="paired-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="paired-measurements">Paired measurements</h3>
+<p>The same person is measured before and after training, or observations are explicitly matched. Analyze the within-pair differences for a paired mean comparison.</p>
+<p>Two columns with the same number of rows are not automatically paired. Each pair must have a meaningful link.</p>
+</section>
+<section id="repeated-or-clustered-observations" class="level3">
+<h3 class="anchored" data-anchor-id="repeated-or-clustered-observations">Repeated or clustered observations</h3>
+<p>Examples include weekly scores from each learner, learners within classrooms, and several leaves measured from each plant. Measurements from the same learner, classroom, or plant may be correlated.</p>
+<p>Do not treat every measurement as an independent replicate. A simple two-group test may be unsuitable; the analysis may require aggregation justified by the question, or a model that accounts for clustering or repeated measurements.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Independence comes from the design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A histogram or normality test cannot establish independence. Check how participants were sampled, assigned, measured, and grouped.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="choose-a-starting-method" class="level2">
+<h2 class="anchored" data-anchor-id="choose-a-starting-method">4. Choose a starting method</h2>
+<p>Use this table to locate a relevant chapter. It is a navigation aid; suitability still depends on the design, target estimate, and assumptions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Your question</th>
+<th>Data and design</th>
+<th>Starting chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Does a population mean differ from a reference value?</td>
+<td>One numerical outcome, independent units</td>
+<td><a href="./04-one-sample-t-test.html">One-sample t-test</a></td>
+</tr>
+<tr class="even">
+<td>How do two population means differ?</td>
+<td>Numerical outcome, two independent groups</td>
+<td><a href="./05-independent-t-test.html">Independent-samples t-test, including Welch’s test</a></td>
+</tr>
+<tr class="odd">
+<td>What is the mean within-pair change?</td>
+<td>Numerical outcome, paired observations</td>
+<td><a href="./06-paired-t-test.html">Paired t-test</a></td>
+</tr>
+<tr class="even">
+<td>How do two independent distributions compare using ranks?</td>
+<td>Numerical or ordered outcome</td>
+<td><a href="./07-mann-whitney.html">Mann–Whitney U test</a></td>
+</tr>
+<tr class="odd">
+<td>Are paired differences centered around zero under a symmetric difference distribution?</td>
+<td>Paired numerical measurements</td>
+<td><a href="./08-wilcoxon-signed-rank.html">Wilcoxon signed-rank test</a></td>
+</tr>
+<tr class="even">
+<td>Do several population means differ?</td>
+<td>Numerical outcome, independent groups</td>
+<td><a href="./09-one-way-anova.html">One-way ANOVA and Welch’s ANOVA</a></td>
+</tr>
+<tr class="odd">
+<td>Do several independent distributions differ using ranks?</td>
+<td>Numerical or ordered outcome</td>
+<td><a href="./10-kruskal-wallis.html">Kruskal–Wallis test</a></td>
+</tr>
+<tr class="even">
+<td>Do measurements differ across repeated conditions?</td>
+<td>Repeated measurements on the same units</td>
+<td><a href="./11-repeated-measures.html">Repeated-measures methods</a></td>
+</tr>
+<tr class="odd">
+<td>Are two categorical variables associated?</td>
+<td>Counts in a contingency table, independent units</td>
+<td><a href="./12-chi-square.html">Chi-square</a> or <a href="./13-fisher-exact.html">Fisher’s exact test</a></td>
+</tr>
+<tr class="even">
+<td>How does a proportion compare with a reference or another group?</td>
+<td>Binary outcome, independent units</td>
+<td><a href="./14-proportions.html">Tests for proportions</a></td>
+</tr>
+<tr class="odd">
+<td>Does a binary outcome change within pairs?</td>
+<td>Paired binary measurements</td>
+<td><a href="./15-mcnemar.html">McNemar’s test</a></td>
+</tr>
+<tr class="even">
+<td>How strong is a linear association?</td>
+<td>Two numerical variables</td>
+<td><a href="./16-pearson.html">Pearson correlation</a></td>
+</tr>
+<tr class="odd">
+<td>How strong is a monotonic association using ranks?</td>
+<td>Two numerical or ordered variables</td>
+<td><a href="./17-spearman.html">Spearman correlation</a></td>
+</tr>
+<tr class="even">
+<td>How does a numerical outcome relate to one or more predictors?</td>
+<td>Numerical outcome, appropriate model structure</td>
+<td><a href="./18-linear-regression.html">Linear regression</a></td>
+</tr>
+<tr class="odd">
+<td>How does a binary outcome relate to predictors?</td>
+<td>Binary outcome, appropriate model structure</td>
+<td><a href="./19-logistic-regression.html">Logistic regression</a></td>
+</tr>
+</tbody>
+</table>
+<p>Rank-based tests are not automatic substitutes for every failed assumption. Mann–Whitney and Kruskal–Wallis do not generally test only medians. Their interpretation depends on the distributions and assumptions discussed in their chapters.</p>
+<p>For the independent training groups, Welch’s t-test is a reasonable starting point <strong>if the goal is a difference in means and the data support that analysis</strong>. Before running it, inspect the group sizes, missing scores, distributions, and influential observations.</p>
+</section>
+<section id="use-ai-and-check-its-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai-and-check-its-suggestions">5. Use AI and check its suggestions</h2>
+<p>Write your own question and input summary first. Then ask AI to explain a possible method and identify missing information.</p>
+<section id="example-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="example-prompt">Example prompt</h3>
+<blockquote class="blockquote">
+<p>I am comparing assessment scores between two teaching approaches. Each learner belongs to one approach and contributes one score from 0 to 100. My target estimate is the population mean score for A minus that for B. Explain whether Welch’s t-test is suitable. Ask about sampling, assignment, clustering, sample sizes, missing values, and unusual observations before recommending an analysis. State the assumptions, alternatives, and limits of the interpretation. Do not invent results.</p>
+</blockquote>
+<p>Use synthetic examples or appropriately de-identified summaries when discussing data with an AI tool. Do not include identifying or confidential records without authorization.</p>
+</section>
+<section id="check-the-response" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-response">Check the response</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>AI suggestion</th>
+<th>Your check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Use a paired t-test.”</td>
+<td>Are these the same learners measured twice or genuinely matched pairs?</td>
+</tr>
+<tr class="even">
+<td>“Use a t-test because the outcome is numerical.”</td>
+<td>Does the design support independent units, and is a mean difference the intended estimate?</td>
+</tr>
+<tr class="odd">
+<td>“The sample is large, so assumptions do not matter.”</td>
+<td>Are there clusters, influential observations, or sampling problems that sample size cannot fix?</td>
+</tr>
+<tr class="even">
+<td>“A significant difference proves the teaching approach works.”</td>
+<td>Does the design support a causal interpretation? Could selection or confounding explain the association?</td>
+</tr>
+<tr class="odd">
+<td>“Use Mann–Whitney to test the medians.”</td>
+<td>What assumptions would allow a location or median interpretation?</td>
+</tr>
+</tbody>
+</table>
+<p>AI can help draft code, explain output, and suggest checks. Run and inspect the code yourself. Verify documentation for unfamiliar functions and keep a record of consequential analysis decisions.</p>
+</section>
+</section>
+<section id="write-your-analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-analysis-plan">6. Write your analysis plan</h2>
+<p>For the training example, a short plan could read:</p>
+<blockquote class="blockquote">
+<p>We will compare assessment scores between Approach A and Approach B using the difference in means, defined as A minus B. Each learner contributes one observation. We will examine group sizes, missing scores, score distributions, and unusual observations before analysis. If an independent mean comparison is appropriate, we will use Welch’s t-test and report the estimated mean difference, its 95% confidence interval, and the two-sided p-value. Interpretation will account for how learners were recruited and assigned to approaches.</p>
+</blockquote>
+<p>Specify any adjustment variables, subgroup analyses, and multiple comparisons before examining their results. If the plan changes, record the reason and distinguish planned from exploratory work.</p>
+</section>
+<section id="verify-and-explain" class="level2">
+<h2 class="anchored" data-anchor-id="verify-and-explain">7. Verify and explain</h2>
+<p>Before proceeding, answer these questions in your own words:</p>
+<ol type="1">
+<li>What is my outcome, and what type of variable is it?</li>
+<li>What does one row represent? What is the independent unit?</li>
+<li>Are observations independent, paired, repeated, or clustered?</li>
+<li>What quantity do I want to estimate, including its direction and units?</li>
+<li>Why does my proposed method fit that question and design?</li>
+<li>What could limit the interpretation, even if the p-value is small?</li>
+</ol>
+<section id="try-it" class="level3">
+<h3 class="anchored" data-anchor-id="try-it">Try it</h3>
+<p>A farm records crop yield from 12 plots before and after a soil treatment. Each plot has a unique identifier and contributes both measurements.</p>
+<ul>
+<li>Is this an independent or paired comparison?</li>
+<li>What quantity would you estimate?</li>
+<li>What limits a claim that the treatment caused any observed change?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check your reasoning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The measurements are paired by plot. A useful target is the mean within-plot yield change, defined as after minus before and expressed in the yield units. A paired t-test may be appropriate if the plot differences meet its conditions and plots provide independent replication. Without an appropriate comparison group or design, weather, season, and other changes could explain the observed difference. Pairing alone does not establish causation.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="common-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="common-mistakes">8. Common mistakes</h2>
+<ul>
+<li>Selecting a test solely from the outcome type while ignoring the design.</li>
+<li>Treating multiple measurements from one unit as independent replicates.</li>
+<li>Choosing a method because it produces a smaller p-value.</li>
+<li>Interpreting a small p-value as a large or practically important effect.</li>
+<li>Accepting an AI explanation without checking the inputs, assumptions, and actual output.</li>
+</ul>
+</section>
+<section id="next-step" class="level2">
+<h2 class="anchored" data-anchor-id="next-step">Next step</h2>
+<p>Continue to <a href="./02-statistical-inference.html">Understanding Statistical Inference</a> to distinguish estimates, uncertainty, hypotheses, p-values, and effect sizes. Then use <a href="./03-data-and-assumptions.html">Checking Data and Assumptions</a> before running a method chapter.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/statistical\.complexdatainsights\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./00-preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-statistical-inference.html" class="pagination-link" aria-label="Understanding Statistical Inference">
+        <span class="nav-page-text"><span class="chapter-title">Understanding Statistical Inference</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
